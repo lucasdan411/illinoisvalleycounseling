@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Illinois Valley Counseling Services — Book Online</title>
+  <title>Illinois Valley Counseling Services (IVCS) - Book Online</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
@@ -29,12 +29,12 @@
       font-family: 'Inter', sans-serif;
       background: var(--cream);
       color: var(--charcoal);
-      line-height: 1.6;
+      line-height: 1.65;
     }
 
     h1, h2, h3 { font-family: 'Playfair Display', serif; line-height: 1.2; }
 
-    /* ── TOP BAR ─────────────────────────────────────── */
+    /* Top bar */
     .topbar {
       background: var(--teal-dark);
       color: white;
@@ -42,11 +42,10 @@
       padding: 0.6rem 1rem;
       font-size: 0.82rem;
       font-weight: 500;
-      letter-spacing: 0.02em;
     }
     .topbar strong { color: var(--amber-light); }
 
-    /* ── NAV ─────────────────────────────────────────── */
+    /* Nav */
     nav {
       background: white;
       border-bottom: 1px solid var(--light-gray);
@@ -82,7 +81,7 @@
     }
     .nav-phone:hover { color: var(--teal-dark); }
 
-    /* ── HERO ─────────────────────────────────────────── */
+    /* Hero */
     .hero {
       background: linear-gradient(160deg, var(--teal-dark) 0%, var(--teal) 60%, var(--teal-light) 100%);
       padding: 5rem 2rem 6rem;
@@ -205,7 +204,7 @@
       font-size: 0.82rem;
     }
 
-    /* ── ANIMATED COUNTERS ─────────────────────────────── */
+    /* Stats bar */
     .stats-bar {
       background: white;
       padding: 2.5rem 2rem;
@@ -232,7 +231,7 @@
       margin-top: 0.2rem;
     }
 
-    /* ── HOW IT WORKS ─────────────────────────────────── */
+    /* How it works */
     .how-it-works {
       padding: 5rem 2rem;
       max-width: 960px;
@@ -310,65 +309,162 @@
       line-height: 1.6;
     }
 
-    /* ── WHAT YOU GET ─────────────────────────────────── */
-    .what-you-get {
+    /* Therapists section */
+    .therapists {
       background: white;
       padding: 5rem 2rem;
     }
-    .what-you-get-inner {
+    .therapists-inner {
       max-width: 960px;
       margin: 0 auto;
     }
-    .what-you-get h2 {
+    .therapists h2 {
       text-align: center;
       font-size: clamp(1.7rem, 3vw, 2.5rem);
       color: var(--teal-dark);
+      margin-bottom: 0.5rem;
+    }
+    .therapists > p {
+      text-align: center;
+      color: var(--gray);
       margin-bottom: 3rem;
     }
-    .offer-grid {
+    .therapist-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
     }
-    .offer-card {
+    .therapist-card {
       background: var(--cream);
       border-radius: 16px;
       padding: 2rem;
       border: 2px solid var(--light-gray);
       transition: all 0.25s;
+      position: relative;
     }
-    .offer-card:hover {
+    .therapist-card:hover {
       border-color: var(--teal-light);
-      box-shadow: 0 8px 30px rgba(26,95,90,0.08);
+      box-shadow: 0 8px 30px rgba(26,95,90,0.1);
+      transform: translateY(-3px);
     }
-    .offer-icon {
-      width: 52px;
-      height: 52px;
-      border-radius: 14px;
+    .therapist-avatar {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: var(--teal);
       display: flex;
       align-items: center;
       justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: white;
       margin-bottom: 1rem;
-      font-size: 1.5rem;
     }
-    .offer-card:nth-child(1) .offer-icon { background: rgba(26,95,90,0.1); }
-    .offer-card:nth-child(2) .offer-icon { background: rgba(232,168,74,0.15); }
-    .offer-card:nth-child(3) .offer-icon { background: rgba(61,158,106,0.12); }
-    .offer-card:nth-child(4) .offer-icon { background: rgba(26,95,90,0.1); }
-    .offer-card h3 {
-      font-size: 1.05rem;
+    .therapist-card h3 {
+      font-size: 1.1rem;
       color: var(--teal-dark);
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.15rem;
       font-family: 'Inter', sans-serif;
       font-weight: 600;
     }
-    .offer-card p {
-      font-size: 0.88rem;
+    .therapist-card .credentials {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 0.5rem;
+    }
+    .therapist-card .role {
+      font-size: 0.8rem;
       color: var(--gray);
-      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+    .therapist-card p {
+      font-size: 0.88rem;
+      color: var(--charcoal);
+      line-height: 1.65;
+      margin-bottom: 1.2rem;
+    }
+    .therapist-card .specialties {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1.2rem;
+    }
+    .specialty-tag {
+      background: rgba(26,95,90,0.07);
+      color: var(--teal);
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.25rem 0.6rem;
+      border-radius: 50px;
+    }
+    .therapist-card .btn-book {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--teal);
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+    .therapist-card .btn-book:hover {
+      background: var(--teal-dark);
+      transform: translateY(-1px);
     }
 
-    /* ── PRICING ─────────────────────────────────────── */
+    /* What we treat */
+    .what-we-treat {
+      background: var(--cream);
+      padding: 5rem 2rem;
+    }
+    .what-we-treat-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .what-we-treat h2 {
+      text-align: center;
+      font-size: clamp(1.7rem, 3vw, 2.5rem);
+      color: var(--teal-dark);
+      margin-bottom: 3rem;
+    }
+    .treat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+    }
+    .treat-item {
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+      background: white;
+      padding: 1.2rem 1.5rem;
+      border-radius: 12px;
+      border: 1px solid var(--light-gray);
+    }
+    .treat-item .check {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: rgba(26,95,90,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .treat-item p {
+      font-size: 0.9rem;
+      color: var(--charcoal);
+    }
+
+    /* Pricing */
     .pricing {
       padding: 5rem 2rem;
       max-width: 700px;
@@ -479,7 +575,44 @@
     }
     .price-note span { color: var(--teal); font-weight: 600; }
 
-    /* ── TESTIMONIAL ──────────────────────────────────── */
+    /* Insurance section */
+    .insurance {
+      background: white;
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+    .insurance-inner {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .insurance h2 {
+      font-size: clamp(1.5rem, 2.5vw, 2rem);
+      color: var(--teal-dark);
+      margin-bottom: 1rem;
+    }
+    .insurance p {
+      color: var(--gray);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+    .insurance-logos {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .insurance-logo {
+      background: var(--cream);
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--gray);
+      border: 1px solid var(--light-gray);
+    }
+
+    /* Testimonial */
     .testimonial {
       background: var(--teal-dark);
       padding: 4rem 2rem;
@@ -507,7 +640,7 @@
       margin-bottom: 1rem;
     }
 
-    /* ── FINAL CTA ───────────────────────────────────── */
+    /* Final CTA */
     .final-cta {
       padding: 5rem 2rem;
       text-align: center;
@@ -561,10 +694,10 @@
     }
     .cta-trust span { color: var(--success); font-weight: 600; }
 
-    /* ── FOOTER ──────────────────────────────────────── */
+    /* Footer */
     footer {
       background: var(--teal-dark);
-      padding: 2rem;
+      padding: 2.5rem 2rem;
       text-align: center;
     }
     footer .logo { color: white; font-size: 0.95rem; }
@@ -575,7 +708,7 @@
       margin-top: 0.5rem;
     }
 
-    /* ── SCHEDULE MODAL ──────────────────────────────── */
+    /* Modal */
     .modal-overlay {
       display: none;
       position: fixed;
@@ -639,22 +772,15 @@
     .modal textarea { resize: vertical; min-height: 80px; }
     .modal .btn-primary { width: 100%; justify-content: center; margin-top: 0.5rem; }
 
-    /* ── RESPONSIVE ─────────────────────────────────── */
+    /* Responsive */
     @media (max-width: 768px) {
       .stats-inner { grid-template-columns: repeat(2, 1fr); }
       .steps { grid-template-columns: 1fr; gap: 2.5rem; }
       .steps::before { display: none; }
-      .offer-grid { grid-template-columns: 1fr; }
       .nav-phone span { display: none; }
     }
 
-    /* Animations */
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-6px); }
-    }
-    .float { animation: float 3s ease-in-out infinite; }
-
+    /* Reveal animation */
     .reveal {
       opacity: 0;
       transform: translateY(24px);
@@ -668,28 +794,28 @@
 </head>
 <body>
 
-<!-- TOP BAR -->
+<!-- Top bar -->
 <div class="topbar">
-  <strong>New patients welcome.</strong>_accepting new clients in Ottawa, Mendota &amp; Morris_ · <strong>(815) 993-1614</strong>
+  <strong>New patients welcome.</strong> Accepting new clients in Ottawa, Mendota and Morris. Call us: <strong>(815) 993-1614</strong>
 </div>
 
-<!-- NAV -->
+<!-- Nav -->
 <nav>
   <div class="inner">
     <a href="#" class="logo">Illinois Valley <span>Counseling</span></a>
     <a href="tel:18159931614" class="nav-phone">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.22 1.14 2 2 0 012.21 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16z"/></svg>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.22 1.14 2 2 0 012.21 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
       <span>(815) 993-1614</span>
     </a>
   </div>
 </nav>
 
-<!-- HERO -->
+<!-- Hero -->
 <section class="hero">
   <div>
     <div class="hero-badge">Online Scheduling Available</div>
-    <h1>Find the <em>Help You Need</em> — Right Here in Ottawa</h1>
-    <p class="hero-sub">Individual, couples, and family counseling for anxiety, depression, trauma, and life transitions. Book your first appointment online — no phone call required.</p>
+    <h1>Find the <em>Help You Need</em> -- Right Here in Ottawa</h1>
+    <p class="hero-sub">Individual, couples, and family counseling for anxiety, depression, trauma, and life transitions. Book your first appointment online -- no phone call required.</p>
     <div class="hero-buttons">
       <a href="#schedule" class="btn-primary">
         Book an Appointment
@@ -716,7 +842,7 @@
   </div>
 </section>
 
-<!-- STATS -->
+<!-- Stats -->
 <div class="stats-bar">
   <div class="stats-inner">
     <div>
@@ -728,17 +854,17 @@
       <div class="stat-label">Google Reviews</div>
     </div>
     <div>
-      <div class="stat-number">⭐4.3</div>
+      <div class="stat-number">4.3 Stars</div>
       <div class="stat-label">Average Rating</div>
     </div>
     <div>
-      <div class="stat-number" data-count="1973" data-since="true">0</div>
+      <div class="stat-number">1973</div>
       <div class="stat-label">Serving Since</div>
     </div>
   </div>
 </div>
 
-<!-- HOW IT WORKS -->
+<!-- How it works -->
 <section class="how-it-works" id="how">
   <div class="section-label">How It Works</div>
   <h2>Three Steps to Your First Appointment</h2>
@@ -747,56 +873,137 @@
     <div class="step reveal">
       <div class="step-num">1</div>
       <h3>Choose Your Service</h3>
-      <p>Tell us what you're looking for — individual, couples, or family counseling — and select a time that works for you.</p>
+      <p>Tell us what you are looking for -- individual, couples, or family counseling -- and select a time that works for you.</p>
     </div>
     <div class="step reveal">
       <div class="step-num">2</div>
       <h3>Fill Out Intake Forms</h3>
-      <p>Complete your new patient forms online in about 10 minutes. Done before you arrive — not in the waiting room.</p>
+      <p>Complete your new patient forms online in about 10 minutes. Done before you arrive -- not in the waiting room.</p>
     </div>
     <div class="step reveal">
       <div class="step-num">3</div>
-      <h3>Show Up &amp; Get Started</h3>
-      <p>Walk in knowing we've already got your background. Your first session is about you — not paperwork.</p>
+      <h3>Show Up and Get Started</h3>
+      <p>Walk in knowing we have already got your background. Your first session is about you -- not paperwork.</p>
     </div>
   </div>
 </section>
 
-<!-- WHAT YOU GET -->
-<section class="what-you-get">
-  <div class="what-you-get-inner">
-    <div class="section-label">What to Expect</div>
-    <h2>Professional Care, Local to You</h2>
-    <div class="offer-grid">
-      <div class="offer-card reveal">
-        <div class="offer-icon">🧠</div>
-        <h3>Anxiety &amp; Depression</h3>
-        <p>Evidence-based approaches including CBT and EMDR for trauma. We meet you where you are and build from there.</p>
+<!-- Therapists -->
+<section class="therapists" id="team">
+  <div class="therapists-inner">
+    <div class="section-label">Meet Your Team</div>
+    <h2>Experienced Therapists, Local to You</h2>
+    <p>Our counselors have years of experience helping people in LaSalle County and the surrounding areas.</p>
+    <div class="therapist-grid">
+
+      <!-- Shawn -->
+      <div class="therapist-card reveal">
+        <div class="therapist-avatar">SS</div>
+        <h3>Shawn Slagle</h3>
+        <div class="credentials">LCSW, ACSW, QCSW</div>
+        <div class="role">Owner / Licensed Clinical Social Worker</div>
+        <p>Shawn has many years of experience working with adolescents, adults, couples, and families. He is the owner of Illinois Valley Counseling Services and also serves at the Edward Hines VA Outpatient Clinic. He takes a whole-person approach, meeting clients where they are and building from there.</p>
+        <div class="specialties">
+          <span class="specialty-tag">Anxiety</span>
+          <span class="specialty-tag">Depression</span>
+          <span class="specialty-tag">Trauma</span>
+          <span class="specialty-tag">Adolescents</span>
+          <span class="specialty-tag">Couples</span>
+          <span class="specialty-tag">Families</span>
+        </div>
+        <a href="#schedule" class="btn-book">
+          Book with Shawn
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
       </div>
-      <div class="offer-card reveal">
-        <div class="offer-icon">💡</div>
-        <h3>Life Transitions</h3>
-        <p>Career changes, loss, divorce, aging parents — big shifts that deserve thoughtful, experienced support.</p>
+
+      <!-- Cindy -->
+      <div class="therapist-card reveal">
+        <div class="therapist-avatar" style="background:var(--amber);color:var(--teal-dark);">CM</div>
+        <h3>Cindy</h3>
+        <div class="credentials">Co-Owner</div>
+        <div class="role">Practice Administrator</div>
+        <p>As co-owner of Illinois Valley Counseling Services, Cindy helps run the practice and is often the first point of contact for new patients. She can answer questions about insurance, scheduling, and what to expect from your first visit. She is here to make the process as smooth as possible.</p>
+        <div class="specialties">
+          <span class="specialty-tag">New Patients</span>
+          <span class="specialty-tag">Insurance</span>
+          <span class="specialty-tag">Scheduling</span>
+          <span class="specialty-tag">Intake</span>
+        </div>
+        <a href="tel:18159931614" class="btn-book">
+          Call Cindy
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.22 1.14 2 2 0 012.21 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        </a>
       </div>
-      <div class="offer-card reveal">
-        <div class="offer-icon">👥</div>
-        <h3>Couples &amp; Family</h3>
-        <p>Whether it's communication struggles or major relationship stress, we help you reconnect and move forward together.</p>
+
+    </div>
+    <p style="text-align:center;color:var(--gray);font-size:0.85rem;margin-top:2rem;">We have multiple therapists on staff. Your booking will be matched with the best available provider for your needs.</p>
+  </div>
+</section>
+
+<!-- What we treat -->
+<section class="what-we-treat">
+  <div class="what-we-treat-inner">
+    <div class="section-label">How We Help</div>
+    <h2>What We Treat and Support</h2>
+    <div class="treat-grid">
+      <div class="treat-item reveal">
+        <div class="check">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <p>Anxiety, stress, and panic</p>
       </div>
-      <div class="offer-card reveal">
-        <div class="offer-icon">📍</div>
-        <h3>Three Convenient Locations</h3>
-        <p>Ottawa, Mendota, and Morris — so you can find a session location that fits your routine, not the other way around.</p>
+      <div class="treat-item reveal">
+        <div class="check">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <p>Depression and mood disorders</p>
+      </div>
+      <div class="treat-item reveal">
+        <div class="check">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <p>Trauma and PTSD</p>
+      </div>
+      <div class="treat-item reveal">
+        <div class="check">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <p>Substance use and addiction</p>
+      </div>
+      <div class="treat-item reveal">
+        <div class="check">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <p>Relationship and couples counseling</p>
+      </div>
+      <div class="treat-item reveal">
+        <div class="check">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <p>Family conflict and parenting</p>
+      </div>
+      <div class="treat-item reveal">
+        <div class="check">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <p>Life transitions and career stress</p>
+      </div>
+      <div class="treat-item reveal">
+        <div class="check">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <p>Grief and loss</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PRICING / INSURANCE -->
+<!-- Pricing -->
 <section class="pricing" id="schedule">
   <div class="section-label">Scheduling</div>
   <h2>How Much Does Therapy Cost?</h2>
-  <p>We believe in transparent pricing. Here's what most patients pay.</p>
+  <p>We believe in transparent pricing. Here is what most patients pay.</p>
   <div class="price-box reveal">
     <div class="price-header">
       <div class="tag">Most Common</div>
@@ -811,73 +1018,93 @@
       <ul class="price-features">
         <li>
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3a9e6a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-          We accept most insurance — you may pay $20–$60 per session
+          We accept most insurance -- you may pay $20 to $60 per session after coverage
         </li>
         <li>
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3a9e6a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-          Self-pay available at $120/session
+          Self-pay available at $120 per session
         </li>
         <li>
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3a9e6a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-          Sliding scale available — ask us
+          Sliding scale available -- ask us
         </li>
         <li>
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3a9e6a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-          Online booking — no phone call needed to schedule
+          Online booking -- no phone call needed to schedule
         </li>
         <li>
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3a9e6a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-          Cancellation with 24-hour notice — no fee
+          Cancel with 24-hour notice -- no fee
         </li>
       </ul>
       <button class="price-cta" onclick="openModal()">
         Book Your First Session
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </button>
-      <p class="price-note">You'll be taken to our secure scheduling portal to choose your date, time, and location.</p>
+      <p class="price-note">You will be taken to our secure scheduling portal to choose your date, time, and location.</p>
     </div>
   </div>
 </section>
 
-<!-- TESTIMONIAL -->
-<section class="testimonial">
-  <div class="stars">★★★★★</div>
-  <blockquote>The intake process was so easy — I booked online that night and didn't have to make a single phone call. That alone made me feel like they actually understood how busy people are.</blockquote>
-  <div class="attr">— Google Review, Ottawa IL</div>
+<!-- Insurance -->
+<section class="insurance">
+  <div class="insurance-inner">
+    <div class="section-label">Insurance</div>
+    <h2>We Accept Most Major Insurance</h2>
+    <p>Not sure if we take your plan? Call us at <strong>(815) 993-1614</strong> before your first visit and we will verify your benefits for free. We believe there should be no surprise bills.</p>
+    <div class="insurance-logos">
+      <div class="insurance-logo">Blue Cross Blue Shield</div>
+      <div class="insurance-logo">Aetna</div>
+      <div class="insurance-logo">Cigna</div>
+      <div class="insurance-logo">United Healthcare</div>
+      <div class="insurance-logo">Humana</div>
+      <div class="insurance-logo">Medicare</div>
+      <div class="insurance-logo">Medicaid</div>
+    </div>
+    <p style="margin-top:1.5rem;font-size:0.82rem;color:var(--gray);">And many more. Call us to confirm your plan.</p>
+  </div>
 </section>
 
-<!-- FINAL CTA -->
+<!-- Testimonial -->
+<section class="testimonial">
+  <div class="stars">★★★★★</div>
+  <blockquote>The intake process was so easy -- I booked online that night and did not have to make a single phone call. That alone made me feel like they actually understood how busy people are.</blockquote>
+  <div class="attr">-- Google Review, Ottawa IL</div>
+</section>
+
+<!-- Final CTA -->
 <section class="final-cta">
   <h2>Ready to Take the First Step?</h2>
-  <p>You don't have to have it figured out before you reach out. A simple conversation is where it starts.</p>
+  <p>You do not have to have it figured out before you reach out. A simple conversation is where it starts.</p>
   <div class="cta-box">
-    <h3>Book Online — It Takes 5 Minutes</h3>
-    <p class="sub">Choose your service, pick a time, fill out intake forms. That's it.</p>
+    <h3>Book Online -- It Takes 5 Minutes</h3>
+    <p class="sub">Choose your service, pick a time, fill out intake forms. That is it.</p>
     <div class="cta-price">
       <strong>$150</strong>/session
-      <span class="note">Most patients pay $20–$60 with insurance</span>
+      <span class="note">Most patients pay $20 to $60 with insurance</span>
     </div>
     <button class="btn-primary" onclick="openModal()">
       See Available Times
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
     </button>
-    <p class="cta-trust"><span>✓</span> HIPAA-compliant scheduling · No phone call required · Cancel 24 hrs free</p>
+    <p class="cta-trust"><span>✓</span> HIPAA-compliant scheduling -- No phone call required -- Cancel 24 hrs free</p>
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- Footer -->
 <footer>
   <div class="logo">Illinois Valley <span>Counseling</span></div>
-  <p>747 E Etna Rd, Ottawa, IL 61350 · (815) 993-1614</p>
-  <p>Ottawa · Mendota · Morris</p>
+  <p>747 E Etna Rd, Ottawa, IL 61350 -- (815) 993-1614</p>
+  <p>Ottawa -- Mendota -- Morris</p>
+  <p style="margin-top:1rem;color:rgba(255,255,255,0.15);font-size:0.72rem;">IVCS has been helping people in LaSalle County and the surrounding areas since 1973.</p>
 </footer>
 
-<!-- SCHEDULE MODAL -->
+<!-- Modal -->
 <div class="modal-overlay" id="modalOverlay">
   <div class="modal">
-    <button class="modal-close" onclick="closeModal()">×</button>
+    <button class="modal-close" onclick="closeModal()">x</button>
     <h3>Schedule Your Appointment</h3>
-    <p class="modal-sub">Fill this out and we'll send you a scheduling link within 1 business day.</p>
+    <p class="modal-sub">Fill this out and we will send you a scheduling link within 1 business day.</p>
     <label for="m-name">Your Name</label>
     <input type="text" id="m-name" placeholder="First and last name">
     <label for="m-contact">Phone or Email</label>
@@ -888,7 +1115,7 @@
       <option>Individual Counseling</option>
       <option>Couples Counseling</option>
       <option>Family Counseling</option>
-      <option>Not sure — I'd like to talk</option>
+      <option>Not sure -- I would like to talk</option>
     </select>
     <label for="m-location">Preferred Location</label>
     <select id="m-location">
@@ -897,8 +1124,8 @@
       <option>Mendota</option>
       <option>Morris</option>
     </select>
-    <label for="m-notes">Anything you'd like us to know? (optional)</label>
-    <textarea id="m-notes" placeholder="e.g. I'm available weekday mornings..."></textarea>
+    <label for="m-notes">Anything you would like us to know? (optional)</label>
+    <textarea id="m-notes" placeholder="e.g. I am available weekday mornings..."></textarea>
     <button class="btn-primary" onclick="submitModal()">
       Send Me a Scheduling Link
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -923,11 +1150,6 @@
       if (!e.isIntersecting) return;
       const el = e.target;
       const target = parseInt(el.dataset.count);
-      if (el.dataset.since) {
-        el.textContent = 'Since ' + target;
-        counterIO.unobserve(el);
-        return;
-      }
       let current = 0;
       const step = Math.ceil(target / 40);
       const timer = setInterval(() => {
@@ -962,11 +1184,9 @@
     }
     const service = document.getElementById('m-service').value || 'Not specified';
     const location = document.getElementById('m-location').value || 'Any';
-    const notes = document.getElementById('m-notes').value || '';
-    alert(`Thanks, ${name}! We'll reach out to ${contact} within 1 business day with available times for ${service} (${location}).`);
+    alert('Thanks, ' + name + '! We will reach out to ' + contact + ' within 1 business day with available times for ' + service + ' (' + location + ').');
     closeModal();
   }
-  // Close on ESC
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 </script>
 </body>
