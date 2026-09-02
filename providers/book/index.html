@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book a Call - A1 Strategic</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --teal: #1a5f5a;
+      --teal-dark: #0f3d3a;
+      --amber: #e8a84a;
+      --cream: #faf7f2;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--cream);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1rem;
+    }
+    .container { max-width: 480px; width: 100%; }
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.9rem;
+      color: var(--teal);
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .logo span { color: var(--amber); }
+    .card {
+      background: white;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 8px 40px rgba(15,61,58,0.1);
+    }
+    .card-top {
+      background: var(--teal-dark);
+      padding: 2.5rem 2rem;
+      text-align: center;
+    }
+    .emoji { font-size: 3rem; margin-bottom: 1rem; }
+    .card-top h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.7rem;
+      color: white;
+      margin-bottom: 0.6rem;
+      line-height: 1.25;
+    }
+    .card-top p {
+      color: rgba(255,255,255,0.65);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+    .card-body { padding: 2rem; }
+
+    .slots-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    .days-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+    .day-btn {
+      background: var(--cream);
+      border: 2px solid transparent;
+      border-radius: 14px;
+      padding: 1rem;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-decoration: none;
+      display: block;
+    }
+    .day-btn:hover, .day-btn.selected {
+      border-color: var(--teal);
+      background: rgba(26,95,90,0.06);
+    }
+    .day-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--teal-dark);
+      display: block;
+    }
+    .day-date {
+      font-size: 0.78rem;
+      color: var(--teal);
+      font-weight: 600;
+      margin-top: 0.15rem;
+      display: block;
+    }
+
+    .divider {
+      text-align: center;
+      color: #ccc;
+      font-size: 0.8rem;
+      margin: 1.25rem 0;
+      position: relative;
+    }
+    .divider::before, .divider::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      width: 35%;
+      height: 1px;
+      background: #e8e4de;
+    }
+    .divider::before { left: 0; }
+    .divider::after { right: 0; }
+
+    .text-option {
+      display: block;
+      background: var(--cream);
+      border: 2px dashed var(--amber);
+      border-radius: 14px;
+      padding: 1.2rem;
+      text-align: center;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .text-option:hover {
+      background: rgba(232,168,74,0.08);
+      border-style: solid;
+    }
+    .text-option .cheeky {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--teal-dark);
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+    .text-option .sub {
+      font-size: 0.82rem;
+      color: #6b6b6b;
+      display: block;
+    }
+    .text-option .number {
+      font-weight: 700;
+      color: var(--teal);
+      font-size: 1rem;
+      display: block;
+      margin-top: 0.4rem;
+    }
+
+    .footer-note {
+      text-align: center;
+      font-size: 0.75rem;
+      color: #aaa;
+      margin-top: 1.5rem;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">A1 <span>Strategic</span></div>
+
+    <div class="card">
+      <div class="card-top">
+        <div class="emoji">📅</div>
+        <h1>Let's Talk Money</h1>
+        <p>Pick a 20-minute slot below. Or just text me -- either way works.</p>
+      </div>
+
+      <div class="card-body">
+        <div class="slots-label">Pick a Time -- 20 Minutes</div>
+
+        <div class="days-grid">
+          <!-- Friday -->
+          <a href="https://calendly.com/lucas/fri-9am" target="_blank" class="day-btn">
+            <span class="day-name">Friday</span>
+            <span class="day-date">9:00 AM</span>
+          </a>
+          <a href="https://calendly.com/lucas/fri-10am" target="_blank" class="day-btn">
+            <span class="day-name">Friday</span>
+            <span class="day-date">10:00 AM</span>
+          </a>
+          <a href="https://calendly.com/lucas/fri-11am" target="_blank" class="day-btn">
+            <span class="day-name">Friday</span>
+            <span class="day-date">11:00 AM</span>
+          </a>
+          <a href="https://calendly.com/lucas/mon-9am" target="_blank" class="day-btn">
+            <span class="day-name">Monday</span>
+            <span class="day-date">9:00 AM</span>
+          </a>
+          <a href="https://calendly.com/lucas/mon-10am" target="_blank" class="day-btn">
+            <span class="day-name">Monday</span>
+            <span class="day-date">10:00 AM</span>
+          </a>
+          <a href="https://calendly.com/lucas/mon-11am" target="_blank" class="day-btn">
+            <span class="day-name">Monday</span>
+            <span class="day-date">11:00 AM</span>
+          </a>
+        </div>
+
+        <!-- If these links don't work, fall back to main calendly -->
+        <a href="https://calendly.com/lucas" target="_blank" class="day-btn" style="width:100%;text-align:center;background:white;border-color:var(--light-gray);">
+          <span class="day-name" style="color:var(--gray);font-size:0.85rem;">See all available times on Calendly</span>
+          <span class="day-date" style="color:#aaa;font-size:0.72rem;">Full calendar</span>
+        </a>
+
+        <div class="divider">or</div>
+
+        <a href="sms:18152286246?body=Hey%2C%20I%20saw%20the%20IVCS%20page%20and%20want%20to%20talk%20about%20filling%20our%20schedule." class="text-option">
+          <span class="cheeky">Text me -- let's talk money 💬</span>
+          <span class="sub">No form. No pressure. Just a text.</span>
+          <span class="number">(815) 228-6246</span>
+        </a>
+
+        <p class="footer-note">I respond to texts within a few hours.<br> CST timezone. No spam, ever.</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
