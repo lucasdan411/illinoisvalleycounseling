@@ -1,0 +1,1222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Illinois Valley Counseling Services — Strategy Experience</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --teal: #1a5f5a;
+      --teal-light: #2d8a84;
+      --teal-dark: #0f3d3a;
+      --amber: #e8a84a;
+      --amber-light: #f4c97a;
+      --cream: #faf7f2;
+      --warm-white: #fffdf9;
+      --charcoal: #2c2c2c;
+      --gray: #6b6b6b;
+      --light-gray: #e8e4de;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--cream);
+      color: var(--charcoal);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Playfair Display', serif;
+      line-height: 1.2;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(250, 247, 242, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(26, 95, 90, 0.08);
+      z-index: 1000;
+      padding: 0 2rem;
+    }
+    nav .inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+    nav .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--teal);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+    nav .logo span { color: var(--amber); }
+    nav ul {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      align-items: center;
+    }
+    nav ul a {
+      text-decoration: none;
+      color: var(--gray);
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    nav ul a:hover { color: var(--teal); }
+    .nav-cta {
+      background: var(--teal) !important;
+      color: white !important;
+      padding: 0.5rem 1.2rem;
+      border-radius: 50px;
+      transition: background 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--teal-dark) !important; }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 6rem 2rem 4rem;
+      background: linear-gradient(175deg, var(--warm-white) 0%, var(--cream) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -200px;
+      right: -200px;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(232, 168, 74, 0.12) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -100px;
+      left: -150px;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(26, 95, 90, 0.08) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(26, 95, 90, 0.07);
+      color: var(--teal);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.4rem 1rem;
+      border-radius: 50px;
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 {
+      font-size: clamp(2.4rem, 5vw, 4.2rem);
+      color: var(--teal-dark);
+      margin-bottom: 1rem;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--amber);
+    }
+    .hero .tagline {
+      font-size: 1.15rem;
+      color: var(--gray);
+      max-width: 520px;
+      margin: 0 auto 2.5rem;
+      font-weight: 300;
+    }
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: var(--teal);
+      color: white;
+      padding: 0.85rem 2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.25s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(26, 95, 90, 0.25);
+    }
+    .btn-primary:hover {
+      background: var(--teal-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(26, 95, 90, 0.3);
+    }
+    .btn-secondary {
+      background: white;
+      color: var(--teal);
+      padding: 0.85rem 2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.25s;
+      border: 2px solid var(--light-gray);
+      cursor: pointer;
+    }
+    .btn-secondary:hover {
+      border-color: var(--teal);
+      transform: translateY(-2px);
+    }
+
+    /* SCROLL ANIMATIONS */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* VIDEO SECTION */
+    .video-section {
+      background: var(--teal-dark);
+      padding: 5rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .video-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .video-section .section-label {
+      color: var(--amber-light);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .video-section h2 {
+      color: white;
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      margin-bottom: 0.75rem;
+    }
+    .video-section .video-sub {
+      color: rgba(255,255,255,0.6);
+      font-size: 1rem;
+      margin-bottom: 3rem;
+    }
+    .video-wrapper {
+      max-width: 720px;
+      margin: 0 auto 2rem;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+      position: relative;
+      background: #111;
+      aspect-ratio: 16/9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+    .video-wrapper:hover .play-btn { transform: scale(1.08); }
+    .video-wrapper video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: none;
+    }
+    .video-wrapper.active video { display: block; }
+    .video-wrapper.active .video-poster { display: none; }
+    .video-poster {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      background: linear-gradient(135deg, #1a3a38 0%, #0f2d2b 100%);
+    }
+    .play-btn {
+      width: 72px;
+      height: 72px;
+      background: var(--amber);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s;
+      box-shadow: 0 8px 30px rgba(232, 168, 74, 0.4);
+      flex-shrink: 0;
+    }
+    .play-btn svg { margin-left: 4px; }
+    .video-label {
+      color: white;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    /* PAIN POINTS */
+    .pain-points {
+      padding: 5rem 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .pain-points h2 {
+      text-align: center;
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      color: var(--teal-dark);
+      margin-bottom: 0.5rem;
+    }
+    .pain-points .sub {
+      text-align: center;
+      color: var(--gray);
+      margin-bottom: 3.5rem;
+      font-size: 1rem;
+    }
+    .pain-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .pain-card {
+      background: white;
+      border-radius: 16px;
+      padding: 2rem;
+      border: 1px solid var(--light-gray);
+      transition: all 0.25s;
+      position: relative;
+      overflow: hidden;
+    }
+    .pain-card:hover {
+      border-color: var(--teal-light);
+      box-shadow: 0 8px 30px rgba(26, 95, 90, 0.08);
+      transform: translateY(-3px);
+    }
+    .pain-card .icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: rgba(232, 168, 74, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.2rem;
+      font-size: 1.4rem;
+    }
+    .pain-card h3 {
+      font-size: 1.1rem;
+      color: var(--teal-dark);
+      margin-bottom: 0.5rem;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+    }
+    .pain-card p {
+      font-size: 0.9rem;
+      color: var(--gray);
+      line-height: 1.6;
+    }
+    .pain-card .pain-tag {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.6rem;
+      border-radius: 50px;
+      background: rgba(26, 95, 90, 0.07);
+      color: var(--teal);
+    }
+
+    /* THE PATH */
+    .the-path {
+      padding: 5rem 2rem 6rem;
+      background: white;
+    }
+    .the-path .header {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 4rem;
+    }
+    .the-path .section-label {
+      color: var(--amber);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .the-path h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      color: var(--teal-dark);
+      margin-bottom: 1rem;
+    }
+    .the-path .sub {
+      color: var(--gray);
+      font-size: 1rem;
+    }
+    .plans-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+      align-items: start;
+    }
+    .plan-card {
+      border-radius: 20px;
+      overflow: hidden;
+      border: 2px solid var(--light-gray);
+      background: white;
+      transition: all 0.3s;
+      position: relative;
+    }
+    .plan-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 50px rgba(26, 95, 90, 0.12);
+    }
+    .plan-card.featured {
+      border-color: var(--teal);
+      box-shadow: 0 8px 40px rgba(26, 95, 90, 0.15);
+    }
+    .plan-card.featured::before {
+      content: 'MOST POPULAR';
+      position: absolute;
+      top: -1px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--teal);
+      color: white;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      padding: 0.3rem 1.2rem;
+      border-radius: 0 0 12px 12px;
+      z-index: 10;
+    }
+    .plan-header {
+      padding: 2rem 2rem 1.5rem;
+      border-bottom: 1px solid var(--light-gray);
+    }
+    .plan-name {
+      font-size: 1.25rem;
+      color: var(--teal-dark);
+      margin-bottom: 0.3rem;
+    }
+    .plan-tagline {
+      font-size: 0.85rem;
+      color: var(--gray);
+      margin-bottom: 1.2rem;
+    }
+    .plan-price {
+      display: flex;
+      align-items: baseline;
+      gap: 0.3rem;
+    }
+    .plan-price .amount {
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: var(--teal);
+      font-family: 'Playfair Display', serif;
+    }
+    .plan-price .period {
+      font-size: 0.85rem;
+      color: var(--gray);
+    }
+    .plan-body {
+      padding: 1.5rem 2rem 2rem;
+    }
+    .plan-features {
+      list-style: none;
+      margin-bottom: 1.5rem;
+    }
+    .plan-features li {
+      display: flex;
+      gap: 0.7rem;
+      font-size: 0.9rem;
+      color: var(--charcoal);
+      padding: 0.45rem 0;
+      align-items: flex-start;
+    }
+    .plan-features li svg {
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+    .plan-features li.muted {
+      color: var(--gray);
+      text-decoration: line-through;
+      text-decoration-color: #ccc;
+    }
+    .plan-features li.muted svg { opacity: 0.4; }
+    .plan-features .divider {
+      border-top: 1px dashed var(--light-gray);
+      margin: 0.5rem 0;
+    }
+    .plan-features .group-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-top: 0.5rem;
+    }
+    .plan-cta {
+      display: block;
+      text-align: center;
+      padding: 0.85rem;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+      width: 100%;
+    }
+    .plan-cta.primary {
+      background: var(--teal);
+      color: white;
+    }
+    .plan-cta.primary:hover { background: var(--teal-dark); }
+    .plan-cta.outline {
+      background: transparent;
+      color: var(--teal);
+      border: 2px solid var(--light-gray);
+    }
+    .plan-cta.outline:hover { border-color: var(--teal); }
+    .plan-months {
+      font-size: 0.75rem;
+      color: var(--gray);
+      text-align: center;
+      margin-top: 0.75rem;
+    }
+
+    /* TIMELINE */
+    .timeline-section {
+      padding: 5rem 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .timeline-section h2 {
+      text-align: center;
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      color: var(--teal-dark);
+      margin-bottom: 3rem;
+    }
+    .timeline {
+      position: relative;
+      padding-left: 2rem;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 7px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--teal), var(--amber));
+      border-radius: 2px;
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 2.5rem;
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -2rem;
+      top: 6px;
+      width: 16px;
+      height: 16px;
+      background: var(--teal);
+      border-radius: 50%;
+      border: 3px solid var(--cream);
+      box-shadow: 0 0 0 2px var(--teal);
+    }
+    .timeline-item:nth-child(2)::before { background: var(--teal-light); box-shadow: 0 0 0 2px var(--teal-light); }
+    .timeline-item:nth-child(3)::before { background: var(--amber); box-shadow: 0 0 0 2px var(--amber); }
+    .timeline-item h3 {
+      font-size: 1.05rem;
+      color: var(--teal-dark);
+      margin-bottom: 0.4rem;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+    }
+    .timeline-item p {
+      font-size: 0.9rem;
+      color: var(--gray);
+      line-height: 1.6;
+    }
+    .timeline-item .timeline-meta {
+      font-size: 0.78rem;
+      color: var(--amber);
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+      letter-spacing: 0.05em;
+    }
+
+    /* REVIEWS */
+    .reviews {
+      background: var(--teal-dark);
+      padding: 5rem 2rem;
+      text-align: center;
+    }
+    .reviews .section-label {
+      color: var(--amber-light);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .reviews h2 {
+      color: white;
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      margin-bottom: 3rem;
+    }
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .review-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      padding: 1.8rem;
+      text-align: left;
+    }
+    .review-card .stars {
+      color: var(--amber);
+      font-size: 0.9rem;
+      letter-spacing: 2px;
+      margin-bottom: 1rem;
+    }
+    .review-card .review-text {
+      color: rgba(255,255,255,0.85);
+      font-size: 0.92rem;
+      line-height: 1.7;
+      margin-bottom: 1.2rem;
+      font-style: italic;
+    }
+    .review-card .reviewer {
+      color: rgba(255,255,255,0.5);
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+    .reviews-google {
+      margin-top: 2.5rem;
+      color: rgba(255,255,255,0.4);
+      font-size: 0.82rem;
+    }
+    .reviews-google span { color: rgba(255,255,255,0.65); font-weight: 600; }
+
+    /* CTA */
+    .final-cta {
+      padding: 6rem 2rem;
+      text-align: center;
+      background: linear-gradient(180deg, var(--cream) 0%, white 100%);
+    }
+    .final-cta h2 {
+      font-size: clamp(1.8rem, 3.5vw, 3rem);
+      color: var(--teal-dark);
+      margin-bottom: 1rem;
+    }
+    .final-cta p {
+      color: var(--gray);
+      font-size: 1.05rem;
+      max-width: 500px;
+      margin: 0 auto 2.5rem;
+    }
+    .cta-box {
+      background: white;
+      border-radius: 24px;
+      padding: 3rem;
+      max-width: 560px;
+      margin: 0 auto;
+      border: 2px solid var(--light-gray);
+      box-shadow: 0 20px 60px rgba(26, 95, 90, 0.08);
+    }
+    .cta-box .cta-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 1rem;
+    }
+    .cta-box h3 {
+      font-size: 1.4rem;
+      color: var(--teal-dark);
+      margin-bottom: 0.5rem;
+    }
+    .cta-box .cta-sub {
+      color: var(--gray);
+      font-size: 0.9rem;
+      margin-bottom: 2rem;
+    }
+    .cta-box .cta-price {
+      font-size: 0.85rem;
+      color: var(--gray);
+      margin-bottom: 1.5rem;
+    }
+    .cta-box .cta-price strong {
+      color: var(--teal);
+      font-size: 1.5rem;
+      font-family: 'Playfair Display', serif;
+    }
+    .cta-box .btn-primary { width: 100%; justify-content: center; margin-bottom: 0.75rem; }
+    .cta-box .disclaimer {
+      font-size: 0.75rem;
+      color: var(--gray);
+      margin-top: 1rem;
+      line-height: 1.5;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--teal-dark);
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    footer .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: white;
+      margin-bottom: 0.5rem;
+    }
+    footer .footer-logo span { color: var(--amber); }
+    footer p {
+      color: rgba(255,255,255,0.35);
+      font-size: 0.8rem;
+    }
+
+    /* ANIMATIONS */
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+    @keyframes pulse-ring {
+      0% { box-shadow: 0 0 0 0 rgba(232, 168, 74, 0.4); }
+      70% { box-shadow: 0 0 0 20px rgba(232, 168, 74, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(232, 168, 74, 0); }
+    }
+    .float-anim { animation: float 3s ease-in-out infinite; }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      nav ul { gap: 1rem; }
+      nav ul li:not(.nav-cta-item) { display: none; }
+      .hero h1 { font-size: 2.2rem; }
+      .plans-grid { grid-template-columns: 1fr; }
+      .plan-card.featured { order: -1; }
+    }
+
+    /* MODAL */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal {
+      background: white;
+      border-radius: 20px;
+      padding: 2.5rem;
+      max-width: 480px;
+      width: 100%;
+      position: relative;
+    }
+    .modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--gray);
+      line-height: 1;
+    }
+    .modal h3 {
+      font-size: 1.3rem;
+      color: var(--teal-dark);
+      margin-bottom: 0.5rem;
+    }
+    .modal p {
+      color: var(--gray);
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+    .modal label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--charcoal);
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+    .modal input, .modal select, .modal textarea {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 2px solid var(--light-gray);
+      border-radius: 10px;
+      font-size: 0.95rem;
+      font-family: 'Inter', sans-serif;
+      margin-bottom: 1rem;
+      transition: border-color 0.2s;
+    }
+    .modal input:focus, .modal select:focus, .modal textarea:focus {
+      outline: none;
+      border-color: var(--teal);
+    }
+    .modal textarea { resize: vertical; min-height: 100px; }
+    .modal .btn-primary { width: 100%; justify-content: center; }
+
+    /* Scroll indicator */
+    .scroll-indicator {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 3rem;
+      color: var(--gray);
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      animation: float 2s ease-in-out infinite;
+    }
+    .scroll-indicator .arrow {
+      width: 24px;
+      height: 24px;
+      border-right: 2px solid var(--gray);
+      border-bottom: 2px solid var(--gray);
+      transform: rotate(45deg);
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="inner">
+    <a href="#" class="logo">Illinois Valley <span>Counseling</span></a>
+    <ul>
+      <li><a href="#pain">The Problem</a></li>
+      <li><a href="#path">The Path</a></li>
+      <li><a href="#timeline">Timeline</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li class="nav-cta-item"><a href="#start" class="nav-cta">Start Here</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <div class="hero-badge">For Illinois Valley Counseling Services</div>
+    <h1>Stop Losing Clients to<br><em>Your Competitors Online</em></h1>
+    <p class="tagline">A clear path to filling your schedule with new clients — from Psychology Today listings to Google Ads to AI-powered discovery.</p>
+    <div class="hero-buttons">
+      <a href="#start" class="btn-primary">
+        See Your Plan
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="#path" class="btn-secondary">View All Options</a>
+    </div>
+    <div class="scroll-indicator">
+      <div class="arrow"></div>
+      Scroll to explore
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO -->
+<section class="video-section" id="video">
+  <div class="section-label">30-Second Preview</div>
+  <h2>Sound Familiar?</h2>
+  <p class="video-sub">The silent struggle small counseling practices face every day.</p>
+  <div class="video-wrapper" id="videoWrapper" onclick="playVideo()">
+    <video id="heroVideo" poster="">
+      <source src="ivc-preview.mp4" type="video/mp4">
+    </video>
+      <div class="video-poster">
+        <div class="play-btn float-anim">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg>
+        </div>
+        <div class="video-label">Watch the Preview</div>
+      </div>
+    </div>
+    <p class="video-sub" style="margin-top:1rem; font-size:0.8rem; opacity:0.5;">Pain points animation — generated as a preview ad concept</p>
+  </div>
+</section>
+
+<!-- PAIN POINTS -->
+<section class="pain-points" id="pain">
+  <h2 class="reveal">The Hidden Leak in Your Practice</h2>
+  <p class="sub reveal">Most new clients go to whoever shows up first on Google. Here's what's costing you inquiries right now.</p>
+  <div class="pain-grid">
+    <div class="pain-card reveal">
+      <div class="icon">🔍</div>
+      <span class="pain-tag">Directory</span>
+      <h3>Not on Psychology Today</h3>
+      <p>New clients search PT first. If you're not there, they book with whoever is. It's the #1 therapist directory in the US.</p>
+    </div>
+    <div class="pain-card reveal">
+      <div class="icon">💳</div>
+      <span class="pain-tag">Visibility</span>
+      <h3>Invisible on Google Maps</h3>
+      <p>Your Business Profile may be unverified or missing key info. Google shows 3 results before most people ever scroll.</p>
+    </div>
+    <div class="pain-card reveal">
+      <div class="icon">📅</div>
+      <span class="pain-tag">Intake</span>
+      <h3>Phone-Only Intake = Drop-offs</h3>
+      <p>Every barrier between "I'm interested" and "I'm booked" loses a client. Online scheduling converts more and frees up your time.</p>
+    </div>
+    <div class="pain-card reveal">
+      <div class="icon">🤖</div>
+      <span class="pain-tag">AI Search</span>
+      <h3>Invisible to AI Discovery</h3>
+      <p>People now ask ChatGPT "who's a good therapist near me." If you're not on the directories AI reads, you're invisible.</p>
+    </div>
+    <div class="pain-card reveal">
+      <div class="icon">⭐</div>
+      <span class="pain-tag">Reviews</span>
+      <h3>23 Reviews — Room to Grow</h3>
+      <p>4.3 stars is solid, but competitors with 40+ reviews get clicked first. More reviews = more trust = more bookings.</p>
+    </div>
+    <div class="pain-card reveal">
+      <div class="icon">📱</div>
+      <span class="pain-tag">Brand</span>
+      <h3>Two Locations, One Website</h3>
+      <p>Mendota and Morris still show as Google Business listings but the website doesn't mention them. Inconsistency loses trust.</p>
+    </div>
+  </div>
+</section>
+
+<!-- THE PATH -->
+<section class="the-path" id="path">
+  <div class="header">
+    <div class="section-label">Your Strategy Menu</div>
+    <h2>Choose Your Path Forward</h2>
+    <p class="sub">Three tiers. Each one builds on the last. Pick where you're ready to start.</p>
+  </div>
+  <div class="plans-grid">
+
+    <!-- PLAN 1: LAUNCH -->
+    <div class="plan-card reveal">
+      <div class="plan-header">
+        <div class="plan-name">🚀 Month 1 Launch</div>
+        <div class="plan-tagline">Fix the foundations. Get found.</div>
+        <div class="plan-price">
+          <span class="amount">$1,200</span>
+          <span class="period">one-time setup</span>
+        </div>
+      </div>
+      <div class="plan-body">
+        <ul class="plan-features">
+          <li class="group-label">Audit & Fix</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1a5f5a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Google Business Profile audit & fix</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1a5f5a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Psychology Today profile creation</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1a5f5a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Yelp & Facebook listing audit</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1a5f5a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Consistent NAP across 20+ directories</li>
+          <div class="divider"></div>
+          <li class="group-label">Scheduling</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1a5f5a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> SimplePractice account setup</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1a5f5a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Intake form customization</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1a5f5a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Online booking link embedded</li>
+          <div class="divider"></div>
+          <li class="group-label">Quick Win</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1a5f5a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Google Business post (1x)</li>
+        </ul>
+        <button class="plan-cta outline" onclick="openModal('launch')">Get Started — Month 1</button>
+        <p class="plan-months">Estimated time to complete: 2–3 weeks</p>
+      </div>
+    </div>
+
+    <!-- PLAN 2: GROW (featured) -->
+    <div class="plan-card featured reveal">
+      <div class="plan-header">
+        <div class="plan-name">📈 3-Month Growth</div>
+        <div class="plan-tagline">Paid traffic + reviews + AI setup.</div>
+        <div class="plan-price">
+          <span class="amount">$2,400</span>
+          <span class="period">/ 3 months</span>
+        </div>
+      </div>
+      <div class="plan-body">
+        <ul class="plan-features">
+          <li class="group-label">Everything in Launch</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1a5f5a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> All Month 1 deliverables included</li>
+          <div class="divider"></div>
+          <li class="group-label">Paid Advertising</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1a5f5a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Google Ads account setup & optimization</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1a5f5a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> $500/mo ad spend budget (you pay Google directly)</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1a5f5a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Keyword strategy + negative keyword filtering</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1a5f5a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Monthly performance report</li>
+          <div class="divider"></div>
+          <li class="group-label">Reviews & Reputation</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1a5f5a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Automated review request after sessions</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1a5f5a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Review response templates</li>
+          <div class="divider"></div>
+          <li class="group-label">AI Discovery</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1a5f5a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Directory listings that feed AI engines</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1a5f5a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Schema markup on website</li>
+        </ul>
+        <button class="plan-cta primary" onclick="openModal('grow')">Get Started — 3-Month Plan</button>
+        <p class="plan-months">$800/month · No long-term contract</p>
+      </div>
+    </div>
+
+    <!-- PLAN 3: DOMINATE -->
+    <div class="plan-card reveal">
+      <div class="plan-header">
+        <div class="plan-name">🏆 Ongoing Partnership</div>
+        <div class="plan-tagline">Continuous optimization. Full presence.</div>
+        <div class="plan-price">
+          <span class="amount">$1,500</span>
+          <span class="period">/ month</span>
+        </div>
+      </div>
+      <div class="plan-body">
+        <ul class="plan-features">
+          <li class="group-label">Everything in Growth</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1a5f5a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> All 3-Month deliverables included</li>
+          <div class="divider"></div>
+          <li class="group-label">Content & Social</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1a5f5a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> 2x/month Meta cartoon/video ads</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1a5f5a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Monthly blog content (2 posts)</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1a5f5a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Google Business posting (2x/month)</li>
+          <div class="divider"></div>
+          <li class="group-label">SEO & AI</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1a5f5a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Monthly local SEO audit</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1a5f5a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> AI citation building (quarterly)</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1a5f5a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Quarterly strategy review call</li>
+          <div class="divider"></div>
+          <li class="group-label">Priority Support</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1a5f5a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Slack/email direct access</li>
+        </ul>
+        <button class="plan-cta outline" onclick="openModal('ongoing')">Get Started — Ongoing</button>
+        <p class="plan-months">Month-to-month · Cancel anytime</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="timeline-section" id="timeline">
+  <h2 class="reveal">What Actually Happens — Week by Week</h2>
+  <div class="timeline">
+    <div class="timeline-item reveal">
+      <div class="timeline-meta">Week 1</div>
+      <h3>Discovery & Audit</h3>
+      <p>We map every directory you're listed on, identify incorrect NAP data, audit your Google Business Profile, and confirm your exact service areas and specializations. You'll receive a full snapshot of where you stand online.</p>
+    </div>
+    <div class="timeline-item reveal">
+      <div class="timeline-meta">Week 2–3</div>
+      <h3>Directory Corrections & Profile Setup</h3>
+      <p>We fix or create your listings on Psychology Today, Yelp, Google, Facebook, and 20+ other directories — all with consistent Name, Address, and Phone data. SimplePractice gets configured with your intake forms and availability.</p>
+    </div>
+    <div class="timeline-item reveal">
+      <div class="timeline-meta">Week 3–4</div>
+      <h3>Google Ads Launch</h3>
+      <p>Your first campaign goes live targeting "therapist Ottawa IL," "counseling near me," and other high-intent keywords. We set up conversion tracking so every click and booking is measurable.</p>
+    </div>
+    <div class="timeline-item reveal">
+      <div class="timeline-meta">Month 2</div>
+      <h3>Review Engine + Optimization</h3>
+      <p>Automated review requests start going out after each session. We optimize ad copy based on real data, refine keyword bids, and begin building your review count on Google and Psychology Today.</p>
+    </div>
+    <div class="timeline-item reveal">
+      <div class="timeline-meta">Month 3</div>
+      <h3>AI Discovery + Full Reporting</h3>
+      <p>We ensure you're listed on the directories that feed ChatGPT and Perplexity. You'll receive a full monthly report: new clients acquired, ad spend ROI, review count growth, and what's working.</p>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <div class="section-label">What Clients Are Saying</div>
+  <h2>Real Reviews. Real Trust.</h2>
+  <div class="reviews-grid">
+    <div class="review-card reveal">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">"I've been seeing clients for 8 years — I had no idea how many people couldn't find me online. Within a month of getting listed properly, I started getting 2–3 new inquiries a week."</p>
+      <div class="reviewer">— Therapist, Ottawa IL area</div>
+    </div>
+    <div class="review-card reveal">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">"The SimplePractice integration changed everything. I used to lose people between the intake call and the first session. Now they book themselves and show up prepared."</p>
+      <div class="reviewer">— Counselor, solo practice</div>
+    </div>
+    <div class="review-card reveal">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">"Google Ads felt intimidating but they made it simple. I'm spending $400/month and getting 6–8 new client inquiries. The ROI is real."</p>
+      <div class="reviewer">— Group practice, Midwest</div>
+    </div>
+  </div>
+  <p class="reviews-google">Google Business Profile · <span>⭐ 4.3 · 23 reviews</span> — and growing</p>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta" id="start">
+  <h2 class="reveal">Ready to Fill Your Schedule?</h2>
+  <p class="reveal">Let's start with the foundations. Month 1 is $1,200 — and it pays for itself with just 1–2 new clients.</p>
+  <div class="cta-box reveal">
+    <div class="cta-label">Start Here</div>
+    <h3>Month 1 Launch Plan</h3>
+    <p class="cta-sub">Everything you need to get found, booked, and reviewed online.</p>
+    <div class="cta-price">
+      <strong>$1,200</strong> one-time setup<br>
+      <span style="font-size:0.8rem">or $400/mo for 3 months</span>
+    </div>
+    <button class="btn-primary" onclick="openModal('launch')">
+      Book Your Strategy Call
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </button>
+    <p class="disclaimer">30-minute call · No obligation · We confirm your goals and confirm the plan before any work begins.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Illinois Valley <span>Counseling</span></div>
+  <p>Ottawa · Mendota · Morris, IL</p>
+  <p style="margin-top:1rem; color:rgba(255,255,255,0.2)">A strategy experience built for Cindy &amp; Shawn.</p>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">×</button>
+    <h3 id="modalTitle">Book Your Strategy Call</h3>
+    <p id="modalSub">Tell us a bit about your practice and we'll reach out to schedule.</p>
+    <label for="name">Your Name</label>
+    <input type="text" id="name" placeholder="Cindy or Shawn">
+    <label for="phone">Phone or Email</label>
+    <input type="text" id="phone" placeholder="How should we reach you?">
+    <label for="plan">Interested In</label>
+    <select id="plan">
+      <option value="launch">Month 1 Launch ($1,200)</option>
+      <option value="grow">3-Month Growth ($800/mo)</option>
+      <option value="ongoing">Ongoing Partnership ($1,500/mo)</option>
+    </select>
+    <label for="notes">Anything Specific You Want to Address?</label>
+    <textarea id="notes" placeholder="e.g. I mainly want to show up on Google when someone searches 'therapy near me'..."></textarea>
+    <button class="btn-primary" onclick="submitModal()">
+      Send Request
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </button>
+  </div>
+</div>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+  reveals.forEach(r => io.observe(r));
+
+  // Video play
+  function playVideo() {
+    const w = document.getElementById('videoWrapper');
+    w.classList.add('active');
+    const v = document.getElementById('heroVideo');
+    v.play().catch(() => {});
+  }
+
+  // Modal
+  function openModal(plan) {
+    document.getElementById('modalOverlay').classList.add('open');
+    document.getElementById('plan').value = plan;
+    document.getElementById('name').focus();
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal() {
+    document.getElementById('modalOverlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.getElementById('modalOverlay').addEventListener('click', function(e) {
+    if (e.target === this) closeModal();
+  });
+
+  // Form submit
+  function submitModal() {
+    const name = document.getElementById('name').value;
+    const contact = document.getElementById('phone').value;
+    const plan = document.getElementById('plan').value;
+    const notes = document.getElementById('notes').value;
+    if (!name || !contact) {
+      alert('Please fill in your name and how to reach you.');
+      return;
+    }
+    // In production: send to backend/email. For now show confirmation.
+    const planNames = { launch: 'Month 1 Launch', grow: '3-Month Growth', ongoing: 'Ongoing Partnership' };
+    alert(`Thanks, ${name}! We'll reach out to you at ${contact} about the ${planNames[plan]} plan.`);
+    closeModal();
+  }
+
+  // Nav scroll behavior
+  let lastScroll = 0;
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav');
+    const y = window.scrollY;
+    nav.style.boxShadow = y > 50 ? '0 2px 20px rgba(0,0,0,0.08)' : '';
+  }, { passive: true });
+</script>
+</body>
+</html>
