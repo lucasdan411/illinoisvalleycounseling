@@ -13,6 +13,9 @@
       --teal-dark: #0f3d3a;
       --amber: #e8a84a;
       --cream: #faf7f2;
+      --light-gray: #e8e4de;
+      --gray: #6b6b6b;
+      --charcoal: #2c2c2c;
     }
     body {
       font-family: 'Inter', sans-serif;
@@ -59,50 +62,26 @@
     }
     .card-body { padding: 2rem; }
 
-    .slots-label {
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--amber);
-      margin-bottom: 1rem;
+    .book-calendly {
+      display: block;
+      background: var(--teal);
+      color: white;
+      text-decoration: none;
+      border-radius: 16px;
+      padding: 1.4rem 2rem;
       text-align: center;
-    }
-    .days-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.75rem;
+      font-weight: 700;
+      font-size: 1.05rem;
+      transition: all 0.25s;
+      box-shadow: 0 6px 20px rgba(26,95,90,0.3);
       margin-bottom: 1.5rem;
     }
-    .day-btn {
-      background: var(--cream);
-      border: 2px solid transparent;
-      border-radius: 14px;
-      padding: 1rem;
-      text-align: center;
-      cursor: pointer;
-      transition: all 0.2s;
-      text-decoration: none;
-      display: block;
+    .book-calendly:hover {
+      background: var(--teal-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(26,95,90,0.35);
     }
-    .day-btn:hover, .day-btn.selected {
-      border-color: var(--teal);
-      background: rgba(26,95,90,0.06);
-    }
-    .day-name {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--teal-dark);
-      display: block;
-    }
-    .day-date {
-      font-size: 0.78rem;
-      color: var(--teal);
-      font-weight: 600;
-      margin-top: 0.15rem;
-      display: block;
-    }
+    .book-calendly svg { display: inline-block; vertical-align: middle; margin-right: 0.5rem; }
 
     .divider {
       text-align: center;
@@ -117,7 +96,7 @@
       top: 50%;
       width: 35%;
       height: 1px;
-      background: #e8e4de;
+      background: var(--light-gray);
     }
     .divider::before { left: 0; }
     .divider::after { right: 0; }
@@ -140,13 +119,13 @@
       font-family: 'Playfair Display', serif;
       font-size: 1.05rem;
       font-weight: 700;
-      color: var(--teal-dark);
+      color: var(--charcoal);
       display: block;
       margin-bottom: 0.3rem;
     }
     .text-option .sub {
       font-size: 0.82rem;
-      color: #6b6b6b;
+      color: var(--gray);
       display: block;
     }
     .text-option .number {
@@ -174,55 +153,35 @@
       <div class="card-top">
         <div class="emoji">📅</div>
         <h1>Let's Talk Money</h1>
-        <p>Pick a 20-minute slot below. Or just text me -- either way works.</p>
+        <p>Pick a 20-minute slot below. Or just text me — either way works.</p>
       </div>
 
       <div class="card-body">
-        <div class="slots-label">Pick a Time -- 20 Minutes</div>
-
-        <div class="days-grid">
-          <!-- Friday -->
-          <a href="https://calendly.com/lucas-a1strategic/fri-9am" target="_blank" class="day-btn">
-            <span class="day-name">Friday</span>
-            <span class="day-date">9:00 AM</span>
-          </a>
-          <a href="https://calendly.com/lucas-a1strategic/fri-10am" target="_blank" class="day-btn">
-            <span class="day-name">Friday</span>
-            <span class="day-date">10:00 AM</span>
-          </a>
-          <a href="https://calendly.com/lucas-a1strategic/fri-11am" target="_blank" class="day-btn">
-            <span class="day-name">Friday</span>
-            <span class="day-date">11:00 AM</span>
-          </a>
-          <a href="https://calendly.com/lucas-a1strategic/mon-9am" target="_blank" class="day-btn">
-            <span class="day-name">Monday</span>
-            <span class="day-date">9:00 AM</span>
-          </a>
-          <a href="https://calendly.com/lucas-a1strategic/mon-10am" target="_blank" class="day-btn">
-            <span class="day-name">Monday</span>
-            <span class="day-date">10:00 AM</span>
-          </a>
-          <a href="https://calendly.com/lucas-a1strategic/mon-11am" target="_blank" class="day-btn">
-            <span class="day-name">Monday</span>
-            <span class="day-date">11:00 AM</span>
-          </a>
-        </div>
-
-        <!-- If these links don't work, fall back to main calendly -->
-        <a href="https://calendly.com/lucas-a1strategic" target="_blank" class="day-btn" style="width:100%;text-align:center;background:white;border-color:var(--light-gray);">
-          <span class="day-name" style="color:var(--gray);font-size:0.85rem;">See all available times on Calendly</span>
-          <span class="day-date" style="color:#aaa;font-size:0.72rem;">Full calendar</span>
+        <!-- Primary: Calendly -->
+        <a href="https://calendly.com/lucas-a1strategic" target="_blank" class="book-calendly">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline;vertical-align:middle;margin-right:8px;"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Book a 20-Minute Call on Calendly
         </a>
+
+        <!-- Times note -->
+        <p style="text-align:center;font-size:0.82rem;color:var(--gray);margin-bottom:1.5rem;">
+          Fridays or Mondays through Wednesdays<br>
+          9 AM, 10 AM, or 11 AM CST
+        </p>
 
         <div class="divider">or</div>
 
+        <!-- Fallback: SMS -->
         <a href="sms:18152286246?body=Hey%2C%20I%20saw%20the%20IVCS%20page%20and%20want%20to%20talk%20about%20filling%20our%20schedule." class="text-option">
-          <span class="cheeky">Text me -- let's talk money 💬</span>
+          <span class="cheeky">Text me — let's talk money 💬</span>
           <span class="sub">No form. No pressure. Just a text.</span>
           <span class="number">(815) 228-6246</span>
         </a>
 
-        <p class="footer-note">I respond to texts within a few hours.<br> CST timezone. No spam, ever.</p>
+        <p class="footer-note">
+          I respond to texts within a few hours.<br>
+          CST timezone. No spam, ever.
+        </p>
       </div>
     </div>
   </div>
