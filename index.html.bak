@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Illinois Valley Counseling Services - Book Online Now</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --teal: #1a5f5a;
+      --teal-light: #2d8a84;
+      --teal-dark: #0f3d3a;
+      --amber: #e8a84a;
+      --amber-light: #f4c97a;
+      --cream: #faf7f2;
+      --warm-white: #fffdf9;
+      --charcoal: #2c2c2c;
+      --gray: #6b6b6b;
+      --light-gray: #e8e4de;
+      --success: #3a9e6a;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--charcoal); line-height: 1.65; }
+    h1, h2, h3 { font-family: 'Playfair Display', serif; line-height: 1.2; }
+
+    /* Top bar */
+    .topbar { background: var(--teal-dark); color: white; text-align: center; padding: 0.6rem 1rem; font-size: 0.82rem; font-weight: 500; }
+    .topbar strong { color: var(--amber-light); }
+
+    /* Nav */
+    nav { background: white; border-bottom: 1px solid var(--light-gray); padding: 0 2rem; position: sticky; top: 0; z-index: 100; }
+    nav .inner { max-width: 1060px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .logo { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--teal); text-decoration: none; }
+    .logo span { color: var(--amber); }
+    .nav-phone { display: flex; align-items: center; gap: 0.5rem; color: var(--teal); font-weight: 600; font-size: 0.95rem; text-decoration: none; }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(160deg, var(--teal-dark) 0%, var(--teal) 60%, var(--teal-light) 100%);
+      padding: 4rem 2rem 5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -80px;
+      right: -80px;
+      width: 450px;
+      height: 450px;
+      background: radial-gradient(circle, rgba(232,168,74,0.15) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .hero-badge { display: inline-block; background: rgba(255,255,255,0.12); color: var(--amber-light); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.35rem 1rem; border-radius: 50px; margin-bottom: 1.2rem; border: 1px solid rgba(255,255,255,0.15); }
+    .hero h1 { font-size: clamp(2rem, 4.5vw, 3.2rem); color: white; margin-bottom: 0.8rem; max-width: 720px; margin-left: auto; margin-right: auto; }
+    .hero h1 em { font-style: normal; color: var(--amber-light); }
+    .hero-sub { color: rgba(255,255,255,0.75); font-size: 1.05rem; max-width: 500px; margin: 0 auto 2rem; font-weight: 300; line-height: 1.7; }
+    .hero-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn-primary { background: var(--amber); color: var(--teal-dark); padding: 0.85rem 2rem; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 0.95rem; transition: all 0.25s; display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 0 6px 24px rgba(232,168,74,0.35); border: none; cursor: pointer; }
+    .btn-primary:hover { background: var(--amber-light); transform: translateY(-2px); box-shadow: 0 10px 32px rgba(232,168,74,0.4); }
+    .btn-outline-white { background: transparent; color: white; padding: 0.85rem 2rem; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 0.95rem; border: 2px solid rgba(255,255,255,0.35); transition: all 0.25s; cursor: pointer; display: inline-flex; align-items: center; gap: 0.5rem; }
+    .btn-outline-white:hover { border-color: white; background: rgba(255,255,255,0.1); transform: translateY(-2px); }
+    .hero-trust { margin-top: 1.8rem; display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; }
+    .trust-item { display: flex; align-items: center; gap: 0.5rem; color: rgba(255,255,255,0.65); font-size: 0.8rem; }
+
+    /* Stats */
+    .stats-bar { background: white; padding: 2rem 2rem; border-bottom: 1px solid var(--light-gray); }
+    .stats-inner { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; text-align: center; }
+    .stat-number { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: var(--teal); }
+    .stat-label { font-size: 0.78rem; color: var(--gray); font-weight: 500; margin-top: 0.2rem; }
+
+    /* Booking section */
+    .booking-section { padding: 5rem 2rem; max-width: 1060px; margin: 0 auto; }
+    .booking-section .section-label { color: var(--amber); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; text-align: center; margin-bottom: 0.75rem; }
+    .booking-section h2 { text-align: center; font-size: clamp(1.7rem, 3vw, 2.5rem); color: var(--teal-dark); margin-bottom: 0.5rem; }
+    .booking-section > p { text-align: center; color: var(--gray); margin-bottom: 3rem; }
+    .booking-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; }
+    .booking-widget { background: white; border-radius: 16px; border: 2px solid var(--light-gray); overflow: hidden; min-height: 600px; position: relative; }
+    .booking-widget-header { background: var(--teal); padding: 1.2rem 1.5rem; display: flex; align-items: center; gap: 0.75rem; }
+    .booking-widget-header .sp-icon { width: 32px; height: 32px; background: white; border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+    .booking-widget-header span { color: white; font-weight: 600; font-size: 0.9rem; }
+    .booking-iframe { width: 100%; min-height: 580px; border: none; display: block; }
+    .booking-placeholder { padding: 3rem 2rem; text-align: center; }
+    .booking-placeholder .cal-icon { width: 64px; height: 64px; background: var(--cream); border-radius: 16px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 2rem; }
+    .booking-placeholder h3 { font-size: 1.1rem; color: var(--teal-dark); margin-bottom: 0.5rem; }
+    .booking-placeholder p { font-size: 0.88rem; color: var(--gray); margin-bottom: 1.5rem; line-height: 1.6; }
+    .booking-placeholder .btn-primary { margin: 0 auto; }
+
+    /* Booking info sidebar */
+    .booking-info h3 { font-size: 1.1rem; color: var(--teal-dark); margin-bottom: 1rem; font-family: 'Inter', sans-serif; font-weight: 600; }
+    .info-card { background: white; border-radius: 12px; padding: 1.5rem; border: 1px solid var(--light-gray); margin-bottom: 1rem; }
+    .info-card h4 { font-size: 0.85rem; font-weight: 700; color: var(--teal); margin-bottom: 0.4rem; font-family: 'Inter', sans-serif; text-transform: uppercase; letter-spacing: 0.05em; }
+    .info-card p { font-size: 0.88rem; color: var(--gray); line-height: 1.6; }
+    .info-card .phone-big { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--teal-dark); font-weight: 700; text-decoration: none; display: block; margin-top: 0.5rem; }
+    .info-card .phone-big:hover { color: var(--teal); }
+    .locations { display: flex; flex-direction: column; gap: 0.5rem; }
+    .location-item { display: flex; gap: 0.5rem; font-size: 0.85rem; color: var(--charcoal); }
+    .location-item .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--teal); flex-shrink: 0; margin-top: 6px; }
+    .insurance-note { background: rgba(26,95,90,0.05); border-radius: 10px; padding: 1rem 1.2rem; margin-top: 1rem; border: 1px solid rgba(26,95,90,0.1); }
+    .insurance-note p { font-size: 0.82rem; color: var(--gray); line-height: 1.5; }
+
+    /* Therapists */
+    .therapists { background: white; padding: 4rem 2rem; }
+    .therapists-inner { max-width: 960px; margin: 0 auto; }
+    .section-label { color: var(--amber); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; text-align: center; margin-bottom: 0.75rem; }
+    .therapists h2 { text-align: center; font-size: clamp(1.7rem, 3vw, 2.5rem); color: var(--teal-dark); margin-bottom: 0.5rem; }
+    .therapists > p { text-align: center; color: var(--gray); margin-bottom: 3rem; }
+    .therapist-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+    .therapist-card { background: var(--cream); border-radius: 14px; padding: 1.8rem; border: 2px solid var(--light-gray); transition: all 0.25s; }
+    .therapist-card:hover { border-color: var(--teal-light); box-shadow: 0 8px 30px rgba(26,95,90,0.08); transform: translateY(-3px); }
+    .therapist-avatar { width: 64px; height: 64px; border-radius: 50%; background: var(--teal); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: white; margin-bottom: 1rem; }
+    .therapist-card h3 { font-size: 1.05rem; color: var(--teal-dark); margin-bottom: 0.1rem; font-family: 'Inter', sans-serif; font-weight: 600; }
+    .therapist-card .credentials { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--amber); margin-bottom: 0.4rem; }
+    .therapist-card .role { font-size: 0.78rem; color: var(--gray); margin-bottom: 0.8rem; }
+    .therapist-card p { font-size: 0.86rem; color: var(--charcoal); line-height: 1.65; margin-bottom: 1rem; }
+    .specialties { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 1rem; }
+    .specialty-tag { background: rgba(26,95,90,0.07); color: var(--teal); font-size: 0.7rem; font-weight: 600; padding: 0.2rem 0.55rem; border-radius: 50px; }
+
+    /* What we treat */
+    .treatments { padding: 4rem 2rem; }
+    .treatments-inner { max-width: 960px; margin: 0 auto; }
+    .treatments h2 { text-align: center; font-size: clamp(1.7rem, 3vw, 2.5rem); color: var(--teal-dark); margin-bottom: 2.5rem; }
+    .treat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
+    .treat-item { display: flex; gap: 0.7rem; align-items: center; background: white; padding: 1rem 1.2rem; border-radius: 10px; border: 1px solid var(--light-gray); }
+    .treat-item .check { width: 22px; height: 22px; border-radius: 50%; background: rgba(26,95,90,0.08); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .treat-item p { font-size: 0.88rem; color: var(--charcoal); }
+
+    /* Pricing */
+    .pricing { background: white; padding: 4rem 2rem; }
+    .pricing-inner { max-width: 660px; margin: 0 auto; }
+    .pricing h2 { text-align: center; font-size: clamp(1.7rem, 3vw, 2.5rem); color: var(--teal-dark); margin-bottom: 0.5rem; }
+    .pricing > p { text-align: center; color: var(--gray); margin-bottom: 2.5rem; }
+    .price-box { background: var(--cream); border-radius: 20px; overflow: hidden; border: 2px solid var(--teal); }
+    .price-header { background: var(--teal); padding: 1.8rem; text-align: center; }
+    .price-header h3 { color: white; font-size: 1.4rem; margin-bottom: 0.2rem; }
+    .price-header .sub { color: rgba(255,255,255,0.7); font-size: 0.88rem; }
+    .price-body { padding: 1.8rem; }
+    .price-amount { text-align: center; margin-bottom: 1.5rem; }
+    .price-amount .big { font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 700; color: var(--teal); }
+    .price-amount .period { color: var(--gray); font-size: 0.88rem; }
+    .price-features { list-style: none; margin-bottom: 1.5rem; }
+    .price-features li { display: flex; gap: 0.7rem; font-size: 0.9rem; color: var(--charcoal); padding: 0.5rem 0; border-bottom: 1px solid var(--light-gray); align-items: flex-start; }
+    .price-features li:last-child { border-bottom: none; }
+    .price-features li svg { flex-shrink: 0; margin-top: 2px; }
+    .price-features li.muted { color: var(--gray); text-decoration: line-through; }
+    .price-features li.muted svg { opacity: 0.4; }
+    .book-btn-row { text-align: center; }
+    .book-btn { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--teal); color: white; padding: 0.85rem 2.2rem; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 0.95rem; transition: all 0.2s; }
+    .book-btn:hover { background: var(--teal-dark); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(26,95,90,0.25); }
+    .price-note { text-align: center; margin-top: 1rem; font-size: 0.78rem; color: var(--gray); }
+
+    /* Insurance */
+    .insurance { padding: 4rem 2rem; }
+    .insurance-inner { max-width: 600px; margin: 0 auto; text-align: center; }
+    .insurance h2 { font-size: clamp(1.4rem, 2.5vw, 1.9rem); color: var(--teal-dark); margin-bottom: 1rem; }
+    .insurance p { color: var(--gray); font-size: 0.92rem; line-height: 1.7; margin-bottom: 1.5rem; }
+    .insurance-logos { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+    .insurance-logo { background: white; padding: 0.5rem 1rem; border-radius: 8px; font-size: 0.78rem; font-weight: 600; color: var(--gray); border: 1px solid var(--light-gray); }
+
+    /* Testimonial */
+    .testimonial { background: var(--teal-dark); padding: 4rem 2rem; text-align: center; }
+    .testimonial .stars { color: var(--amber); font-size: 1.1rem; letter-spacing: 4px; margin-bottom: 1rem; }
+    .testimonial blockquote { max-width: 640px; margin: 0 auto 1.2rem; font-family: 'Playfair Display', serif; font-size: clamp(1.05rem, 2vw, 1.35rem); color: white; line-height: 1.7; font-style: italic; }
+    .testimonial blockquote::before { content: '"'; color: var(--amber); }
+    .testimonial blockquote::after { content: '"'; color: var(--amber); }
+    .testimonial .attr { color: rgba(255,255,255,0.45); font-size: 0.82rem; }
+
+    /* Footer */
+    footer { background: var(--teal-dark); padding: 2.5rem 2rem; text-align: center; }
+    footer .logo { color: white; font-size: 0.95rem; }
+    footer .logo span { color: var(--amber); }
+    footer p { color: rgba(255,255,255,0.3); font-size: 0.78rem; margin-top: 0.5rem; }
+
+    /* Reveal */
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .stats-inner { grid-template-columns: repeat(2, 1fr); }
+      .booking-grid { grid-template-columns: 1fr; }
+      .nav-phone span { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Top bar -->
+<div class="topbar">
+  <strong>New patients welcome.</strong> Accepting new clients in Ottawa, Mendota and Morris. Call: <strong>(815) 993-1614</strong>
+</div>
+
+<!-- Nav -->
+<nav>
+  <div class="inner">
+    <a href="#" class="logo">Illinois Valley <span>Counseling Services</span></a>
+    <a href="tel:18159931614" class="nav-phone">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.22 1.14 2 2 0 012.21 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      <span>(815) 993-1614</span>
+    </a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div>
+    <div class="hero-badge">Online Booking Available</div>
+    <h1>Book a Therapist <em>Right Now</em></h1>
+    <p class="hero-sub">Individual, couples, and family counseling in Ottawa, Illinois. No phone call needed -- pick your time and book in under 2 minutes.</p>
+    <div class="hero-buttons">
+      <a href="https://calendly.com/lucas-a1strategic/30min" target="_blank" class="btn-primary">
+        See Available Times
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="#team" class="btn-outline-white">Meet Our Team</a>
+    </div>
+    <div class="hero-trust">
+      <div class="trust-item">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="var(--amber)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        4.3 stars on Google
+      </div>
+      <div class="trust-item">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        HIPAA Compliant
+      </div>
+      <div class="trust-item">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        New Patients Welcome
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Stats -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div><div class="stat-number">3</div><div class="stat-label">Locations</div></div>
+    <div><div class="stat-number">23</div><div class="stat-label">Google Reviews</div></div>
+    <div><div class="stat-number">4.3</div><div class="stat-label">Star Rating</div></div>
+    <div><div class="stat-number">1973</div><div class="stat-label">Year Established</div></div>
+  </div>
+</div>
+
+<!-- Video explainer -->
+<section style="padding:3.5rem 2rem;background:var(--teal-dark);text-align:center;">
+  <div style="max-width:780px;margin:0 auto;">
+    <div style="margin-bottom:1.5rem;">
+      <div style="display:inline-block;background:rgba(255,255,255,0.1);color:var(--amber-light);font-size:0.7rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;padding:0.3rem 1rem;border-radius:50px;margin-bottom:1rem;border:1px solid rgba(255,255,255,0.12);">Watch how it works</div>
+      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.5rem,3vw,2.1rem);color:white;margin-bottom:0.5rem;">The Best Time to Book? 11pm in Bed.</h2>
+      <p style="color:rgba(255,255,255,0.65);font-size:0.92rem;max-width:520px;margin:0 auto 2rem;line-height:1.7;">Most people reach for a therapist at their lowest point, late at night, phone in hand. If they can't book online right then, they move on. This is how that story ends.</p>
+    </div>
+    <div style="position:relative;border-radius:16px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.4);border:2px solid rgba(255,255,255,0.08);">
+      <video controls style="width:100%;max-height:440px;border-radius:12px;display:block;background:#000;" poster>
+        <source src="strategy/ivc-midnight-booking.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <div style="position:absolute;bottom:0;left:0;right:0;padding:1rem 1.2rem;background:linear-gradient(transparent,rgba(0,0,0,0.7));display:flex;align-items:center;gap:0.5rem;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        <span style="color:rgba(255,255,255,0.8);font-size:0.75rem;">20 seconds</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Booking section -->
+<section class="booking-section" id="book">
+  <div class="section-label">Book Online</div>
+  <h2>Pick a Time That Works for You</h2>
+  <p>Select your service, choose a location, and book your appointment directly. It takes about 2 minutes.</p>
+
+  <div class="booking-grid">
+    <!-- Booking widget -->
+    <div class="booking-widget">
+      <div class="booking-widget-header">
+        <div class="sp-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--teal)"><rect x="3" y="4" width="18" height="18" rx="2" ry="2" fill="none" stroke="var(--teal)" stroke-width="2"/><line x1="16" y1="2" x2="16" y2="6" stroke="var(--teal)" stroke-width="2"/><line x1="8" y1="2" x2="8" y2="6" stroke="var(--teal)" stroke-width="2"/><line x1="3" y1="10" x2="21" y2="10" stroke="var(--teal)" stroke-width="2"/></svg>
+        </div>
+        <span>Powered by SimplePractice</span>
+      </div>
+      <div class="booking-placeholder">
+        <div class="cal-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="8" y1="14" x2="10" y2="14"/><line x1="14" y1="14" x2="16" y2="14"/></svg>
+        </div>
+        <h3>Schedule Your Appointment Online</h3>
+        <p>Choose your service, location, and a time that works. Your appointment will be confirmed immediately.</p>
+        <a href="https://calendly.com/lucas-a1strategic/30min" target="_blank" class="btn-primary">
+          Book Now
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </a>
+        <p class="price-note" style="margin-top:1rem;">Scheduling coming soon -- text or call (815) 228-6246 to book directly.</p>
+      </div>
+    </div>
+
+    <!-- Info sidebar -->
+    <div class="booking-info">
+      <div class="info-card">
+        <h4>Call Us Directly</h4>
+        <p>Prefer to schedule by phone? We are here to help.</p>
+        <a href="tel:18159931614" class="phone-big">(815) 993-1614</a>
+      </div>
+
+      <div class="info-card">
+        <h4>Our Locations</h4>
+        <div class="locations">
+          <div class="location-item"><div class="dot"></div>Ottawa, IL -- 747 E Etna Rd</div>
+          <div class="location-item"><div class="dot"></div>Mendota, IL</div>
+          <div class="location-item"><div class="dot"></div>Morris, IL</div>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <h4>Office Hours</h4>
+        <p>Monday through Friday: 8 AM to 9 PM<br>Saturday: 8 AM to 8 PM<br>Sunday: Closed</p>
+      </div>
+
+      <div class="insurance-note">
+        <p><strong>Insurance accepted.</strong> We work with most major insurance plans. Not sure about yours? Call us at <strong>(815) 993-1614</strong> and we will verify your benefits before your first visit at no charge.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Therapists -->
+<section class="therapists" id="team">
+  <div class="therapists-inner">
+    <div class="section-label">Our Team</div>
+    <h2>Meet Your Counselors</h2>
+    <p>Experienced, licensed professionals serving Ottawa, Mendota, Morris and the surrounding areas.</p>
+    <div class="therapist-grid">
+
+      <div class="therapist-card reveal">
+        <img src="images/portraits/shawn.jpg" alt="Shawn Slagle" style="width:80px;height:80px;border-radius:50%;object-fit:cover;object-position:center top;border:3px solid var(--teal);display:block;margin-bottom:1rem;">
+        <h3>Shawn Slagle</h3>
+        <div class="credentials">LCSW, ACSW, QCSW</div>
+        <div class="role">Owner / Licensed Clinical Social Worker</div>
+        <p>Licensed Clinical Social Worker with many years of experience working with adolescents, adults, couples, and families. Also employed by the Department of Veteran Affairs, serving the men and women who have courageously served our country.</p>
+        <div class="specialties">
+          <span class="specialty-tag">Anxiety</span>
+          <span class="specialty-tag">Depression</span>
+          <span class="specialty-tag">Trauma</span>
+          <span class="specialty-tag">Adolescents</span>
+          <span class="specialty-tag">Couples</span>
+          <span class="specialty-tag">Families</span>
+          <a href="https://calendly.com/lucas-a1strategic/30min" target="_blank" class="book-btn" style="font-size:0.85rem;padding:0.65rem 1.4rem;">Book with Shawn</a>
+        </div>
+      </div>
+
+      <div class="therapist-card reveal">
+        <img src="images/portraits/cindy.jpg" alt="Cindy Slagle" style="width:80px;height:80px;border-radius:50%;object-fit:cover;object-position:center top;border:3px solid var(--amber);display:block;margin-bottom:1rem;">
+        <h3>Cindy Slagle</h3>
+        <div class="credentials">Co-Owner</div>
+        <div class="role">Operations Manager</div>
+        <p>Cindy has worked as a mental health professional at a community mental health agency for many years. She manages daily operations, marketing, human resources, and community relations at IVCS.</p>
+        <div class="specialties">
+          <span class="specialty-tag">New Patients</span>
+          <span class="specialty-tag">Insurance</span>
+          <span class="specialty-tag">Scheduling</span>
+          <span class="specialty-tag">Intake</span>
+        </div>
+      </div>
+
+    </div>
+    <p style="text-align:center;color:var(--gray);font-size:0.85rem;margin-top:2rem;">We have additional therapists on staff. Your booking will be matched with the best available provider for your needs.</p>
+  </div>
+</section>
+
+<!-- What we treat -->
+<section class="treatments">
+  <div class="treatments-inner">
+    <div class="section-label">How We Help</div>
+    <h2>What We Work With</h2>
+    <div class="treat-grid">
+      <div class="treat-item reveal"><div class="check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><p>Anxiety and stress</p></div>
+      <div class="treat-item reveal"><div class="check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><p>Depression and mood disorders</p></div>
+      <div class="treat-item reveal"><div class="check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><p>Trauma and PTSD</p></div>
+      <div class="treat-item reveal"><div class="check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><p>Substance use and addiction</p></div>
+      <div class="treat-item reveal"><div class="check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><p>Couples and relationships</p></div>
+      <div class="treat-item reveal"><div class="check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><p>Family conflict</p></div>
+      <div class="treat-item reveal"><div class="check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><p>Life transitions</p></div>
+      <div class="treat-item reveal"><div class="check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><p>Grief and loss</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Insurance -->
+<section class="insurance">
+  <div class="insurance-inner">
+    <div class="section-label">Insurance</div>
+    <h2>We Accept Most Major Insurance</h2>
+    <p>Not sure if we take your plan? Call us before your first visit and we will verify your benefits at no charge. No surprise bills.</p>
+    <div class="insurance-logos">
+      <div class="insurance-logo">Blue Cross</div>
+      <div class="insurance-logo">Aetna</div>
+      <div class="insurance-logo">Cigna</div>
+      <div class="insurance-logo">United</div>
+      <div class="insurance-logo">Humana</div>
+      <div class="insurance-logo">Medicare</div>
+      <div class="insurance-logo">Medicaid</div>
+    </div>
+    <p style="margin-top:1.2rem;font-size:0.8rem;color:var(--gray);">And many more. Call <strong>(815) 993-1614</strong> to confirm your plan.</p>
+  </div>
+</section>
+
+<!-- Testimonial -->
+<section class="testimonial">
+  <div class="stars">★★★★★</div>
+  <blockquote>I highly recommend this place! The online booking made it so easy to schedule an appointment without having to make a single phone call. Scheduling staff is incredibly easy to work with too.</blockquote>
+  <div class="attr">★★★★★ · Google Review, Ottawa IL · 23 reviews</div>
+</section>
+
+<!-- CTA for Providers -->
+<section style="padding:5rem 2rem;text-align:center;background:var(--cream);">
+  <div class="section-label">For Therapists and Counselors</div>
+  <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.7rem,3vw,2.5rem);color:var(--teal-dark);margin-bottom:1rem;">Want to Fill Your Schedule?</h2>
+  <p style="color:var(--gray);font-size:1rem;max-width:520px;margin:0 auto 2.5rem;line-height:1.7;">We help therapists and counselors get found online, set up online scheduling, and run Google Ads that bring in new clients. Schedule a free 30-minute call to hear exactly what we would do for your practice.</p>
+  <div style="background:white;border-radius:20px;padding:2.5rem;max-width:480px;margin:0 auto;border:2px solid var(--light-gray);">
+    <h3 style="font-size:1.2rem;color:var(--teal-dark);margin-bottom:0.5rem;">Book a Free Strategy Call</h3>
+    <p style="color:var(--gray);font-size:0.88rem;margin-bottom:1.5rem;">No commitment. Just a conversation about your practice.</p>
+    <a href="https://calendly.com/lucas-a1strategic/30min" target="_blank" class="btn-primary" style="width:100%;justify-content:center;">
+      Schedule Your Call
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+    </a>
+    <p style="text-align:center;margin-top:1rem;font-size:0.78rem;color:var(--gray);">30 minutes. No obligation.</p>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="logo">Illinois Valley <span>Counseling Services</span></div>
+  <p style="margin-top:1.5rem;color:rgba(255,255,255,0.75);font-size:0.95rem;line-height:1.6;">
+    Hey Shawn and Cindy -- let us connect for 30 minutes to talk about what is possible and what the numbers look like. Looking forward to it.
+  </p>
+  <div style="margin:2rem auto;max-width:420px;">
+    <a href="https://calendly.com/lucas-a1strategic/30min" target="_blank" class="btn-primary" style="justify-content:center;">
+      Book a Free 30-Minute Strategy Call
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+    </a>
+    <p style="color:rgba(255,255,255,0.4);font-size:0.75rem;margin-top:0.6rem;">No commitment. No obligation. Just a conversation.</p>
+  </div>
+  <p>747 E Etna Rd, Ottawa, IL 61350 · (815) 993-1614</p>
+  <p>Ottawa · Mendota · Morris</p>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  reveals.forEach(r => io.observe(r));
+</script>
+</body>
+</html>
