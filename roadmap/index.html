@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Growth Roadmap — Illinois Valley Counseling</title>
+  <title>Growth Roadmap — Illinois Valley Counseling Services</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
@@ -21,6 +21,7 @@
       --gray: #6b6b6b;
       --light-gray: #e8e4de;
       --soft-green: #e8f5f4;
+      --soft-red: #fef0f0;
     }
 
     html { scroll-behavior: smooth; }
@@ -115,18 +116,18 @@
     }
     .js-big-picture .tldr p { font-size: 0.95rem; color: rgba(255,255,255,0.85); }
 
-    /* ---- MONTH SECTIONS ---- */
-    .month-header {
+    /* ---- MILESTONE HEADER ---- */
+    .milestone-header {
       display: flex;
       align-items: center;
       gap: 1rem;
       margin-bottom: 2rem;
     }
-    .month-badge {
+    .milestone-badge {
       background: var(--teal);
       color: white;
       font-family: 'Playfair Display', serif;
-      font-size: 1.8rem;
+      font-size: 1.3rem;
       font-weight: 700;
       width: 60px;
       height: 60px;
@@ -136,12 +137,12 @@
       justify-content: center;
       flex-shrink: 0;
     }
-    .month-badge.m2 { background: var(--amber); }
-    .month-badge.m3 { background: var(--teal-dark); }
-    .month-badge.goal-badge { background: var(--teal-light); width: auto; padding: 0 1.5rem; font-size: 1rem; border-radius: 50px; }
+    .milestone-badge.m2 { background: var(--amber); }
+    .milestone-badge.m3 { background: var(--teal-dark); }
+    .milestone-badge.icon-badge { background: var(--teal-light); width: auto; padding: 0 1.5rem; font-size: 1rem; border-radius: 50px; }
 
-    .goal-sub { color: var(--amber); font-weight: 600; font-size: 0.85rem; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.25rem; }
-    .goal-main { color: var(--teal-dark); font-size: 1.15rem; font-weight: 500; }
+    .milestone-sub { color: var(--amber); font-weight: 600; font-size: 0.85rem; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.25rem; }
+    .milestone-main { color: var(--teal-dark); font-size: 1.15rem; font-weight: 500; }
 
     /* ---- INITIATIVE BLOCKS ---- */
     .initiative {
@@ -237,6 +238,85 @@
       margin-top: 0.15rem;
     }
 
+    /* ---- PROBLEM BOX ---- */
+    .problem-box {
+      background: var(--soft-red);
+      border: 1px solid #f5c6cb;
+      border-radius: 14px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+    .problem-box .problem-title {
+      font-weight: 700;
+      color: #c0392b;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+    }
+    .problem-box p { font-size: 0.9rem; color: var(--charcoal); }
+
+    /* ---- SOLUTION OPTIONS ---- */
+    .solution-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+      margin: 1rem 0;
+    }
+    .solution-card {
+      background: var(--warm-white);
+      border: 1px solid var(--light-gray);
+      border-radius: 12px;
+      padding: 1.25rem 1rem;
+      text-align: center;
+    }
+    .solution-card .sol-cost {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--teal-dark);
+    }
+    .solution-card .sol-label {
+      font-size: 0.72rem;
+      color: var(--gray);
+      margin: 0.25rem 0;
+    }
+    .solution-card .sol-desc {
+      font-size: 0.78rem;
+      color: var(--gray);
+      line-height: 1.5;
+      margin-top: 0.5rem;
+    }
+    .solution-card.recommended {
+      border: 2px solid var(--amber);
+      position: relative;
+    }
+    .solution-card.recommended::after {
+      content: 'RECOMMENDED';
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--amber);
+      color: white;
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 0.2rem 0.75rem;
+      border-radius: 10px;
+      letter-spacing: 0.05em;
+    }
+    .solution-card .sol-impact {
+      font-size: 0.7rem;
+      font-weight: 600;
+      margin-top: 0.4rem;
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      display: inline-block;
+    }
+    .impact-low { background: #e8f8f5; color: #1a5f5a; }
+    .impact-med { background: #FEF9E7; color: #b7950b; }
+    .impact-high { background: #fef0f0; color: #c0392b; }
+
     /* ---- INVESTMENT BOX ---- */
     .invest-box {
       background: var(--teal-dark);
@@ -256,7 +336,6 @@
       color: var(--amber-light);
     }
     .invest-box .label { font-size: 0.85rem; color: rgba(255,255,255,0.75); }
-
     .invest-pass {
       font-size: 0.78rem;
       color: rgba(255,255,255,0.5);
@@ -304,18 +383,27 @@
       white-space: nowrap;
     }
     .offer-tier:nth-child(2) .tier-badge { background: var(--amber); }
-    .offer-tier:nth-child(3) .tier-badge { background: var(--teal-dark); }
     .offer-tier .tier-price {
       font-family: 'Playfair Display', serif;
       font-size: 1.4rem;
       font-weight: 700;
       color: var(--teal-dark);
+      white-space: nowrap;
     }
     .offer-tier .tier-desc {
       font-size: 0.85rem;
       color: var(--gray);
       flex: 1;
     }
+
+    .pct-note {
+      background: var(--soft-green);
+      border-radius: 12px;
+      padding: 1.25rem;
+      margin-top: 1.25rem;
+      text-align: center;
+    }
+    .pct-note p { font-size: 0.88rem; }
 
     /* ---- FINAL CTA ---- */
     .js-final { background: linear-gradient(170deg, var(--teal) 0%, var(--teal-dark) 100%); }
@@ -348,17 +436,12 @@
       .journey-card { padding: 2rem 1.5rem; border-radius: 16px; }
       .journey-section { padding: 5rem 1rem 3rem; }
       .kpi-grid { grid-template-columns: 1fr; }
+      .solution-grid { grid-template-columns: 1fr; }
       .offer-tier { flex-direction: column; text-align: center; }
       .invest-box { flex-direction: column; text-align: center; }
       table { font-size: 0.78rem; }
       th, td { padding: 0.45rem 0.5rem; }
-      .month-badge { width: 48px; height: 48px; font-size: 1.4rem; border-radius: 12px; }
-    }
-
-    /* ---- SCROLL SNAP ---- */
-    @media (min-width: 1024px) {
-      .journey-wrapper { scroll-snap-type: y mandatory; overflow-y: scroll; height: 100vh; }
-      .journey-section { scroll-snap-align: start; }
+      .milestone-badge { width: 48px; height: 48px; font-size: 1.1rem; border-radius: 12px; }
     }
 
     /* ---- MRR CARDS ---- */
@@ -401,7 +484,7 @@
 <body>
 
 <div class="journey-nav">
-  <div class="logo">IVC <span>&#9670;</span> Growth Roadmap</div>
+  <div class="logo">IVCS <span>&#9670;</span> Growth Roadmap</div>
   <div style="font-size:0.8rem;color:var(--gray);">swipe through &#8595;</div>
 </div>
 <div class="progress-bar" id="progress"></div>
@@ -409,9 +492,9 @@
 <!-- ====== HERO ====== -->
 <section class="journey-section js-hero">
   <div class="journey-card">
-    <div class="hero-stat">Serving Ottawa &#183; Mendota &#183; Morris since 1973</div>
-    <h1>Illinois Valley Counseling<br>Growth Roadmap</h1>
-    <p class="hero-sub">A 3-month journey to take your practice from a best-kept secret to the first call people make when they need help.</p>
+    <div class="hero-stat">Serving Ottawa &#183; Mendota &#183; Morris for 15+ years</div>
+    <h1>Illinois Valley Counseling Services<br>Growth Roadmap</h1>
+    <p class="hero-sub">A 3-milestone journey to take your practice from a best-kept secret to the first call people make when they need help.</p>
     <div class="hero-stat">Prepared for Cindy &amp; Shawn Slagle &#183; September 2026</div>
   </div>
 </section>
@@ -420,32 +503,77 @@
 <section class="journey-section js-big-picture">
   <div class="journey-card">
     <h2>The Big Picture</h2>
-    <p>Three locations. 4.3 stars on Google. 670+ Facebook followers. Fifty years of serving this community.</p>
-    <p style="margin-top:1rem;">The foundation is strong. But right now, people in LaSalle County who are searching for a therapist <em>right now</em> are not finding you.</p>
+    <p>Three locations. 4.3 stars on Google. 670+ Facebook followers. Fifteen-plus years of serving this community.</p>
+    <p style="margin-top:1rem;">The foundation is strong. But right now, people in LaSalle County who are searching for a therapist <em>right now</em> are not finding you. And the tools you rely on to run the practice are becoming a bottleneck.</p>
     <div class="tldr">
-      <p><strong>Our goal:</strong> Get IVC in front of people actively looking for help, and make it dead simple for them to book.</p>
+      <p><strong>Our goal:</strong> Get IVCS in front of people actively looking for help, make it dead simple for them to book, and unblock your operations so you can scale.</p>
     </div>
   </div>
 </section>
 
-<!-- ====== MONTH 1 ====== -->
+<!-- ====== THE MEDISOFT BOTTLENECK ====== -->
 <section class="journey-section" style="background:var(--cream);">
   <div class="journey-card">
-    <div class="month-header">
-      <div class="month-badge">1</div>
+    <div class="milestone-header">
+      <div class="milestone-badge icon-badge" style="background:#c0392b;">&#9888;</div>
       <div>
-        <div class="goal-sub">October 2026</div>
-        <div class="goal-main">Foundation &amp; Quick Wins</div>
+        <div class="milestone-sub">Critical Fix</div>
+        <div class="milestone-main">The Medisoft Bottleneck</div>
+      </div>
+    </div>
+
+    <div class="problem-box">
+      <div class="problem-title">The Problem</div>
+      <p>Medisoft is your current practice management system, but it's creating friction in scheduling, intake, and patient communication. When someone wants to become a patient, the process has too many steps and too much manual work. That kills conversions.</p>
+    </div>
+
+    <p style="font-size:0.92rem;color:var(--gray);margin-bottom:1rem;">Three paths to unblock this:</p>
+
+    <div class="solution-grid">
+      <div class="solution-card">
+        <div class="sol-cost">Quick</div>
+        <div class="sol-label">Least impact, fastest fix</div>
+        <div class="sol-desc">Landing page with appointment request form or low-friction callback request. Patients fill a simple form, you call them back. No software change needed.</div>
+        <span class="sol-impact impact-low">Low Lift</span>
+      </div>
+      <div class="solution-card recommended">
+        <div class="sol-cost">Upgrade</div>
+        <div class="sol-label">Better workflow, moderate lift</div>
+        <div class="sol-desc">Upgrade Medisoft to v30 for modern features, integrate with Vosita for online scheduling and patient portal.</div>
+        <span class="sol-impact impact-med">Medium Lift</span>
+      </div>
+      <div class="solution-card">
+        <div class="sol-cost">Migrate</div>
+        <div class="sol-label">Best long-term, biggest lift</div>
+        <div class="sol-desc">Migrate from Medisoft to SimplePractice: built-in telehealth, online booking, digital intake forms, automated reminders.</div>
+        <span class="sol-impact impact-high">High Lift</span>
+      </div>
+    </div>
+
+    <p style="font-size:0.82rem;color:var(--gray);margin-top:0.75rem;">
+      <strong>Our recommendation:</strong> Start with the Quick fix (landing page) to stop losing patients immediately. Explore Medisoft v30 + Vosita integration as the mid-term play. We'll discuss what works best for your team.
+    </p>
+  </div>
+</section>
+
+<!-- ====== MILESTONE 1 ====== -->
+<section class="journey-section" style="background:var(--warm-white);">
+  <div class="journey-card">
+    <div class="milestone-header">
+      <div class="milestone-badge">1</div>
+      <div>
+        <div class="milestone-sub">Milestone 1</div>
+        <div class="milestone-main">Foundation &amp; Quick Wins</div>
       </div>
     </div>
 
     <div class="initiative">
       <h4>1. Google Business Profile Optimization</h4>
       <ul>
-        <li>Add Psychology Today link and SimplePractice booking link</li>
-        <li>Add Cindy and Shawn headshots to profile</li>
+        <li>Add landing page booking link to profile</li>
+        <li>Add Cindy and Shawn headshots</li>
         <li>Verify all 3 locations with accurate addresses</li>
-        <li>Weekly posts (insurance accepted, mental health tips)</li>
+        <li>Weekly posts (insurance accepted, seasonal mental health tips)</li>
       </ul>
       <span class="result-chip">Higher ranking in local map pack &#8594; more calls</span>
     </div>
@@ -454,48 +582,40 @@
       <h4>2. Directory Listings — Fill the Gaps</h4>
       <table>
         <tr><th>Directory</th><th>Status</th><th>Action</th></tr>
-        <tr><td>Psychology Today</td><td style="color:#c0392b;">NOT listed</td><td>Create profile, all 3 locations</td></tr>
-        <tr><td>Google Business</td><td style="color:#27ae60;">4.3 stars</td><td>Optimize</td></tr>
+        <tr><td>Psychology Today</td><td style="color:#b7950b;">Shawn is listed; IVCS is not</td><td>Create IVCS practice profile, link Shawn's individual listing</td></tr>
+        <tr><td>Google Business</td><td style="color:#27ae60;">4.3 stars, 23 reviews</td><td>Optimize</td></tr>
         <tr><td>Yelp</td><td style="color:#b7950b;">Listed</td><td>Claim + optimize</td></tr>
         <tr><td>Healthgrades / Zocdoc</td><td style="color:#b7950b;">Check</td><td>Claim or create</td></tr>
       </table>
     </div>
 
     <div class="initiative">
-      <h4>3. SimplePractice Setup</h4>
+      <h4>3. Patient Landing Page + Callback System</h4>
       <ul>
-        <li>Online booking integration</li>
-        <li>Digital intake forms (replace paper)</li>
-        <li>Automated appointment reminders</li>
+        <li>Clean, warm landing page with one-click appointment request</li>
+        <li>Low-friction callback request form — patient enters name, phone, and preferred time. You call them.</li>
+        <li>Bridges the Medisoft gap without disrupting current operations</li>
       </ul>
-      <span class="result-chip">Fewer no-shows, less admin time, cleaner patient experience</span>
+      <span class="result-chip">Converts website visitors who would otherwise bounce</span>
     </div>
 
     <div class="initiative">
-      <h4>4. Review Engine Launch</h4>
+      <h4>4. Email Setup — Professional Domain Email</h4>
+      <ul>
+        <li>Set up email addresses @illinoisvalleycounseling.com (e.g., cindy@, shawn@, info@)</li>
+        <li>Google Workspace or Microsoft 365 — fully managed setup</li>
+        <li>Replaces any @gmail / @yahoo addresses for client-facing communication</li>
+      </ul>
+      <span class="result-chip">Professional email builds trust before the first session</span>
+    </div>
+
+    <div class="initiative">
+      <h4>5. Review Engine Launch</h4>
       <ul>
         <li>Automated post-session review requests (SMS/email)</li>
-        <li>Target: 30+ Google reviews by end of Month 1</li>
+        <li>Target: 30+ Google reviews by end of Milestone 1</li>
       </ul>
       <span class="result-chip">Every 10 reviews = ~15% lift in search click-through</span>
-    </div>
-
-    <div class="initiative">
-      <h4>5. Patient Landing Page</h4>
-      <ul>
-        <li>Clean, warm design with one-click booking</li>
-        <li>Serves as ad destination starting Month 2</li>
-      </ul>
-    </div>
-
-    <div class="invest-box">
-      <div>
-        <div class="amount">$1,200</div>
-        <div class="label">one-time setup</div>
-      </div>
-      <div style="text-align:right;">
-        <div class="label">+ SimplePractice ~$15-30/mo (you pay directly)</div>
-      </div>
     </div>
 
     <div class="kpi-grid">
@@ -505,11 +625,11 @@
       </div>
       <div class="kpi-box">
         <div class="kpi-num">Live</div>
-        <div class="kpi-label">Psychology Today profile</div>
+        <div class="kpi-label">IVCS Psychology Today profile</div>
       </div>
       <div class="kpi-box">
-        <div class="kpi-num">Online</div>
-        <div class="kpi-label">SimplePractice booking</div>
+        <div class="kpi-num">@domain</div>
+        <div class="kpi-label">Professional email live</div>
       </div>
       <div class="kpi-box">
         <div class="kpi-num">+20%</div>
@@ -519,14 +639,14 @@
   </div>
 </section>
 
-<!-- ====== MONTH 2 ====== -->
-<section class="journey-section" style="background:var(--warm-white);">
+<!-- ====== MILESTONE 2 ====== -->
+<section class="journey-section" style="background:var(--cream);">
   <div class="journey-card">
-    <div class="month-header">
-      <div class="month-badge m2">2</div>
+    <div class="milestone-header">
+      <div class="milestone-badge m2">2</div>
       <div>
-        <div class="goal-sub">November 2026</div>
-        <div class="goal-main">Paid Traffic &amp; Patient Pipeline</div>
+        <div class="milestone-sub">Milestone 2</div>
+        <div class="milestone-main">Paid Traffic &amp; Patient Pipeline</div>
       </div>
     </div>
 
@@ -542,16 +662,15 @@
         <tr><td>"family therapy near me"</td><td>$3.50-$6.50</td><td><span class="cpc-label good">Service</span></td></tr>
         <tr><td>"anxiety counseling Ottawa"</td><td>$3.00-$5.50</td><td><span class="cpc-label good">Location</span></td></tr>
       </table>
-      <p style="font-size:0.82rem;color:var(--gray);margin-top:0.5rem;">2 campaigns, 3 ad groups each, geofenced 15-mile radius. Budget: $500-$750/mo.</p>
+      <p style="font-size:0.82rem;color:var(--gray);margin-top:0.5rem;">2 campaigns, 3 ad groups each, geofenced 15-mile radius around all 3 locations.</p>
     </div>
 
     <div class="initiative">
       <h4>2. Meta Ads — Video Retargeting</h4>
       <ul>
         <li>6-scene animated explainer video (already built)</li>
-        <li>Target: LaSalle County adults 25-65 interested in mental health</li>
-        <li>Retarget visitors who didn't book</li>
-        <li>Budget: $200-$350/mo</li>
+        <li>Target: LaSalle County adults 25-65 interested in mental health, wellness</li>
+        <li>Retarget visitors who didn't submit a callback request</li>
       </ul>
     </div>
 
@@ -576,29 +695,17 @@
         </div>
       </div>
     </div>
-
-    <div class="invest-box">
-      <div>
-        <div class="amount">$800<small style="font-size:1rem;">/mo</small></div>
-        <div class="label">management</div>
-      </div>
-      <div style="text-align:right;">
-        <div class="label">+ $500-$750/mo Google Ads</div>
-        <div class="label">+ $200-$350/mo Meta Ads</div>
-        <div class="invest-pass">(ad spend paid by you directly to Google/Meta — no markup)</div>
-      </div>
-    </div>
   </div>
 </section>
 
-<!-- ====== MONTH 3 ====== -->
-<section class="journey-section" style="background:var(--cream);">
+<!-- ====== MILESTONE 3 ====== -->
+<section class="journey-section" style="background:var(--warm-white);">
   <div class="journey-card">
-    <div class="month-header">
-      <div class="month-badge m3">3</div>
+    <div class="milestone-header">
+      <div class="milestone-badge m3">3</div>
       <div>
-        <div class="goal-sub">December 2026</div>
-        <div class="goal-main">Content Engine &amp; Scale</div>
+        <div class="milestone-sub">Milestone 3</div>
+        <div class="milestone-main">Content Engine &amp; Scale</div>
       </div>
     </div>
 
@@ -606,7 +713,7 @@
       <h4>1. Wix Website Refresh</h4>
       <ul>
         <li>Speed optimizations and mobile-first design fixes</li>
-        <li>Embed SimplePractice booking widget</li>
+        <li>Embed landing page booking/callback widget</li>
         <li>Add Google reviews widget</li>
         <li>SEO: local keywords in titles, meta descriptions, headers</li>
       </ul>
@@ -635,11 +742,12 @@
     </div>
 
     <div class="initiative">
-      <h4>4. Monthly Reporting</h4>
+      <h4>4. Monthly Reporting &amp; Strategy</h4>
       <ul>
         <li>New patients, cost per lead, top keywords, review count</li>
         <li>Live client dashboard</li>
         <li>Optimize ads: pause underperformers, scale winners</li>
+        <li>Monthly strategy call to align on next moves</li>
       </ul>
     </div>
 
@@ -661,16 +769,47 @@
         <div class="kpi-label">Psychology Today inquiries</div>
       </div>
     </div>
+  </div>
+</section>
 
-    <div class="invest-box">
+<!-- ====== SOFTWARE STACK ====== -->
+<section class="journey-section" style="background:var(--cream);">
+  <div class="journey-card">
+    <div class="milestone-header">
+      <div class="milestone-badge icon-badge" style="background:var(--teal-dark);">&#9881;</div>
       <div>
-        <div class="amount">$800<small style="font-size:1rem;">/mo</small></div>
-        <div class="label">management</div>
+        <div class="milestone-sub">Software Stack Audit</div>
+        <div class="milestone-main">What tools power your practice today?</div>
       </div>
-      <div style="text-align:right;">
-        <div class="label">+ ad spend scaled from Month 2 results</div>
-        <div class="invest-pass">(typical: $750-$1,000/mo total ad spend)</div>
-      </div>
+    </div>
+
+    <p style="color:var(--gray);font-size:0.92rem;margin-bottom:1.5rem;">We need to understand your current tech so we don't break what's working.</p>
+
+    <div class="initiative">
+      <h4>To inventory tonight</h4>
+      <ul>
+        <li>Practice management: You're on Medisoft — which version? How painful is it day to day?</li>
+        <li>Billing: Who handles insurance claims? What software? Is it through Medisoft?</li>
+        <li>Intake forms: Paper or digital? How many pages?</li>
+        <li>Phone: Landline? VoIP? Cell only? Who answers?</li>
+        <li><strong>Domain name:</strong> Who provides illinoisvalleycounseling.com? (GoDaddy? Wix? Somewhere else?) Do you have the login?</li>
+        <li><strong>Website hosting:</strong> Confirmed on Wix — who built it? Who updates it? Do you have the login?</li>
+        <li>Email: Are you using @illinoisvalleycounseling.com email addresses or personal accounts?</li>
+      </ul>
+    </div>
+
+    <div class="initiative">
+      <h4>Recommended stack</h4>
+      <table>
+        <tr><th>Tool</th><th>Purpose</th><th>Est. Cost</th></tr>
+        <tr><td>Google Workspace</td><td>Professional email (@domain.com)</td><td>~$6/user/mo</td></tr>
+        <tr><td>Medisoft v30 + Vosita</td><td>Scheduling, patient portal, intake</td><td>Quote needed</td></tr>
+        <tr><td>Google Ads</td><td>Paid search campaigns</td><td>Variable</td></tr>
+        <tr><td>Meta Ads Manager</td><td>Social/video ads</td><td>Variable</td></tr>
+        <tr><td>Google Business</td><td>Local presence and reviews</td><td>Free</td></tr>
+        <tr><td>Psychology Today</td><td>Directory listing</td><td>~$30/mo</td></tr>
+        <tr><td>Birdeye or Podium</td><td>Review management</td><td>~$200-$300/mo</td></tr>
+      </table>
     </div>
   </div>
 </section>
@@ -678,11 +817,11 @@
 <!-- ====== MRR DISCUSSION ====== -->
 <section class="journey-section" style="background:var(--warm-white);">
   <div class="journey-card">
-    <div class="month-header">
-      <div class="month-badge goal-badge">$</div>
+    <div class="milestone-header">
+      <div class="milestone-badge icon-badge">$</div>
       <div>
-        <div class="goal-sub">MRR Discussion</div>
-        <div class="goal-main">What budget makes sense for your practice?</div>
+        <div class="milestone-sub">MRR Discussion</div>
+        <div class="milestone-main">What investment makes sense for your practice?</div>
       </div>
     </div>
 
@@ -709,91 +848,46 @@
       </div>
     </div>
 
-    <p style="text-align:center;color:var(--teal-dark);font-weight:600;margin-top:1.25rem;font-size:0.95rem;">
-      Our proposed $1,500-$1,800/mo total fits within 12% at just $15K/mo.
-    </p>
-    <p style="text-align:center;color:var(--gray);font-size:0.82rem;">
-      Higher revenue? More room to scale ads faster.
-    </p>
-
-    <div style="background:var(--soft-green);border-radius:14px;padding:1.5rem;margin-top:1.5rem;">
-      <p style="font-weight:600;color:var(--teal-dark);margin-bottom:0.5rem;">Tonight's key question: What's your MRR?</p>
-      <p style="font-size:0.85rem;color:var(--gray);">We use this number to calibrate the right ad budget — not to inflate our fee. Management stays flat at $800/mo regardless.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ====== SOFT STACK ====== -->
-<section class="journey-section" style="background:var(--cream);">
-  <div class="journey-card">
-    <div class="month-header">
-      <div class="month-badge goal-badge" style="background:var(--teal-dark);">&#9881;</div>
-      <div>
-        <div class="goal-sub">Software Stack Audit</div>
-        <div class="goal-main">What tools power your practice today?</div>
-      </div>
+    <div class="pct-note">
+      <p style="font-weight:600;color:var(--teal-dark);margin-bottom:0.75rem;">Two ways to structure this:</p>
+      <p style="font-size:0.88rem;color:var(--gray);margin-bottom:0.5rem;"><strong>Flat rate:</strong> $3,500/mo for all 3 milestones. Covers everything — ads management, landing page, email setup, directory work, content, reporting, strategy calls.</p>
+      <p style="font-size:0.88rem;color:var(--gray);"><strong>Percentage deal:</strong> We take a percentage of new patient revenue we generate. Lower upfront cost, aligned incentives. We'll need your MRR and current patient volume to model this out with real numbers.</p>
     </div>
 
-    <p style="color:var(--gray);font-size:0.92rem;margin-bottom:1.5rem;">We need to understand your current tech so we don't break what's working.</p>
-
-    <div class="initiative">
-      <h4>To inventory tonight</h4>
-      <ul>
-        <li>Practice management: What scheduling/records system?</li>
-        <li>Billing: Who handles insurance claims? What software?</li>
-        <li>Intake forms: Digital or paper?</li>
-        <li>Phone: Landline? VoIP? Cell only?</li>
-        <li>Website: Wix (confirmed). Who updates it?</li>
-      </ul>
-    </div>
-
-    <div class="initiative">
-      <h4>Recommended stack after Month 1</h4>
-      <table>
-        <tr><th>Tool</th><th>Purpose</th><th>Cost</th></tr>
-        <tr><td>SimplePractice</td><td>Scheduling, notes, billing, telehealth</td><td>~$69/mo</td></tr>
-        <tr><td>Google Ads</td><td>Paid search campaigns</td><td>Variable</td></tr>
-        <tr><td>Meta Ads Manager</td><td>Social/video ads</td><td>Variable</td></tr>
-        <tr><td>Google Business</td><td>Local presence and reviews</td><td>Free</td></tr>
-        <tr><td>Psychology Today</td><td>Directory listing</td><td>~$30/mo</td></tr>
-        <tr><td>Birdeye or Podium</td><td>Review management</td><td>~$200-$300/mo</td></tr>
-      </table>
+    <div style="background:var(--soft-green);border-radius:14px;padding:1.5rem;margin-top:1rem;">
+      <p style="font-weight:600;color:var(--teal-dark);margin-bottom:0.5rem;">Tonight's conversation</p>
+      <p style="font-size:0.85rem;color:var(--gray);">We want to know your monthly revenue and patient volume — not to inflate our fee, but to structure a deal that makes sense for everyone. Percentage deal on new patient revenue means we only win when you win.</p>
     </div>
   </div>
 </section>
 
 <!-- ====== THE OFFER ====== -->
-<section class="journey-section" style="background:var(--warm-white);">
+<section class="journey-section" style="background:var(--cream);">
   <div class="journey-card">
-    <div class="month-header">
-      <div class="month-badge goal-badge" style="background:var(--amber);">&#10003;</div>
+    <div class="milestone-header">
+      <div class="milestone-badge icon-badge" style="background:var(--amber);">&#10003;</div>
       <div>
-        <div class="goal-sub">The Offer</div>
-        <div class="goal-main">Simple. Transparent. No lock-in.</div>
+        <div class="milestone-sub">The Offer</div>
+        <div class="milestone-main">Two paths to growth. Zero risk.</div>
       </div>
     </div>
 
     <div class="offer-stack">
       <div class="offer-tier">
-        <span class="tier-badge">Month 1</span>
-        <span class="tier-price">$1,200</span>
-        <span class="tier-desc">Google Business optimization, directory cleanup, SimplePractice integration, landing page, review engine launch</span>
+        <span class="tier-badge">Path A</span>
+        <span class="tier-price">$3,500/mo</span>
+        <span class="tier-desc">Flat monthly management across all 3 milestones. Everything included: Google Business, directories, landing page, email setup, Google + Meta ads management, content, reporting, and monthly strategy calls. 3-month commitment, cancel anytime after.</span>
       </div>
       <div class="offer-tier">
-        <span class="tier-badge">Months 2-3</span>
-        <span class="tier-price">$800/mo</span>
-        <span class="tier-desc">Google Ads campaigns, Meta video ads, monthly reporting, ongoing optimization (+ ad spend pass-through)</span>
-      </div>
-      <div class="offer-tier">
-        <span class="tier-badge">Month 4+</span>
-        <span class="tier-price">$800/mo</span>
-        <span class="tier-desc">Full content/SEO engine, scaled ads, review management, monthly strategy calls. Cancel anytime.</span>
+        <span class="tier-badge">Path B</span>
+        <span class="tier-price">% Deal</span>
+        <span class="tier-desc">Percentage of new patient revenue we generate. Lower or no upfront cost. We track attribution and bill a percentage of new patient sessions sourced through our channels. Terms structured around your MRR. Ask us about this tonight.</span>
       </div>
     </div>
 
     <div style="background:var(--soft-green);border-radius:12px;padding:1.25rem;margin-top:1.5rem;">
       <p style="font-size:0.85rem;color:var(--teal-dark);font-weight:600;margin-bottom:0.25rem;">Transparent Pricing</p>
-      <p style="font-size:0.82rem;color:var(--gray);">Software costs (SimplePractice, Psychology Today) and ad spend are paid by you directly — zero markup. No long-term lock-in after Month 3. Cancel anytime.</p>
+      <p style="font-size:0.82rem;color:var(--gray);">Ad spend is paid by you directly to Google/Meta — zero markup. Software subscriptions (Google Workspace, Psychology Today, etc.) are paid by you directly. We manage everything, you own the accounts.</p>
     </div>
   </div>
 </section>
@@ -802,7 +896,7 @@
 <section class="journey-section js-final">
   <div class="journey-card">
     <h2>From best-kept secret<br>to first call they make.</h2>
-    <p>Let's get started. Month 1 begins the moment you say yes.</p>
+    <p>Let's get started. The landing page goes live the moment you say yes.</p>
     <a href="tel:8159931614" class="contact-pill">Let's Do This</a>
     <p style="margin-top:2rem;font-size:0.8rem;color:rgba(255,255,255,0.5);">
       Illinois Valley Counseling Services<br>
@@ -813,7 +907,6 @@
 </section>
 
 <script>
-  // Progress bar
   window.addEventListener('scroll', () => {
     const scrollTop = window.scrollY;
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
