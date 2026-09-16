@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Illinois Valley Counseling Services - Book Online Now</title>
+  <title>Illinois Valley Counseling Services - Request a Call Back</title>
+  <meta name="description" content="Request a call back from Illinois Valley Counseling Services. New patients welcome in Ottawa, Mendota and Morris. Counseling for individuals, couples, and families.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
@@ -89,6 +90,24 @@
     .booking-placeholder p { font-size: 0.88rem; color: var(--gray); margin-bottom: 1.5rem; line-height: 1.6; }
     .booking-placeholder .btn-primary { margin: 0 auto; }
 
+    /* Callback form */
+    .callback-card { background: white; border-radius: 16px; border: 2px solid var(--teal); overflow: hidden; box-shadow: 0 8px 30px rgba(26,95,90,0.1); }
+    .callback-card-header { background: var(--teal); padding: 1.2rem 1.5rem; display: flex; align-items: center; gap: 0.75rem; }
+    .callback-card-header .cb-icon { width: 32px; height: 32px; background: white; border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+    .callback-card-header span { color: white; font-weight: 600; font-size: 0.9rem; }
+    .callback-form { padding: 2rem; }
+    .form-group { margin-bottom: 1.25rem; text-align: left; }
+    .form-group label { display: block; font-size: 0.82rem; font-weight: 600; color: var(--teal-dark); margin-bottom: 0.35rem; }
+    .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 0.7rem 1rem; border: 2px solid var(--light-gray); border-radius: 10px; font-size: 0.95rem; font-family: 'Inter', sans-serif; color: var(--charcoal); background: var(--warm-white); transition: border-color 0.2s; }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--teal); }
+    .form-group textarea { min-height: 80px; resize: vertical; }
+    .callback-form .btn-primary { width: 100%; justify-content: center; padding: 0.95rem; font-size: 1rem; }
+    .form-note { text-align: center; font-size: 0.78rem; color: var(--gray); margin-top: 1rem; }
+    .form-success { display: none; text-align: center; padding: 3rem 2rem; }
+    .form-success .check-icon { width: 64px; height: 64px; background: rgba(58,158,106,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.2rem; }
+    .form-success h3 { font-size: 1.2rem; color: var(--teal-dark); margin-bottom: 0.5rem; }
+    .form-success p { font-size: 0.9rem; color: var(--gray); line-height: 1.6; }
+
     /* Booking info sidebar */
     .booking-info h3 { font-size: 1.1rem; color: var(--teal-dark); margin-bottom: 1rem; font-family: 'Inter', sans-serif; font-weight: 600; }
     .info-card { background: white; border-radius: 12px; padding: 1.5rem; border: 1px solid var(--light-gray); margin-bottom: 1rem; }
@@ -127,30 +146,6 @@
     .treat-item { display: flex; gap: 0.7rem; align-items: center; background: white; padding: 1rem 1.2rem; border-radius: 10px; border: 1px solid var(--light-gray); }
     .treat-item .check { width: 22px; height: 22px; border-radius: 50%; background: rgba(26,95,90,0.08); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
     .treat-item p { font-size: 0.88rem; color: var(--charcoal); }
-
-    /* Pricing */
-    .pricing { background: white; padding: 4rem 2rem; }
-    .pricing-inner { max-width: 660px; margin: 0 auto; }
-    .pricing h2 { text-align: center; font-size: clamp(1.7rem, 3vw, 2.5rem); color: var(--teal-dark); margin-bottom: 0.5rem; }
-    .pricing > p { text-align: center; color: var(--gray); margin-bottom: 2.5rem; }
-    .price-box { background: var(--cream); border-radius: 20px; overflow: hidden; border: 2px solid var(--teal); }
-    .price-header { background: var(--teal); padding: 1.8rem; text-align: center; }
-    .price-header h3 { color: white; font-size: 1.4rem; margin-bottom: 0.2rem; }
-    .price-header .sub { color: rgba(255,255,255,0.7); font-size: 0.88rem; }
-    .price-body { padding: 1.8rem; }
-    .price-amount { text-align: center; margin-bottom: 1.5rem; }
-    .price-amount .big { font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 700; color: var(--teal); }
-    .price-amount .period { color: var(--gray); font-size: 0.88rem; }
-    .price-features { list-style: none; margin-bottom: 1.5rem; }
-    .price-features li { display: flex; gap: 0.7rem; font-size: 0.9rem; color: var(--charcoal); padding: 0.5rem 0; border-bottom: 1px solid var(--light-gray); align-items: flex-start; }
-    .price-features li:last-child { border-bottom: none; }
-    .price-features li svg { flex-shrink: 0; margin-top: 2px; }
-    .price-features li.muted { color: var(--gray); text-decoration: line-through; }
-    .price-features li.muted svg { opacity: 0.4; }
-    .book-btn-row { text-align: center; }
-    .book-btn { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--teal); color: white; padding: 0.85rem 2.2rem; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 0.95rem; transition: all 0.2s; }
-    .book-btn:hover { background: var(--teal-dark); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(26,95,90,0.25); }
-    .price-note { text-align: center; margin-top: 1rem; font-size: 0.78rem; color: var(--gray); }
 
     /* Insurance */
     .insurance { padding: 4rem 2rem; }
@@ -207,15 +202,15 @@
 <!-- Hero -->
 <section class="hero">
   <div>
-    <div class="hero-badge">Online Booking Available</div>
-    <h1>Book a Therapist <em>Right Now</em></h1>
-    <p class="hero-sub">Individual, couples, and family counseling in Ottawa, Illinois. No phone call needed -- pick your time and book in under 2 minutes.</p>
+    <div class="hero-badge">Request a Call Back</div>
+    <h1>Talk to Someone <em>Today</em></h1>
+    <p class="hero-sub">Individual, couples, and family counseling in Ottawa, Illinois. Fill out the form below and our office will call you back to find a time that works.</p>
     <div class="hero-buttons">
-      <a href="https://calendly.com/lucas-a1strategic/30min" target="_blank" class="btn-primary">
-        See Available Times
+      <a href="#book" class="btn-primary">
+        Request a Call Back
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
-      <a href="#team" class="btn-outline-white">Meet Our Team</a>
+      <a href="tel:18159931614" class="btn-outline-white">Call Us Now</a>
     </div>
     <div class="hero-trust">
       <div class="trust-item">
@@ -244,61 +239,78 @@
   </div>
 </div>
 
-<!-- Video explainer -->
-<section style="padding:3.5rem 2rem;background:var(--teal-dark);text-align:center;">
-  <div style="max-width:780px;margin:0 auto;">
-    <div style="margin-bottom:1.5rem;">
-      <div style="display:inline-block;background:rgba(255,255,255,0.1);color:var(--amber-light);font-size:0.7rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;padding:0.3rem 1rem;border-radius:50px;margin-bottom:1rem;border:1px solid rgba(255,255,255,0.12);">Watch how it works</div>
-      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.5rem,3vw,2.1rem);color:white;margin-bottom:0.5rem;">The Best Time to Book? 11pm in Bed.</h2>
-      <p style="color:rgba(255,255,255,0.65);font-size:0.92rem;max-width:520px;margin:0 auto 2rem;line-height:1.7;">Most people reach for a therapist at their lowest point, late at night, phone in hand. If they can't book online right then, they move on. This is how that story ends.</p>
-    </div>
-    <div style="position:relative;border-radius:16px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.4);border:2px solid rgba(255,255,255,0.08);">
-      <video controls style="width:100%;max-height:440px;border-radius:12px;display:block;background:#000;" poster>
-        <source src="ivc_animated.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-      <div style="position:absolute;bottom:0;left:0;right:0;padding:1rem 1.2rem;background:linear-gradient(transparent,rgba(0,0,0,0.7));display:flex;align-items:center;gap:0.5rem;">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-        <span style="color:rgba(255,255,255,0.8);font-size:0.75rem;">20 seconds</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Booking section -->
+<!-- Callback request section -->
 <section class="booking-section" id="book">
-  <div class="section-label">Book Online</div>
-  <h2>Pick a Time That Works for You</h2>
-  <p>Select your service, choose a location, and book your appointment directly. It takes about 2 minutes.</p>
+  <div class="section-label">Request a Call Back</div>
+  <h2>We'll Call You Back to Schedule</h2>
+  <p>Leave your name and number below. Our office will call you back to find a time that works for you. No apps, no accounts, no waiting on hold.</p>
 
   <div class="booking-grid">
-    <!-- Booking widget -->
-    <div class="booking-widget">
-      <div class="booking-widget-header">
-        <div class="sp-icon">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--teal)"><rect x="3" y="4" width="18" height="18" rx="2" ry="2" fill="none" stroke="var(--teal)" stroke-width="2"/><line x1="16" y1="2" x2="16" y2="6" stroke="var(--teal)" stroke-width="2"/><line x1="8" y1="2" x2="8" y2="6" stroke="var(--teal)" stroke-width="2"/><line x1="3" y1="10" x2="21" y2="10" stroke="var(--teal)" stroke-width="2"/></svg>
+    <!-- Callback form -->
+    <div class="callback-card">
+      <div class="callback-card-header">
+        <div class="cb-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.22 1.14 2 2 0 012.21 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
         </div>
-        <span>Powered by SimplePractice</span>
+        <span>Request a Call Back</span>
       </div>
-      <div class="booking-placeholder">
-        <div class="cal-icon">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="8" y1="14" x2="10" y2="14"/><line x1="14" y1="14" x2="16" y2="14"/></svg>
+      <form class="callback-form" id="callbackForm" action="https://formsubmit.co/office@illinoisvalleycounseling.com" method="POST">
+        <input type="hidden" name="_subject" value="New callback request from website">
+        <input type="hidden" name="_template" value="box">
+        <input type="hidden" name="_captcha" value="false">
+        <div class="form-group">
+          <label for="name">Your Name *</label>
+          <input type="text" id="name" name="name" placeholder="Jane Smith" required>
         </div>
-        <h3>Schedule Your Appointment Online</h3>
-        <p>Choose your service, location, and a time that works. Your appointment will be confirmed immediately.</p>
-        <a href="https://calendly.com/lucas-a1strategic/30min" target="_blank" class="btn-primary">
-          Book Now
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-        </a>
-        <p class="price-note" style="margin-top:1rem;">Scheduling coming soon -- text or call (815) 228-6246 to book directly.</p>
+        <div class="form-group">
+          <label for="phone">Your Phone Number *</label>
+          <input type="tel" id="phone" name="phone" placeholder="(555) 555-5555" required>
+        </div>
+        <div class="form-group">
+          <label for="interest">What are you looking for?</label>
+          <select id="interest" name="interest">
+            <option value="">Select an option</option>
+            <option value="Individual counseling">Individual counseling</option>
+            <option value="Couples counseling">Couples counseling</option>
+            <option value="Family counseling">Family counseling</option>
+            <option value="Adolescent / teen counseling">Adolescent / teen counseling</option>
+            <option value="Not sure yet">Not sure yet</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="preferred_time">Preferred time to call?</label>
+          <select id="preferred_time" name="preferred_time">
+            <option value="">Any time</option>
+            <option value="Morning">Morning</option>
+            <option value="Afternoon">Afternoon</option>
+            <option value="Evening">Evening</option>
+            <option value="Weekend">Weekend</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Anything we should know? (optional)</label>
+          <textarea id="message" name="message" placeholder="Briefly tell us how we can help..."></textarea>
+        </div>
+        <button type="submit" class="btn-primary">
+          Request My Call Back
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+        <p class="form-note">We typically call back within one business day. No spam, ever.</p>
+      </form>
+      <div class="form-success" id="formSuccess">
+        <div class="check-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--success)" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h3>Request Received</h3>
+        <p>Thank you! Our office will call you back to schedule your appointment. If this is urgent, please call us directly at <strong>(815) 993-1614</strong>.</p>
       </div>
     </div>
 
     <!-- Info sidebar -->
     <div class="booking-info">
       <div class="info-card">
-        <h4>Call Us Directly</h4>
-        <p>Prefer to schedule by phone? We are here to help.</p>
+        <h4>Prefer to Call?</h4>
+        <p>You can always reach us directly during office hours.</p>
         <a href="tel:18159931614" class="phone-big">(815) 993-1614</a>
       </div>
 
@@ -344,7 +356,6 @@
           <span class="specialty-tag">Adolescents</span>
           <span class="specialty-tag">Couples</span>
           <span class="specialty-tag">Families</span>
-          <a href="https://calendly.com/lucas-a1strategic/30min" target="_blank" class="book-btn" style="font-size:0.85rem;padding:0.65rem 1.4rem;">Book with Shawn</a>
         </div>
       </div>
 
@@ -363,7 +374,7 @@
       </div>
 
     </div>
-    <p style="text-align:center;color:var(--gray);font-size:0.85rem;margin-top:2rem;">We have additional therapists on staff. Your booking will be matched with the best available provider for your needs.</p>
+    <p style="text-align:center;color:var(--gray);font-size:0.85rem;margin-top:2rem;">We have additional therapists on staff. Your call back will be matched with the best available provider for your needs.</p>
   </div>
 </section>
 
@@ -407,39 +418,17 @@
 <!-- Testimonial -->
 <section class="testimonial">
   <div class="stars">★★★★★</div>
-  <blockquote>I highly recommend this place! The online booking made it so easy to schedule an appointment without having to make a single phone call. Scheduling staff is incredibly easy to work with too.</blockquote>
+  <blockquote>I highly recommend this place! The staff made it so easy to schedule an appointment. They called me back quickly and got me in fast.</blockquote>
   <div class="attr">★★★★★ · Google Review, Ottawa IL · 23 reviews</div>
-</section>
-
-<!-- CTA for Providers -->
-<section style="padding:5rem 2rem;text-align:center;background:var(--cream);">
-  <div class="section-label">For Therapists and Counselors</div>
-  <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.7rem,3vw,2.5rem);color:var(--teal-dark);margin-bottom:1rem;">Want to Fill Your Schedule?</h2>
-  <p style="color:var(--gray);font-size:1rem;max-width:520px;margin:0 auto 2.5rem;line-height:1.7;">We help therapists and counselors get found online, set up online scheduling, and run Google Ads that bring in new clients. Schedule a free 30-minute call to hear exactly what we would do for your practice.</p>
-  <div style="background:white;border-radius:20px;padding:2.5rem;max-width:480px;margin:0 auto;border:2px solid var(--light-gray);">
-    <h3 style="font-size:1.2rem;color:var(--teal-dark);margin-bottom:0.5rem;">Book a Free Strategy Call</h3>
-    <p style="color:var(--gray);font-size:0.88rem;margin-bottom:1.5rem;">No commitment. Just a conversation about your practice.</p>
-    <a href="https://calendly.com/lucas-a1strategic/30min" target="_blank" class="btn-primary" style="width:100%;justify-content:center;">
-      Schedule Your Call
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-    </a>
-    <p style="text-align:center;margin-top:1rem;font-size:0.78rem;color:var(--gray);">30 minutes. No obligation.</p>
-  </div>
 </section>
 
 <!-- Footer -->
 <footer>
   <div class="logo">Illinois Valley <span>Counseling Services</span></div>
   <p style="margin-top:1.5rem;color:rgba(255,255,255,0.75);font-size:0.95rem;line-height:1.6;">
-    Hey Shawn and Cindy -- let us connect for 30 minutes to talk about what is possible and what the numbers look like. Looking forward to it.
+    New patients welcome. Request a call back and our office will reach out to get you scheduled.
   </p>
-  <div style="margin:2rem auto;max-width:420px;">
-    <a href="https://calendly.com/lucas-a1strategic/30min" target="_blank" class="btn-primary" style="justify-content:center;">
-      Book a Free 30-Minute Strategy Call
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-    </a>
-    <p style="color:rgba(255,255,255,0.4);font-size:0.75rem;margin-top:0.6rem;">No commitment. No obligation. Just a conversation.</p>
-  </div>
+  <p style="margin-top:1rem;"></p>
   <p>747 E Etna Rd, Ottawa, IL 61350 · (815) 993-1614</p>
   <p>Ottawa · Mendota · Morris</p>
 </footer>
@@ -453,6 +442,19 @@
     });
   }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
   reveals.forEach(r => io.observe(r));
+
+  // Callback form success state
+  const form = document.getElementById('callbackForm');
+  const success = document.getElementById('formSuccess');
+  if (form) {
+    form.addEventListener('submit', function() {
+      // Show success immediately, FormSubmit handles the email delivery in the background
+      setTimeout(function() {
+        form.style.display = 'none';
+        success.style.display = 'block';
+      }, 100);
+    });
+  }
 </script>
 </body>
 </html>
