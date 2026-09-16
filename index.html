@@ -5,6 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Illinois Valley Counseling Services - Request a Call Back</title>
   <meta name="description" content="Request a call back from Illinois Valley Counseling Services. New patients welcome in Ottawa and Mendota. Counseling for individuals, couples, and families.">
+  <!-- Google Analytics 4 (replace G-XXXXXXXXXX with the real Measurement ID) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
@@ -115,6 +123,14 @@
     .info-card p { font-size: 0.88rem; color: var(--gray); line-height: 1.6; }
     .info-card .phone-big { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--teal-dark); font-weight: 700; text-decoration: none; display: block; margin-top: 0.5rem; }
     .info-card .phone-big:hover { color: var(--teal); }
+
+    /* Floating action buttons - appear only while scrolling back up */
+    .fab { position: fixed; right: 1.2rem; z-index: 400; font-family: 'Inter', sans-serif; font-weight: 700; box-shadow: 0 8px 24px rgba(15,61,58,0.3); transition: opacity 0.3s, transform 0.3s; opacity: 0; pointer-events: none; transform: translateY(10px); }
+    .fab.show { opacity: 1; pointer-events: auto; transform: translateY(0); }
+    .fab-callback { bottom: 1.2rem; background: var(--amber); color: var(--teal-dark); padding: 0.9rem 1.5rem; border-radius: 50px; font-size: 0.92rem; display: flex; align-items: center; gap: 0.5rem; }
+    .fab-callback:hover { background: var(--amber-light); }
+    .fab-call { bottom: 5.4rem; background: var(--teal); color: white; padding: 0.9rem 1.5rem; border-radius: 50px; font-size: 0.92rem; display: flex; align-items: center; gap: 0.5rem; }
+    .fab-call:hover { background: var(--teal-light); }
     .locations { display: flex; flex-direction: column; gap: 0.5rem; }
     .location-item { display: flex; gap: 0.5rem; font-size: 0.85rem; color: var(--charcoal); }
     .location-item .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--teal); flex-shrink: 0; margin-top: 6px; }
@@ -206,12 +222,13 @@
     <h1>Talk to Someone <em>Today</em></h1>
     <p class="hero-sub">Individual, couples, and family counseling in Ottawa, Illinois. Fill out the form below and our office will call you back to find a time that works.</p>
     <div class="hero-buttons">
-      <a href="#book" class="btn-primary">
-        Request a Call Back
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      <a href="tel:18159931614" class="btn-primary" data-track="hero-call">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.22 1.14 2 2 0 012.21 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        Call (815) 993-1614
       </a>
-      <a href="tel:18159931614" class="btn-outline-white">Call Us Now</a>
+      <a href="#book" class="btn-outline-white" data-track="hero-callback">Request a Call Back</a>
     </div>
+    <p style="color:rgba(255,255,255,0.6);font-size:0.78rem;margin-top:1rem;">Call us during business hours (Mon-Fri 8 AM - 5 PM). After hours? Request a call back and we'll reach you.</p>
     <div class="hero-trust">
       <div class="trust-item">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="var(--amber)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
@@ -232,7 +249,7 @@
 <!-- Stats -->
 <div class="stats-bar">
   <div class="stats-inner">
-    <div><div class="stat-number">3</div><div class="stat-label">Locations</div></div>
+    <div><div class="stat-number">2</div><div class="stat-label">Locations</div></div>
     <div><div class="stat-number">23</div><div class="stat-label">Google Reviews</div></div>
     <div><div class="stat-number">4.3</div><div class="stat-label">Star Rating</div></div>
     <div><div class="stat-number">15+</div><div class="stat-label">Years Serving the Valley</div></div>
@@ -324,7 +341,7 @@
 
       <div class="info-card">
         <h4>Office Hours</h4>
-        <p>Monday through Friday: 9 AM to 5 PM<br>Appointments: 8 AM to 8 PM (evenings available)<br>Sunday: Closed</p>
+        <p>Monday through Friday: 8 AM to 5 PM<br>Appointments: 8 AM to 8 PM (evenings available)<br>Saturday appointments: 8 AM to 8 PM<br>Sunday: Closed</p>
       </div>
 
       <div class="insurance-note">
@@ -432,6 +449,16 @@
   <p>Ottawa · Mendota</p>
 </footer>
 
+<!-- Floating action buttons: appear only while scrolling back up -->
+<a href="tel:18159931614" class="fab fab-call" id="fabCall" data-track="fab-call">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.22 1.14 2 2 0 012.21 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+  Call (815) 993-1614
+</a>
+<a href="#book" class="fab fab-callback" id="fabCallback" data-track="fab-callback">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.22 1.14 2 2 0 012.21 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+  Request a Call Back
+</a>
+
 <script>
   // Scroll reveal
   const reveals = document.querySelectorAll('.reveal');
@@ -447,6 +474,10 @@
   const success = document.getElementById('formSuccess');
   if (form) {
     form.addEventListener('submit', function() {
+      // Fire conversion event for ad tracking
+      if (typeof gtag === 'function') {
+        gtag('event', 'generate_lead', { event_category: 'callback_request' });
+      }
       // Show success immediately, FormSubmit handles the email delivery in the background
       setTimeout(function() {
         form.style.display = 'none';
@@ -454,6 +485,38 @@
       }, 100);
     });
   }
+
+  // Track calls and callback clicks for attribution
+  document.querySelectorAll('[data-track]').forEach(function(el) {
+    el.addEventListener('click', function() {
+      if (typeof gtag === 'function') {
+        gtag('event', 'click', { event_category: 'engagement', event_label: el.getAttribute('data-track') });
+      }
+    });
+  });
+
+  // Floating actions: appear only while scrolling back up, hide on scroll down or pause
+  const fabCall = document.getElementById('fabCall');
+  const fabCallback = document.getElementById('fabCallback');
+  const fabs = [fabCall, fabCallback];
+  const showFabs = () => fabs.forEach(f => f && f.classList.add('show'));
+  const hideFabs = () => fabs.forEach(f => f && f.classList.remove('show'));
+  let lastScroll = window.pageYOffset || document.documentElement.scrollTop;
+  let hideTimer = null;
+  window.addEventListener('scroll', function() {
+    const y = window.pageYOffset || document.documentElement.scrollTop;
+    const scrollingUp = y < lastScroll;
+    if (scrollingUp && y > 300) {
+      showFabs();
+      clearTimeout(hideTimer);
+      hideTimer = setTimeout(hideFabs, 1200);
+    } else if (!scrollingUp && y > 300) {
+      hideFabs();
+    } else if (y <= 300) {
+      hideFabs();
+    }
+    lastScroll = y;
+  }, { passive: true });
 </script>
 </body>
 </html>

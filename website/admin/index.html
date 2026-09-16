@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IVCS Analytics Dashboard - Admin</title>
+  <meta name="robots" content="noindex, nofollow">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --teal: #1a5f5a;
+      --teal-light: #2d8a84;
+      --teal-dark: #0f3d3a;
+      --amber: #e8a84a;
+      --amber-light: #f4c97a;
+      --cream: #faf7f2;
+      --warm-white: #fffdf9;
+      --charcoal: #2c2c2c;
+      --gray: #6b6b6b;
+      --light-gray: #e8e4de;
+    }
+    body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--charcoal); line-height: 1.6; }
+    h1, h2, h3 { font-family: 'Playfair Display', serif; line-height: 1.2; }
+    header { background: var(--teal-dark); color: white; padding: 2.5rem 2rem; }
+    header .badge { display: inline-block; background: var(--amber); color: var(--teal-dark); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.3rem 0.9rem; border-radius: 50px; margin-bottom: 1rem; }
+    header h1 { font-size: 2rem; }
+    header p { color: rgba(255,255,255,0.6); font-size: 0.9rem; margin-top: 0.5rem; }
+    main { max-width: 1000px; margin: 0 auto; padding: 2rem; }
+    .alert { background: rgba(232,168,74,0.15); border: 1px solid rgba(232,168,74,0.4); border-radius: 12px; padding: 1rem 1.2rem; font-size: 0.88rem; margin-bottom: 2rem; color: var(--teal-dark); }
+    .alert strong { color: var(--teal-dark); }
+    .card { background: white; border: 1px solid var(--light-gray); border-radius: 14px; padding: 1.5rem; margin-bottom: 1.5rem; }
+    .card h2 { font-size: 1.2rem; color: var(--teal-dark); margin-bottom: 0.3rem; }
+    .card .sub { font-size: 0.85rem; color: var(--gray); margin-bottom: 1rem; }
+    .event-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+    .event-table th { text-align: left; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gray); padding: 0.5rem; border-bottom: 2px solid var(--light-gray); }
+    .event-table td { padding: 0.65rem 0.5rem; border-bottom: 1px solid var(--light-gray); vertical-align: top; }
+    .event-table code { background: var(--cream); padding: 0.15rem 0.4rem; border-radius: 6px; font-size: 0.8rem; color: var(--teal); }
+    .steps { counter-reset: step; padding: 0; list-style: none; }
+    .steps li { counter-increment: step; padding: 0.6rem 0 0.6rem 2.6rem; position: relative; font-size: 0.9rem; border-bottom: 1px solid var(--light-gray); }
+    .steps li:last-child { border-bottom: none; }
+    .steps li::before { content: counter(step); position: absolute; left: 0; top: 0.5rem; width: 1.8rem; height: 1.8rem; border-radius: 50%; background: var(--teal); color: white; font-size: 0.8rem; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+    .steps code { background: var(--cream); padding: 0.15rem 0.4rem; border-radius: 6px; font-size: 0.82rem; color: var(--teal); }
+    .kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 1rem; margin-bottom: 1.5rem; }
+    .kpi { background: white; border: 1px solid var(--light-gray); border-radius: 14px; padding: 1.2rem; text-align: center; }
+    .kpi .num { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: var(--teal); }
+    .kpi .label { font-size: 0.75rem; color: var(--gray); margin-top: 0.2rem; font-weight: 600; }
+    .kpi .note { font-size: 0.68rem; color: var(--gray); margin-top: 0.3rem; }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    @media (max-width: 700px) { .two-col { grid-template-columns: 1fr; } }
+    a.btn { display: inline-block; background: var(--teal); color: white; padding: 0.75rem 1.5rem; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 0.9rem; margin-top: 1rem; }
+    a.btn:hover { background: var(--teal-light); }
+    .ok { color: #2e8b57; font-weight: 600; }
+    .warn { color: #c7672a; font-weight: 600; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="badge">Admin Only</div>
+  <h1>IVCS Analytics Dashboard</h1>
+  <p>Track calls, callbacks, and website traffic - for Facebook/Google ads and beyond.</p>
+</header>
+
+<main>
+
+  <div class="alert">
+    <strong>Setup status:</strong> The analytics <em>code is installed</em> on both the landing page and the full website, and every call button + form submission is tagged as a conversion event. What's missing is <strong>your Google Analytics 4 property</strong>: create one (or share access) and paste its Measurement ID (format <code>G-XXXXXXXXXX</code>) in the <code>&lt;head&gt;</code> of the two pages. Do that and the numbers below become live automatically.
+  </div>
+
+  <div class="kpis">
+    <div class="kpi"><div class="num">--</div><div class="label">Calls (tap-to-call)</div><div class="note">Live after GA4 ID added</div></div>
+    <div class="kpi"><div class="num">--</div><div class="label">Callback Requests</div><div class="note">Form submissions</div></div>
+    <div class="kpi"><div class="num">--</div><div class="label">Site Visitors</div><div class="note">Sessions</div></div>
+    <div class="kpi"><div class="num">--</div><div class="label">Ad Conversions</div><div class="note">Google Ads linked</div></div>
+  </div>
+
+  <div class="card">
+    <h2>What We're Tracking</h2>
+    <p class="sub">These events fire automatically on the live pages. Each is eligible to be a "conversion" in Google Ads.</p>
+    <table class="event-table">
+      <tr><th>Event</th><th>Fires when</th><th>Where</th><th>Use for</th></tr>
+      <tr><td><code>click / hero-call</code></td><td>Someone taps the big "Call (815) 993-1614" button in the hero</td><td>Landing + Website</td><td>Phone call conversions from ads</td></tr>
+      <tr><td><code>click / fab-call</code></td><td>Someone taps the floating "Call Now" button</td><td>Landing + Website</td><td>Phone call conversions</td></tr>
+      <tr><td><code>click / hero-callback</code></td><td>Someone taps "Request a Call Back" in the hero</td><td>Landing + Website</td><td>Lead intent</td></tr>
+      <tr><td><code>click / fab-callback</code></td><td>Someone taps the floating "Request a Call Back" button</td><td>Landing + Website</td><td>Lead intent</td></tr>
+      <tr><td><code>generate_lead</code></td><td>The call-back form is submitted</td><td>Landing + Website</td><td><strong>Primary conversion</strong> for ad campaigns</td></tr>
+      <tr><td><code>page_view</code></td><td>Any page load</td><td>All pages</td><td>Traffic, ad landing performance</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>How to Go Live (5 minutes)</h2>
+    <ol class="steps">
+      <li>Go to <strong>analytics.google.com</strong> → create a new property (name: <em>IVCS Website</em>).</li>
+      <li>Copy the <strong>Measurement ID</strong> (starts with <code>G-</code>).</li>
+      <li>Send it to me (or paste it here) and I'll drop it into both pages. <strong>No code skills needed on your end.</strong></li>
+      <li>Optional: link the GA4 property to your Google Ads account so ad clicks show up as sessions and form fills become <strong>conversions</strong> you can optimize against.</li>
+      <li>Optional: connect the business phone number to a call-tracking line for exact call attribution per ad.</li>
+    </ol>
+  </div>
+
+  <div class="two-col">
+    <div class="card">
+      <h2>How to Read It</h2>
+      <p class="sub">In GA4, check these reports weekly:</p>
+      <table class="event-table">
+        <tr><td><strong>Realtime</strong></td><td>Live visitors + events right now</td></tr>
+        <tr><td><strong>Acquisition → Traffic</strong></td><td>Which ads/channels bring visits</td></tr>
+        <tr><td><strong>Events → generate_lead</strong></td><td>Callback request count</td></tr>
+        <tr><td><strong>Events → click</strong></td><td>Call-button taps</td></tr>
+        <tr><td><strong>Ads → Conversions</strong></td><td>What each ad actually costs per lead</td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <h2>Status Checklist</h2>
+      <table class="event-table">
+        <tr><td>GA4 code on website</td><td class="ok">Installed *</td></tr>
+        <tr><td>GA4 code on landing page</td><td class="ok">Installed *</td></tr>
+        <tr><td>Call button tracking</td><td class="ok">Active</td></tr>
+        <tr><td>Callback form conversion</td><td class="ok">Active</td></tr>
+        <tr><td>Real Measurement ID</td><td class="warn">Pending (from you)</td></tr>
+        <tr><td>Google Ads link</td><td class="warn">Not started</td></tr>
+        <tr><td>Call-tracking line</td><td class="warn">Optional</td></tr>
+      </table>
+      <p style="font-size:0.78rem;color:var(--gray);margin-top:0.8rem;">* Code present with placeholder ID - becomes live the moment the real ID replaces <code>G-XXXXXXXXXX</code>.</p>
+    </div>
+  </div>
+
+  <p style="text-align:center;font-size:0.8rem;color:var(--gray);margin-top:2rem;">Illinois Valley Counseling Services · Internal analytics page (not indexed)</p>
+
+</main>
+</body>
+</html>

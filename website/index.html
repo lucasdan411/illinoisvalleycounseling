@@ -10,7 +10,7 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="Illinois Valley Counseling Services – Change Is Possible">
   <meta property="og:description" content="Individual, couples, family, and adolescent therapy in Ottawa & Mendota, IL. Licensed therapists, most major insurance accepted. Change is possible - request a call back.">
-  <meta property="og:image" content="https://www.illinoisvalleycounseling.com/images/og-image.jpg">
+  <meta property="og:image" content="https://lucasdan411.github.io/illinoisvalleycounseling/website/images/og-image.jpg">
   <meta property="og:url" content="https://www.illinoisvalleycounseling.com/">
   <meta property="og:site_name" content="Illinois Valley Counseling Services">
   <meta property="og:locale" content="en_US">
@@ -18,13 +18,21 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Illinois Valley Counseling Services – Change Is Possible">
   <meta name="twitter:description" content="Licensed therapists in Ottawa & Mendota, IL. Individual, couples, family, and adolescent counseling. Most major insurance accepted.">
-  <meta name="twitter:image" content="https://www.illinoisvalleycounseling.com/images/og-image.jpg">
+  <meta name="twitter:image" content="https://lucasdan411.github.io/illinoisvalleycounseling/website/images/og-image.jpg">
   <!-- Geo / local SEO -->
   <meta name="geo.region" content="US-IL">
   <meta name="geo.placename" content="Ottawa">
   <meta name="geo.position" content="41.3489;-88.8421">
   <meta name="ICBM" content="41.3489, -88.8421">
   <meta name="robots" content="index, follow">
+  <!-- Google Analytics 4 (replace G-XXXXXXXXXX with the real Measurement ID) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
   <!-- JSON-LD: LocalBusiness / MedicalBusiness -->
   <script type="application/ld+json">
   {
@@ -35,7 +43,7 @@
     "description": "Licensed therapists providing individual, couples, family, and adolescent counseling in Ottawa and Mendota, IL. Specializing in anxiety, depression, trauma, substance use, and more. Change is possible.",
     "url": "https://www.illinoisvalleycounseling.com/",
     "telephone": "+1-815-993-1614",
-    "image": "https://www.illinoisvalleycounseling.com/images/og-image.jpg",
+    "image": "https://lucasdan411.github.io/illinoisvalleycounseling/website/images/og-image.jpg",
     "priceRange": "$$",
     "address": {
       "@type": "PostalAddress",
@@ -65,7 +73,7 @@
     },
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": "4.4",
+      "ratingValue": "4.3",
       "reviewCount": "23",
       "bestRating": "5"
     }
@@ -381,17 +389,19 @@
     .blog-card .read-more { font-size: 0.85rem; font-weight: 700; color: var(--teal); text-decoration: none; margin-top: 0.5rem; }
     .blog-card .read-more:hover { text-decoration: underline; }
 
-    /* Floating action buttons */
-    .fab { position: fixed; right: 1.2rem; z-index: 400; border: none; cursor: pointer; font-family: 'Inter', sans-serif; font-weight: 700; box-shadow: 0 8px 24px rgba(15,61,58,0.3); transition: all 0.3s; }
+    /* Floating action buttons - appear only while scrolling back up */
+    .fab { position: fixed; right: 1.2rem; z-index: 400; border: none; cursor: pointer; font-family: 'Inter', sans-serif; font-weight: 700; box-shadow: 0 8px 24px rgba(15,61,58,0.3); transition: opacity 0.3s, transform 0.3s; opacity: 0; pointer-events: none; transform: translateY(10px); }
+    .fab.show { opacity: 1; pointer-events: auto; transform: translateY(0); }
     .fab-callback { bottom: 1.2rem; background: var(--amber); color: var(--teal-dark); padding: 0.9rem 1.5rem; border-radius: 50px; font-size: 0.92rem; display: flex; align-items: center; gap: 0.5rem; }
-    .fab-callback:hover { background: var(--amber-light); transform: translateY(-2px); }
-    .fab-top { bottom: 5.2rem; background: var(--teal); color: white; width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transform: translateY(10px); }
-    .fab-top.show { opacity: 1; pointer-events: auto; transform: translateY(0); }
+    .fab-callback:hover { background: var(--amber-light); }
+    .fab-call { bottom: 5.4rem; background: var(--teal); color: white; padding: 0.9rem 1.5rem; border-radius: 50px; font-size: 0.92rem; display: flex; align-items: center; gap: 0.5rem; }
+    .fab-call:hover { background: var(--teal-light); }
+    .fab-top { bottom: 9.6rem; background: var(--teal); color: white; width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
     .fab-top:hover { background: var(--teal-dark); }
 
-    /* Highlight hamburger when scrolling up */
-    .hamburger.highlight { background: var(--teal); border-radius: 10px; padding: 0.45rem 0.5rem; }
-    .hamburger.highlight .bar { background: white; }
+    /* Hamburger: hidden by default; revealed only while scrolling back up (mobile) */
+    .hamburger { opacity: 0; visibility: hidden; transition: opacity 0.3s, visibility 0.3s; }
+    .hamburger.show { opacity: 1; visibility: visible; }
 
     /* Callback CTA */
     .callback-cta { padding: 5rem 2rem; text-align: center; }
@@ -477,16 +487,16 @@
     <h1>Change Is <em>Possible</em></h1>
     <p class="hero-sub">Whether you're struggling with anxiety, depression, trauma, or just feeling stuck - you don't have to carry it alone. Our licensed therapists are here to help you write a different story.</p>
     <div class="hero-buttons">
-      <a href="#contact" class="btn-primary">
-        Request a Call Back
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      <a href="tel:18159931614" class="btn-primary" data-track="hero-call">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.22 1.14 2 2 0 012.21 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        Call (815) 993-1614
       </a>
-      <a href="tel:18159931614" class="btn-outline-white">Call (815) 993-1614</a>
+      <a href="#contact" class="btn-outline-white" data-track="hero-callback">Request a Call Back</a>
     </div>
     <div class="hero-trust">
       <div class="trust-item">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="var(--amber)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        4.4 stars on Google
+        4.3 stars on Google
       </div>
       <div class="trust-item">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
@@ -538,7 +548,7 @@
     <div><div class="stat-number">15+</div><div class="stat-label">Years Serving the Valley</div></div>
     <div><div class="stat-number">6</div><div class="stat-label">Licensed Therapists</div></div>
     <div><div class="stat-number">2</div><div class="stat-label">Locations</div></div>
-    <div><div class="stat-number">4.4</div><div class="stat-label">Star Rating</div></div>
+    <div><div class="stat-number">4.3</div><div class="stat-label">Star Rating</div></div>
   </div>
 </div>
 
@@ -547,7 +557,7 @@
   <div class="services-inner">
     <div class="section-label">What We Offer</div>
     <h2>Therapy for Every Season of Life</h2>
-    <p>Individual, couples, family, and adolescent counseling - in person in Ottawa or Mendota, with most major insurance accepted.</p>
+    <p>Individual, couples, family, and adolescent counseling - in person in Ottawa or Mendota, with <a href="#insurance" style="color:var(--teal);font-weight:600;">most major insurance accepted</a>.</p>
     <div class="service-grid">
       <div class="service-card reveal">
         <div class="service-icon">
@@ -805,7 +815,7 @@
       </div>
     </div>
     <div class="review-footer">
-      <span class="review-rating-badge">4.4 ★</span>
+      <span class="review-rating-badge">4.3 ★</span>
       <span>Based on Google reviews. <a href="https://www.google.com/maps/search/Illinois+Valley+Counseling+Services+Ottawa+IL" target="_blank" rel="noopener">See all reviews on Google</a></span>
     </div>
   </div>
@@ -830,7 +840,7 @@
           Do you accept insurance?
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
         </button>
-        <div class="faq-answer"><div class="faq-answer-inner">Yes. We accept most major insurance plans including Aetna, Blue Cross Blue Shield, Cigna, Coventry, Health Alliance, Humana, Magellan, Medicare, Tricare/MHN, Multiplan/PHCS, Optum/UBH, and Value Options, plus many EAP (Employee Assistance Program) plans. Ask when we call you back and we'll verify your benefits before your first visit - at no charge.</div></div>
+        <div class="faq-answer"><div class="faq-answer-inner">Yes. We accept <a href="#insurance" style="color:var(--teal);font-weight:600;">most major insurance plans</a> including Aetna, Blue Cross Blue Shield, Cigna, Coventry, Health Alliance, Humana, Magellan, Medicare, Tricare/MHN, Multiplan/PHCS, Optum/UBH, and Value Options, plus many EAP (Employee Assistance Program) plans. Ask when we call you back and we'll verify your benefits before your first visit - at no charge.</div></div>
       </div>
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)">
@@ -942,12 +952,12 @@
       <div class="location-card reveal">
         <h3>Ottawa</h3>
         <p class="loc-addr">747 E Etna Rd, Ottawa, IL 61350</p>
-        <p class="loc-hours"><strong>Office hours:</strong><br>Mon–Fri 9 AM – 5 PM<br>Appointments 8 AM – 8 PM<br>Sat Appointments 8 AM – 8 PM<br>Sun Closed</p>
+        <p class="loc-hours"><strong>Office hours:</strong><br>Mon-Fri 8 AM - 5 PM<br>Appointments 8 AM - 8 PM<br>Sat Appointments 8 AM - 8 PM<br>Sun Closed</p>
       </div>
       <div class="location-card reveal">
         <h3>Mendota</h3>
         <p class="loc-addr">Mendota, IL</p>
-        <p class="loc-hours"><strong>Office hours:</strong><br>Mon–Fri 9 AM – 5 PM<br>Appointments 8 AM – 8 PM<br>Sat Appointments 8 AM – 8 PM<br>Sun Closed</p>
+        <p class="loc-hours"><strong>Office hours:</strong><br>Mon-Fri 8 AM - 5 PM<br>Appointments 8 AM - 8 PM<br>Sat Appointments 8 AM - 8 PM<br>Sun Closed</p>
       </div>
     </div>
   </div>
@@ -1066,7 +1076,7 @@
         <p>Thank you! Our office will call you back to schedule your appointment. If this is urgent, please call us directly at <strong>(815) 993-1614</strong>.</p>
       </div>
     </div>
-    <p style="margin-top:1.5rem;font-size:0.82rem;color:var(--gray);">Prefer to talk now? Call us at <a href="tel:18159931614" style="color:var(--teal);font-weight:600;text-decoration:none;">(815) 993-1614</a></p>
+    <p style="margin-top:1.5rem;font-size:0.82rem;color:var(--gray);">Prefer to talk now? Call us at <a href="tel:18159931614" style="color:var(--teal);font-weight:600;text-decoration:none;">(815) 993-1614</a> - we answer during business hours (Mon-Fri 8 AM - 5 PM).</p>
   </div>
 </section>
 
@@ -1083,7 +1093,11 @@
 <button class="fab fab-top" id="fabTop" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
 </button>
-<a href="#contact" class="fab fab-callback" id="fabCallback">
+<a href="tel:18159931614" class="fab fab-call" id="fabCall" data-track="fab-call">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.22 1.14 2 2 0 012.21 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+  Call Now
+</a>
+<a href="#contact" class="fab fab-callback" id="fabCallback" data-track="fab-callback">
   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.22 1.14 2 2 0 012.21 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
   Request a Call Back
 </a>
@@ -1125,18 +1139,27 @@
     });
   }
 
-  // Back to top + hamburger highlight on scroll up
+  // Floating controls: appear only while scrolling back up, hide on scroll down or pause
   const fabTop = document.getElementById('fabTop');
+  const fabCall = document.getElementById('fabCall');
+  const fabCallback = document.getElementById('fabCallback');
+  const fabs = [fabTop, fabCall, fabCallback, hamburger];
+  const showFabs = () => fabs.forEach(f => f && f.classList.add('show'));
+  const hideFabs = () => fabs.forEach(f => f && f.classList.remove('show'));
   let lastScroll = window.pageYOffset || document.documentElement.scrollTop;
+  let hideTimer = null;
   window.addEventListener('scroll', function() {
     const y = window.pageYOffset || document.documentElement.scrollTop;
-    if (y > 400) {
-      fabTop.classList.add('show');
-      if (y < lastScroll) hamburger.classList.add('highlight');
-      else hamburger.classList.remove('highlight');
-    } else {
-      fabTop.classList.remove('show');
-      hamburger.classList.remove('highlight');
+    const scrollingUp = y < lastScroll;
+    if (scrollingUp && y > 300) {
+      showFabs();
+      // start a small grace period; if user pauses, hide
+      clearTimeout(hideTimer);
+      hideTimer = setTimeout(hideFabs, 1200);
+    } else if (!scrollingUp && y > 300) {
+      hideFabs();
+    } else if (y <= 300) {
+      hideFabs();
     }
     lastScroll = y;
   }, { passive: true });
@@ -1177,6 +1200,22 @@
     });
     item.classList.toggle('open', !isOpen);
     answer.style.maxHeight = isOpen ? null : answer.scrollHeight + 'px';
+  }
+
+  // Ad tracking: record call clicks and callback requests as conversion events
+  document.querySelectorAll('[data-track]').forEach(function(el) {
+    el.addEventListener('click', function() {
+      if (typeof gtag === 'function') {
+        gtag('event', 'click', { event_category: 'engagement', event_label: el.getAttribute('data-track') });
+      }
+    });
+  });
+  if (form) {
+    form.addEventListener('submit', function() {
+      if (typeof gtag === 'function') {
+        gtag('event', 'generate_lead', { event_category: 'callback_request' });
+      }
+    });
   }
 </script>
 </body>
