@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Illinois Valley Counseling Services – Change Is Possible | Ottawa & Mendota, IL</title>
-  <meta name="description" content="Illinois Valley Counseling Services helps people with mental health and substance abuse issues. Individual, couples, and family therapy in Ottawa and Mendota, IL. Change is possible — request a call back today.">
+  <meta name="description" content="Illinois Valley Counseling Services helps people with mental health and substance abuse issues. Individual, couples, and family therapy in Ottawa and Mendota, IL. Change is possible - request a call back today.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
@@ -121,6 +121,15 @@
     .service-icon { width: 52px; height: 52px; border-radius: 14px; background: linear-gradient(135deg, var(--teal), var(--teal-light)); display: flex; align-items: center; justify-content: center; margin-bottom: 1.2rem; }
     .service-card h3 { font-size: 1.15rem; color: var(--teal-dark); margin-bottom: 0.5rem; font-family: 'Inter', sans-serif; font-weight: 600; }
     .service-card p { font-size: 0.88rem; color: var(--gray); line-height: 1.65; }
+    .more-btn { display: inline-flex; align-items: center; gap: 0.5rem; margin: 2rem auto 0; background: transparent; border: 2px solid var(--teal); color: var(--teal); font-weight: 700; font-size: 0.9rem; padding: 0.7rem 1.8rem; border-radius: 50px; cursor: pointer; transition: all 0.2s; font-family: 'Inter', sans-serif; }
+    .more-btn:hover { background: var(--teal); color: white; }
+    .more-btn.open svg { transform: rotate(180deg); }
+    .more-btn svg { transition: transform 0.3s; }
+    .more-services { display: none; margin-top: 2rem; }
+    .more-services.open { display: block; }
+    .more-services .service-grid { margin-top: 0; }
+    .services-inner { text-align: center; }
+    .service-grid { text-align: left; }
 
     /* Therapists */
     .therapists { background: white; padding: 5rem 2rem; }
@@ -159,6 +168,8 @@
     .insurance p { color: var(--gray); font-size: 0.92rem; line-height: 1.7; margin-bottom: 1.8rem; }
     .insurance-logos { display: flex; gap: 0.6rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1.5rem; }
     .insurance-logo { background: var(--cream); padding: 0.5rem 0.95rem; border-radius: 8px; font-size: 0.76rem; font-weight: 600; color: var(--gray); border: 1px solid var(--light-gray); }
+    .cash-note { background: rgba(232,168,74,0.12); border: 1px solid rgba(232,168,74,0.35); border-radius: 12px; padding: 1rem 1.2rem; margin-top: 1.5rem; font-size: 0.88rem; color: var(--teal-dark); }
+    .cash-note strong { color: var(--teal-dark); }
 
     /* Testimonial */
     .testimonial { background: var(--teal-dark); padding: 4.5rem 2rem; text-align: center; }
@@ -167,6 +178,35 @@
     .testimonial blockquote::before { content: '"'; color: var(--amber); }
     .testimonial blockquote::after { content: '"'; color: var(--amber); }
     .testimonial .attr { color: rgba(255,255,255,0.45); font-size: 0.82rem; }
+
+    /* Reviews */
+    .reviews { background: var(--warm-white); padding: 5rem 2rem; }
+    .reviews-inner { max-width: 960px; margin: 0 auto; }
+    .reviews h2 { text-align: center; font-size: clamp(1.8rem, 3.5vw, 2.6rem); color: var(--teal-dark); margin-bottom: 0.5rem; }
+    .reviews > p { text-align: center; color: var(--gray); margin-bottom: 2.5rem; }
+    .review-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+    .review-card { background: white; border-radius: 14px; border: 1px solid var(--light-gray); padding: 1.8rem; box-shadow: 0 4px 16px rgba(26,95,90,0.05); }
+    .review-stars { color: var(--amber); font-size: 1rem; letter-spacing: 3px; margin-bottom: 0.8rem; }
+    .review-text { font-size: 0.92rem; color: var(--charcoal); line-height: 1.7; margin-bottom: 1rem; font-style: italic; }
+    .review-author { font-weight: 700; font-size: 0.88rem; color: var(--teal-dark); }
+    .review-source { display: flex; align-items: center; gap: 0.4rem; font-size: 0.78rem; color: var(--gray); margin-top: 0.3rem; }
+    .g-badge { width: 18px; height: 18px; border-radius: 50%; background: #4285F4; color: white; display: inline-flex; align-items: center; justify-content: center; font-size: 0.68rem; font-weight: 700; }
+    .review-footer { display: flex; align-items: center; justify-content: center; gap: 0.8rem; margin-top: 2.5rem; font-size: 0.88rem; color: var(--gray); }
+    .review-footer a { color: var(--teal); font-weight: 600; text-decoration: none; }
+    .review-footer a:hover { text-decoration: underline; }
+    .review-rating-badge { background: var(--teal); color: white; font-weight: 700; padding: 0.35rem 0.9rem; border-radius: 50px; font-size: 0.9rem; }
+
+    /* Floating action buttons */
+    .fab { position: fixed; right: 1.2rem; z-index: 400; border: none; cursor: pointer; font-family: 'Inter', sans-serif; font-weight: 700; box-shadow: 0 8px 24px rgba(15,61,58,0.3); transition: all 0.3s; }
+    .fab-callback { bottom: 1.2rem; background: var(--amber); color: var(--teal-dark); padding: 0.9rem 1.5rem; border-radius: 50px; font-size: 0.92rem; display: flex; align-items: center; gap: 0.5rem; }
+    .fab-callback:hover { background: var(--amber-light); transform: translateY(-2px); }
+    .fab-top { bottom: 5.2rem; background: var(--teal); color: white; width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transform: translateY(10px); }
+    .fab-top.show { opacity: 1; pointer-events: auto; transform: translateY(0); }
+    .fab-top:hover { background: var(--teal-dark); }
+
+    /* Highlight hamburger when scrolling up */
+    .hamburger.highlight { background: var(--teal); border-radius: 10px; padding: 0.45rem 0.5rem; }
+    .hamburger.highlight .bar { background: white; }
 
     /* Callback CTA */
     .callback-cta { padding: 5rem 2rem; text-align: center; }
@@ -248,7 +288,7 @@
   <div class="hero-inner">
     <div class="hero-badge">Ottawa & Mendota, IL</div>
     <h1>Change Is <em>Possible</em></h1>
-    <p class="hero-sub">Whether you're struggling with anxiety, depression, trauma, or just feeling stuck — you don't have to carry it alone. Our licensed therapists are here to help you write a different story.</p>
+    <p class="hero-sub">Whether you're struggling with anxiety, depression, trauma, or just feeling stuck - you don't have to carry it alone. Our licensed therapists are here to help you write a different story.</p>
     <div class="hero-buttons">
       <a href="#contact" class="btn-primary">
         Request a Call Back
@@ -278,28 +318,28 @@
   <div class="change-section-inner">
     <div class="section-label">Why We're Here</div>
     <h2>Whatever You're Facing, You Can Get Through It</h2>
-    <p>For over 50 years, Illinois Valley Counseling Services has helped people in the Illinois Valley find their way through life's hardest moments. You don't have to have it all figured out. You just have to take the first step — and we'll walk the rest with you.</p>
+    <p>For over 15 years, Illinois Valley Counseling Services has helped people in the Illinois Valley find their way through life's hardest moments. You don't have to have it all figured out. You just have to take the first step - and we'll walk the rest with you.</p>
     <div class="change-pillars">
       <div class="pillar reveal">
         <div class="pillar-icon">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2"><path d="M12 21s-7-4.35-9.5-8.5C.5 9 2 5.5 5.5 5.5c2 0 3.5 1.2 4.5 3 1-1.8 2.5-3 4.5-3 3.5 0 5 3.5 3.5 7C18 16.65 12 21 12 21z"/></svg>
         </div>
         <h3>You're Not Alone</h3>
-        <p>Anxiety, depression, grief, relationship struggles — millions of people face exactly what you're facing. Feeling this way doesn't make you broken.</p>
+        <p>Anxiety, depression, grief, relationship struggles - millions of people face exactly what you're facing. Feeling this way doesn't make you broken.</p>
       </div>
       <div class="pillar reveal">
         <div class="pillar-icon">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.1-6.2-4.5-6.2 4.5 2.4-7.1L2 9.4h7.6z"/></svg>
         </div>
         <h3>Help That Works</h3>
-        <p>Our therapists use proven, evidence-based approaches — CBT, DBT, trauma-focused therapy — tailored to your unique needs and goals.</p>
+        <p>Our therapists use proven, evidence-based approaches - CBT, DBT, trauma-focused therapy - tailored to your unique needs and goals.</p>
       </div>
       <div class="pillar reveal">
         <div class="pillar-icon">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
         </div>
         <h3>Recovery Is Real</h3>
-        <p>We've watched thousands of clients go from "I can't do this" to "I did it." Lasting change doesn't happen overnight — but it happens.</p>
+        <p>We've watched thousands of clients go from "I can't do this" to "I did it." Lasting change doesn't happen overnight - but it happens.</p>
       </div>
     </div>
   </div>
@@ -308,7 +348,7 @@
 <!-- Stats -->
 <div class="stats-bar">
   <div class="stats-inner">
-    <div><div class="stat-number">50+</div><div class="stat-label">Years Serving the Valley</div></div>
+    <div><div class="stat-number">15+</div><div class="stat-label">Years Serving the Valley</div></div>
     <div><div class="stat-number">6</div><div class="stat-label">Licensed Therapists</div></div>
     <div><div class="stat-number">2</div><div class="stat-label">Locations</div></div>
     <div><div class="stat-number">4.3</div><div class="stat-label">Star Rating</div></div>
@@ -320,7 +360,7 @@
   <div class="services-inner">
     <div class="section-label">What We Offer</div>
     <h2>Therapy for Every Season of Life</h2>
-    <p>Individual, couples, family, and adolescent counseling — in person in Ottawa or Mendota, with most major insurance accepted.</p>
+    <p>Individual, couples, family, and adolescent counseling - in person in Ottawa or Mendota, with most major insurance accepted.</p>
     <div class="service-grid">
       <div class="service-card reveal">
         <div class="service-icon">
@@ -359,10 +399,67 @@
       </div>
       <div class="service-card reveal">
         <div class="service-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 2a10 10 0 010 20z"/><path d="M12 6v6l4 2"/></svg>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.22 1.14 2 2 0 012.21 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
         </div>
-        <h3>Substance Use Support</h3>
-        <p>Compassionate, judgment-free support for you or someone you love navigating addiction and recovery.</p>
+        <h3>Phone Therapy</h3>
+        <p>Talk with your therapist over the phone from anywhere. Same quality care, no commute, no waiting room. Perfect for busy schedules.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg>
+        </div>
+        <h3>Tele-Therapy (Video)</h3>
+        <p>Meet with your therapist securely from home via video. Same licensed care, face to face, without the drive.</p>
+      </div>
+    </div>
+    <button class="more-btn" id="moreServicesBtn" onclick="toggleMoreServices()">
+      More Services
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+    </button>
+    <div class="more-services" id="moreServices">
+      <div class="service-grid">
+        <div class="service-card reveal">
+          <div class="service-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <h3>Grief & Loss Counseling</h3>
+          <p>Compassionate support through loss, whether recent or long ago. Find a way to carry it and keep living.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+          </div>
+          <h3>Group Therapy</h3>
+          <p>Connect with others facing similar challenges in a supportive, professionally guided group setting.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+          </div>
+          <h3>Veterans & Military Support</h3>
+          <p>Specialized support for the men and women who served, including trauma-informed care for PTSD.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <h3>Older Adult Counseling</h3>
+          <p>Support for life transitions, grief, depression, dementia-related challenges, and family caregivers.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+          </div>
+          <h3>Stress Management</h3>
+          <p>Practical tools and support for burnout, workplace stress, and the pressure of everyday life.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.66 0 3-4.03 3-9s-1.34-9-3-9m0 18c-1.66 0-3-4.03-3-9s1.34-9 3-9"/></svg>
+          </div>
+          <h3>Substance Use & Recovery</h3>
+          <p>Judgment-free support for addiction, relapse prevention, and supporting a loved one in recovery.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -393,7 +490,7 @@
       </div>
 
       <div class="therapist-card reveal">
-        <div class="therapist-photo-wrap"><div class="initials">LK</div></div>
+        <div class="therapist-photo-wrap"><img src="../images/portraits/scraped/laura-kula.jpg" alt="Laura Kula"></div>
         <h3>Laura Kula</h3>
         <div class="credentials">LCSW</div>
         <div class="role">Licensed Clinical Social Worker</div>
@@ -409,7 +506,7 @@
       </div>
 
       <div class="therapist-card reveal">
-        <div class="therapist-photo-wrap"><div class="initials">KR</div></div>
+        <div class="therapist-photo-wrap"><img src="../images/portraits/scraped/kara-redshaw.jpg" alt="Kara Redshaw"></div>
         <h3>Kara Redshaw</h3>
         <div class="credentials">LCSW</div>
         <div class="role">Licensed Clinical Social Worker</div>
@@ -423,7 +520,7 @@
       </div>
 
       <div class="therapist-card reveal">
-        <div class="therapist-photo-wrap"><div class="initials">TM</div></div>
+        <div class="therapist-photo-wrap"><img src="../images/portraits/scraped/teresa-macdavitt.jpg" alt="Teresa MacDavitt"></div>
         <h3>Teresa MacDavitt</h3>
         <div class="credentials">LCPC</div>
         <div class="role">Licensed Clinical Professional Counselor</div>
@@ -438,7 +535,7 @@
       </div>
 
       <div class="therapist-card reveal">
-        <div class="therapist-photo-wrap"><div class="initials">DM</div></div>
+        <div class="therapist-photo-wrap"><img src="../images/portraits/scraped/dawn-mccollom.jpg" alt="Dawn McCollom"></div>
         <h3>Dawn McCollom</h3>
         <div class="credentials">LCSW</div>
         <div class="role">Licensed Clinical Social Worker</div>
@@ -452,7 +549,7 @@
       </div>
 
       <div class="therapist-card reveal">
-        <div class="therapist-photo-wrap"><div class="initials">JK</div></div>
+        <div class="therapist-photo-wrap"><img src="../images/portraits/scraped/josie-klass.jpg" alt="Josie Klass"></div>
         <h3>Josie Klass</h3>
         <div class="credentials">LCSW</div>
         <div class="role">Licensed Clinical Social Worker</div>
@@ -466,7 +563,7 @@
       </div>
 
       <div class="therapist-card reveal">
-        <div class="therapist-photo-wrap"><div class="initials">VK</div></div>
+        <div class="therapist-photo-wrap"><img src="../images/portraits/scraped/vaughn-klaassen.jpg" alt="Vaughn Klaassen"></div>
         <h3>Vaughn Klaassen</h3>
         <div class="credentials">LCPC</div>
         <div class="role">Licensed Clinical Professional Counselor</div>
@@ -500,6 +597,33 @@
   </div>
 </section>
 
+<!-- Reviews -->
+<section class="reviews" id="reviews">
+  <div class="reviews-inner">
+    <div class="section-label">Real Reviews</div>
+    <h2>What Our Clients Say</h2>
+    <p>Unedited reviews from Google and across the web.</p>
+    <div class="review-grid">
+      <div class="review-card reveal">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">Helpful, compassionate and caring - I feel like my counselor truly cares about me and has done a great job of actually getting to know me versus providing me with the prefabricated responses I have received in the past. I highly recommend them.</p>
+        <div class="review-author">Ashley</div>
+        <div class="review-source"><span class="g-badge">G</span> Google Review</div>
+      </div>
+      <div class="review-card reveal">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">My counselor is the best. Been with her awhile now. Honest with me, very open and caring.</p>
+        <div class="review-author">Bobbi V.</div>
+        <div class="review-source"><span class="g-badge">G</span> Google Review</div>
+      </div>
+    </div>
+    <div class="review-footer">
+      <span class="review-rating-badge">4.4 ★</span>
+      <span>Based on Google reviews. <a href="https://www.google.com/maps/search/Illinois+Valley+Counseling+Services+Ottawa+IL" target="_blank" rel="noopener">See all reviews on Google</a></span>
+    </div>
+  </div>
+</section>
+
 <!-- Locations -->
 <section class="locations" id="locations">
   <div class="locations-inner">
@@ -510,12 +634,12 @@
       <div class="location-card reveal">
         <h3>Ottawa</h3>
         <p class="loc-addr">747 E Etna Rd, Ottawa, IL 61350</p>
-        <p class="loc-hours"><strong>Office hours:</strong><br>Mon–Fri 8 AM – 9 PM<br>Sat 8 AM – 8 PM<br>Sun Closed</p>
+        <p class="loc-hours"><strong>Office hours:</strong><br>Mon–Fri 9 AM – 5 PM<br>Appointments 8 AM – 8 PM<br>Sun Closed</p>
       </div>
       <div class="location-card reveal">
         <h3>Mendota</h3>
         <p class="loc-addr">Mendota, IL</p>
-        <p class="loc-hours"><strong>Office hours:</strong><br>Mon–Fri 8 AM – 9 PM<br>Sat 8 AM – 8 PM<br>Sun Closed</p>
+        <p class="loc-hours"><strong>Office hours:</strong><br>Mon–Fri 9 AM – 5 PM<br>Appointments 8 AM – 8 PM<br>Sun Closed</p>
       </div>
     </div>
   </div>
@@ -526,30 +650,53 @@
   <div class="insurance-inner">
     <div class="section-label">Insurance</div>
     <h2>We Accept Most Major Insurance</h2>
-    <p>Not sure if we take your plan? Ask when we call you back and we'll verify your benefits before your first visit — at no charge. No surprise bills.</p>
+    <p>Not sure if we take your plan? Ask when we call you back and we'll verify your benefits before your first visit - at no charge. No surprise bills.</p>
     <div class="insurance-logos">
       <div class="insurance-logo">Aetna</div>
       <div class="insurance-logo">Blue Cross Blue Shield</div>
       <div class="insurance-logo">Cigna</div>
-      <div class="insurance-logo">Coventry</div>
-      <div class="insurance-logo">Health Alliance</div>
-      <div class="insurance-logo">Humana</div>
-      <div class="insurance-logo">Magellan</div>
       <div class="insurance-logo">Medicare</div>
-      <div class="insurance-logo">Multiplan / PHCS</div>
+      <div class="insurance-logo">Humana</div>
       <div class="insurance-logo">Tricare / MHN</div>
-      <div class="insurance-logo">Optum / UBH</div>
-      <div class="insurance-logo">Value Options</div>
     </div>
-    <p style="font-size:0.75rem;color:var(--gray);">Plus many EAP (Employee Assistance Program) plans. List is subject to change and may vary by provider.</p>
+    <button class="more-btn" id="moreInsuranceBtn" onclick="toggleMoreInsurance()" style="margin-top:0;">
+      See All Insurance & EAP Plans
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+    </button>
+    <div class="more-services" id="moreInsurance">
+      <div class="insurance-logos" style="margin-top:1.5rem;">
+        <div class="insurance-logo">BDA / Morneau Shepell EAP</div>
+        <div class="insurance-logo">Blue Cross Blue Shield PPO</div>
+        <div class="insurance-logo">Blue Cross Blue Shield Blue Choice</div>
+        <div class="insurance-logo">Cadence Health EAP</div>
+        <div class="insurance-logo">Caterpillar (CAT)</div>
+        <div class="insurance-logo">Charles Nechtem EAP</div>
+        <div class="insurance-logo">Chestnut EAP</div>
+        <div class="insurance-logo">ComPsych</div>
+        <div class="insurance-logo">Coventry Health Care</div>
+        <div class="insurance-logo">ERS EAP</div>
+        <div class="insurance-logo">Health Advocate EAP</div>
+        <div class="insurance-logo">Health Alliance</div>
+        <div class="insurance-logo">Magellan</div>
+        <div class="insurance-logo">Multiplan / PHCS</div>
+        <div class="insurance-logo">Optum / UBH</div>
+        <div class="insurance-logo">Perspectives EAP</div>
+        <div class="insurance-logo">Value Options</div>
+        <div class="insurance-logo">Value Options EAP</div>
+      </div>
+    </div>
+    <p style="font-size:0.75rem;color:var(--gray);margin-top:1rem;">Plus many EAP (Employee Assistance Program) plans. An EAP is a counseling benefit offered by many employers. List is subject to change and may vary by provider.</p>
+    <div class="cash-note">
+      <strong>Paying out of pocket?</strong> Ask for our cash rate when we call you back. Self-pay pricing can be lower than the standard fee schedule.
+    </div>
   </div>
 </section>
 
 <!-- Testimonial -->
 <section class="testimonial">
   <div class="stars">★★★★★</div>
-  <blockquote>I highly recommend this place! The staff made it so easy to schedule an appointment. They called me back quickly and got me in fast.</blockquote>
-  <div class="attr">★★★★★ · Google Review, Ottawa IL</div>
+  <blockquote>Helpful, compassionate and caring - I feel like my counselor truly cares about me and has done a great job of actually getting to know me versus providing me with the prefabricated responses I have received in the past.</blockquote>
+  <div class="attr">Ashley · Google Review</div>
 </section>
 
 <!-- Callback CTA -->
@@ -623,6 +770,15 @@
   <p style="margin-top:1.5rem;">© <span id="year"></span> Illinois Valley Counseling Services. All rights reserved.</p>
 </footer>
 
+<!-- Floating buttons -->
+<button class="fab fab-top" id="fabTop" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+<a href="#contact" class="fab fab-callback" id="fabCallback">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.22 1.14 2 2 0 012.21 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+  Request a Call Back
+</a>
+
 <script>
   // Scroll reveal
   const reveals = document.querySelectorAll('.reveal');
@@ -658,6 +814,44 @@
         success.style.display = 'block';
       }, 100);
     });
+  }
+
+  // Back to top + hamburger highlight on scroll up
+  const fabTop = document.getElementById('fabTop');
+  let lastScroll = window.pageYOffset || document.documentElement.scrollTop;
+  window.addEventListener('scroll', function() {
+    const y = window.pageYOffset || document.documentElement.scrollTop;
+    if (y > 400) {
+      fabTop.classList.add('show');
+      if (y < lastScroll) hamburger.classList.add('highlight');
+      else hamburger.classList.remove('highlight');
+    } else {
+      fabTop.classList.remove('show');
+      hamburger.classList.remove('highlight');
+    }
+    lastScroll = y;
+  }, { passive: true });
+
+  // Toggle more services
+  function toggleMoreServices() {
+    const el = document.getElementById('moreServices');
+    const btn = document.getElementById('moreServicesBtn');
+    el.classList.toggle('open');
+    btn.classList.toggle('open');
+    btn.innerHTML = el.classList.contains('open')
+      ? 'Show Less <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg>'
+      : 'More Services <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>';
+  }
+
+  // Toggle more insurance
+  function toggleMoreInsurance() {
+    const el = document.getElementById('moreInsurance');
+    const btn = document.getElementById('moreInsuranceBtn');
+    el.classList.toggle('open');
+    btn.classList.toggle('open');
+    btn.innerHTML = el.classList.contains('open')
+      ? 'Show Less <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg>'
+      : 'See All Insurance & EAP Plans <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>';
   }
 </script>
 </body>
