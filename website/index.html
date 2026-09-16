@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Illinois Valley Counseling Services – Change Is Possible | Ottawa & Mendota, IL</title>
+  <meta name="description" content="Illinois Valley Counseling Services helps people with mental health and substance abuse issues. Individual, couples, and family therapy in Ottawa and Mendota, IL. Change is possible — request a call back today.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --teal: #1a5f5a;
+      --teal-light: #2d8a84;
+      --teal-dark: #0f3d3a;
+      --amber: #e8a84a;
+      --amber-light: #f4c97a;
+      --cream: #faf7f2;
+      --warm-white: #fffdf9;
+      --charcoal: #2c2c2c;
+      --gray: #6b6b6b;
+      --light-gray: #e8e4de;
+      --success: #3a9e6a;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--charcoal); line-height: 1.65; }
+    h1, h2, h3, h4 { font-family: 'Playfair Display', serif; line-height: 1.2; }
+
+    /* Top bar */
+    .topbar { background: var(--teal-dark); color: white; text-align: center; padding: 0.6rem 1rem; font-size: 0.8rem; font-weight: 500; }
+    .topbar strong { color: var(--amber-light); }
+
+    /* Nav */
+    nav { background: white; border-bottom: 1px solid var(--light-gray); padding: 0 1.5rem; position: sticky; top: 0; z-index: 200; }
+    nav .inner { max-width: 1120px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 68px; }
+    .logo { font-family: 'Playfair Display', serif; font-size: 0.98rem; font-weight: 700; color: var(--teal); text-decoration: none; line-height: 1.15; }
+    .logo span { color: var(--amber); }
+    .nav-links { display: flex; align-items: center; gap: 1.6rem; }
+    .nav-links a { color: var(--charcoal); text-decoration: none; font-size: 0.88rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--teal); }
+    .nav-cta { background: var(--teal); color: white !important; padding: 0.55rem 1.3rem; border-radius: 50px; font-weight: 600 !important; font-size: 0.85rem !important; transition: background 0.2s; }
+    .nav-cta:hover { background: var(--teal-dark); }
+    .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 0.4rem; }
+    .hamburger .bar { display: block; width: 24px; height: 2.5px; background: var(--teal-dark); margin: 5px 0; border-radius: 2px; transition: all 0.3s; }
+    .mobile-menu { display: none; position: fixed; top: 0; right: 0; bottom: 0; width: 78%; max-width: 340px; background: white; z-index: 300; box-shadow: -8px 0 30px rgba(0,0,0,0.15); padding: 2rem 1.8rem; flex-direction: column; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu .close-btn { align-self: flex-end; background: none; border: none; font-size: 1.6rem; color: var(--gray); cursor: pointer; line-height: 1; }
+    .mobile-menu a { color: var(--charcoal); text-decoration: none; font-size: 1.02rem; font-weight: 500; padding: 0.8rem 0; border-bottom: 1px solid var(--light-gray); }
+    .mobile-menu a.nav-cta { border-bottom: none; margin-top: 0.8rem; text-align: center; color: white; }
+    .menu-overlay { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(15,61,58,0.5); z-index: 250; }
+    .menu-overlay.open { display: block; }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(160deg, var(--teal-dark) 0%, var(--teal) 55%, var(--teal-light) 100%);
+      padding: 5rem 2rem 6rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 520px;
+      height: 520px;
+      background: radial-gradient(circle, rgba(232,168,74,0.16) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -120px;
+      left: -120px;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .hero-inner { max-width: 780px; margin: 0 auto; position: relative; z-index: 2; }
+    .hero-badge { display: inline-block; background: rgba(255,255,255,0.12); color: var(--amber-light); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.4rem 1.1rem; border-radius: 50px; margin-bottom: 1.4rem; border: 1px solid rgba(255,255,255,0.18); }
+    .hero h1 { font-size: clamp(2.2rem, 5vw, 3.6rem); color: white; margin-bottom: 1.2rem; }
+    .hero h1 em { font-style: normal; color: var(--amber-light); }
+    .hero-sub { color: rgba(255,255,255,0.8); font-size: 1.08rem; max-width: 560px; margin: 0 auto 2.2rem; font-weight: 300; line-height: 1.75; }
+    .hero-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn-primary { background: var(--amber); color: var(--teal-dark); padding: 0.85rem 2rem; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 0.95rem; transition: all 0.25s; display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 0 6px 24px rgba(232,168,74,0.35); border: none; cursor: pointer; font-family: 'Inter', sans-serif; }
+    .btn-primary:hover { background: var(--amber-light); transform: translateY(-2px); box-shadow: 0 10px 32px rgba(232,168,74,0.4); }
+    .btn-outline-white { background: transparent; color: white; padding: 0.85rem 2rem; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 0.95rem; border: 2px solid rgba(255,255,255,0.35); transition: all 0.25s; cursor: pointer; display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'Inter', sans-serif; }
+    .btn-outline-white:hover { border-color: white; background: rgba(255,255,255,0.1); transform: translateY(-2px); }
+    .hero-trust { margin-top: 2rem; display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; }
+    .trust-item { display: flex; align-items: center; gap: 0.5rem; color: rgba(255,255,255,0.65); font-size: 0.8rem; }
+
+    /* Change is Possible section */
+    .change-section { background: var(--warm-white); padding: 5rem 2rem; text-align: center; }
+    .change-section-inner { max-width: 720px; margin: 0 auto; }
+    .section-label { color: var(--amber); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.75rem; }
+    .change-section h2 { font-size: clamp(1.8rem, 3.5vw, 2.6rem); color: var(--teal-dark); margin-bottom: 1.2rem; }
+    .change-section > p { color: var(--gray); font-size: 1rem; line-height: 1.8; max-width: 600px; margin: 0 auto 2.5rem; }
+    .change-pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+    .pillar { background: white; border-radius: 14px; border: 1px solid var(--light-gray); padding: 1.8rem 1.4rem; transition: all 0.25s; }
+    .pillar:hover { border-color: var(--teal-light); box-shadow: 0 8px 30px rgba(26,95,90,0.08); transform: translateY(-3px); }
+    .pillar-icon { width: 48px; height: 48px; border-radius: 12px; background: rgba(26,95,90,0.08); display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; }
+    .pillar h3 { font-size: 1.05rem; color: var(--teal-dark); margin-bottom: 0.4rem; font-family: 'Inter', sans-serif; font-weight: 600; }
+    .pillar p { font-size: 0.85rem; color: var(--gray); line-height: 1.6; }
+
+    /* Stats */
+    .stats-bar { background: white; padding: 2.2rem 2rem; border-bottom: 1px solid var(--light-gray); }
+    .stats-inner { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; text-align: center; }
+    .stat-number { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 700; color: var(--teal); }
+    .stat-label { font-size: 0.78rem; color: var(--gray); font-weight: 500; margin-top: 0.2rem; }
+
+    /* Services */
+    .services { padding: 5rem 2rem; }
+    .services-inner { max-width: 1000px; margin: 0 auto; }
+    .services h2 { text-align: center; font-size: clamp(1.8rem, 3.5vw, 2.6rem); color: var(--teal-dark); margin-bottom: 0.5rem; }
+    .services > p { text-align: center; color: var(--gray); margin-bottom: 3rem; }
+    .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+    .service-card { background: white; border-radius: 14px; border: 1px solid var(--light-gray); padding: 2rem; transition: all 0.25s; }
+    .service-card:hover { border-color: var(--teal-light); box-shadow: 0 8px 30px rgba(26,95,90,0.08); transform: translateY(-3px); }
+    .service-icon { width: 52px; height: 52px; border-radius: 14px; background: linear-gradient(135deg, var(--teal), var(--teal-light)); display: flex; align-items: center; justify-content: center; margin-bottom: 1.2rem; }
+    .service-card h3 { font-size: 1.15rem; color: var(--teal-dark); margin-bottom: 0.5rem; font-family: 'Inter', sans-serif; font-weight: 600; }
+    .service-card p { font-size: 0.88rem; color: var(--gray); line-height: 1.65; }
+
+    /* Therapists */
+    .therapists { background: white; padding: 5rem 2rem; }
+    .therapists-inner { max-width: 1000px; margin: 0 auto; }
+    .therapists h2 { text-align: center; font-size: clamp(1.8rem, 3.5vw, 2.6rem); color: var(--teal-dark); margin-bottom: 0.5rem; }
+    .therapists > p { text-align: center; color: var(--gray); margin-bottom: 3rem; }
+    .therapist-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+    .therapist-card { background: var(--cream); border-radius: 16px; padding: 1.8rem; border: 2px solid var(--light-gray); transition: all 0.25s; display: flex; flex-direction: column; }
+    .therapist-card:hover { border-color: var(--teal-light); box-shadow: 0 8px 30px rgba(26,95,90,0.08); transform: translateY(-3px); }
+    .therapist-photo-wrap { width: 84px; height: 84px; border-radius: 50%; overflow: hidden; margin-bottom: 1rem; flex-shrink: 0; background: var(--teal); display: flex; align-items: center; justify-content: center; border: 3px solid var(--teal); }
+    .therapist-photo-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+    .therapist-photo-wrap .initials { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700; color: white; }
+    .therapist-card h3 { font-size: 1.08rem; color: var(--teal-dark); margin-bottom: 0.1rem; font-family: 'Inter', sans-serif; font-weight: 600; }
+    .therapist-card .credentials { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--amber); margin-bottom: 0.5rem; }
+    .therapist-card .role { font-size: 0.78rem; color: var(--gray); margin-bottom: 0.8rem; }
+    .therapist-card p { font-size: 0.86rem; color: var(--charcoal); line-height: 1.65; margin-bottom: 1rem; flex-grow: 1; }
+    .therapist-specialties { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+    .specialty-tag { background: rgba(26,95,90,0.07); color: var(--teal); font-size: 0.7rem; font-weight: 600; padding: 0.2rem 0.55rem; border-radius: 50px; }
+
+    /* Locations */
+    .locations { padding: 5rem 2rem; }
+    .locations-inner { max-width: 860px; margin: 0 auto; }
+    .locations h2 { text-align: center; font-size: clamp(1.8rem, 3.5vw, 2.6rem); color: var(--teal-dark); margin-bottom: 0.5rem; }
+    .locations > p { text-align: center; color: var(--gray); margin-bottom: 3rem; }
+    .location-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; }
+    .location-card { background: white; border-radius: 14px; border: 1px solid var(--light-gray); padding: 2rem; }
+    .location-card h3 { font-size: 1.2rem; color: var(--teal-dark); margin-bottom: 0.4rem; }
+    .location-card .loc-addr { font-size: 0.9rem; color: var(--gray); margin-bottom: 0.4rem; }
+    .location-card .loc-hours { font-size: 0.82rem; color: var(--gray); }
+    .location-card .loc-hours strong { color: var(--charcoal); }
+
+    /* Insurance */
+    .insurance { background: white; padding: 5rem 2rem; }
+    .insurance-inner { max-width: 700px; margin: 0 auto; text-align: center; }
+    .insurance h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); color: var(--teal-dark); margin-bottom: 1rem; }
+    .insurance p { color: var(--gray); font-size: 0.92rem; line-height: 1.7; margin-bottom: 1.8rem; }
+    .insurance-logos { display: flex; gap: 0.6rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1.5rem; }
+    .insurance-logo { background: var(--cream); padding: 0.5rem 0.95rem; border-radius: 8px; font-size: 0.76rem; font-weight: 600; color: var(--gray); border: 1px solid var(--light-gray); }
+
+    /* Testimonial */
+    .testimonial { background: var(--teal-dark); padding: 4.5rem 2rem; text-align: center; }
+    .testimonial .stars { color: var(--amber); font-size: 1.1rem; letter-spacing: 4px; margin-bottom: 1.2rem; }
+    .testimonial blockquote { max-width: 640px; margin: 0 auto 1.2rem; font-family: 'Playfair Display', serif; font-size: clamp(1.05rem, 2vw, 1.35rem); color: white; line-height: 1.7; font-style: italic; }
+    .testimonial blockquote::before { content: '"'; color: var(--amber); }
+    .testimonial blockquote::after { content: '"'; color: var(--amber); }
+    .testimonial .attr { color: rgba(255,255,255,0.45); font-size: 0.82rem; }
+
+    /* Callback CTA */
+    .callback-cta { padding: 5rem 2rem; text-align: center; }
+    .callback-cta-inner { max-width: 520px; margin: 0 auto; }
+    .callback-cta h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); color: var(--teal-dark); margin-bottom: 0.8rem; }
+    .callback-cta p { color: var(--gray); font-size: 0.95rem; margin-bottom: 2rem; line-height: 1.7; }
+    .callback-box { background: white; border-radius: 20px; border: 2px solid var(--teal); padding: 2.5rem; text-align: left; box-shadow: 0 8px 30px rgba(26,95,90,0.1); }
+    .form-group { margin-bottom: 1.25rem; }
+    .form-group label { display: block; font-size: 0.82rem; font-weight: 600; color: var(--teal-dark); margin-bottom: 0.35rem; }
+    .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 0.7rem 1rem; border: 2px solid var(--light-gray); border-radius: 10px; font-size: 0.95rem; font-family: 'Inter', sans-serif; color: var(--charcoal); background: var(--warm-white); transition: border-color 0.2s; }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--teal); }
+    .form-group textarea { min-height: 80px; resize: vertical; }
+    .callback-box .btn-primary { width: 100%; justify-content: center; padding: 0.95rem; font-size: 1rem; }
+    .form-note { text-align: center; font-size: 0.78rem; color: var(--gray); margin-top: 1rem; }
+    .form-success { display: none; text-align: center; padding: 2rem 0; }
+    .form-success .check-icon { width: 64px; height: 64px; background: rgba(58,158,106,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.2rem; }
+    .form-success h3 { font-size: 1.2rem; color: var(--teal-dark); margin-bottom: 0.5rem; }
+    .form-success p { font-size: 0.9rem; color: var(--gray); line-height: 1.6; }
+
+    /* Footer */
+    footer { background: var(--teal-dark); padding: 3rem 2rem; text-align: center; }
+    footer .logo { color: white; font-size: 0.98rem; }
+    footer .logo span { color: var(--amber); }
+    footer p { color: rgba(255,255,255,0.4); font-size: 0.8rem; margin-top: 0.5rem; }
+
+    /* Reveal */
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .stats-inner { grid-template-columns: repeat(2, 1fr); }
+      .change-pillars { grid-template-columns: 1fr; }
+      .hamburger { display: block; }
+      .nav-links { display: none; }
+      .nav-phone span { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Top bar -->
+<div class="topbar">
+  <strong>New patients welcome.</strong> Accepting new clients in Ottawa and Mendota. Call: <strong>(815) 993-1614</strong>
+</div>
+
+<!-- Nav -->
+<nav>
+  <div class="inner">
+    <a href="#" class="logo">Illinois Valley <span>Counseling Services</span></a>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#team">Our Team</a>
+      <a href="#locations">Locations</a>
+      <a href="#insurance">Insurance</a>
+      <a href="#contact" class="nav-cta">Request a Call Back</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Open menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile menu -->
+<div class="menu-overlay" id="menuOverlay"></div>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="close-btn" id="closeMenu" aria-label="Close menu">✕</button>
+  <a href="#services">Services</a>
+  <a href="#team">Our Team</a>
+  <a href="#locations">Locations</a>
+  <a href="#insurance">Insurance</a>
+  <a href="#contact" class="nav-cta">Request a Call Back</a>
+</div>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">Ottawa & Mendota, IL</div>
+    <h1>Change Is <em>Possible</em></h1>
+    <p class="hero-sub">Whether you're struggling with anxiety, depression, trauma, or just feeling stuck — you don't have to carry it alone. Our licensed therapists are here to help you write a different story.</p>
+    <div class="hero-buttons">
+      <a href="#contact" class="btn-primary">
+        Request a Call Back
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="tel:18159931614" class="btn-outline-white">Call (815) 993-1614</a>
+    </div>
+    <div class="hero-trust">
+      <div class="trust-item">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="var(--amber)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        4.3 stars on Google
+      </div>
+      <div class="trust-item">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        HIPAA Compliant
+      </div>
+      <div class="trust-item">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        New Patients Welcome
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Change is Possible -->
+<section class="change-section">
+  <div class="change-section-inner">
+    <div class="section-label">Why We're Here</div>
+    <h2>Whatever You're Facing, You Can Get Through It</h2>
+    <p>For over 50 years, Illinois Valley Counseling Services has helped people in the Illinois Valley find their way through life's hardest moments. You don't have to have it all figured out. You just have to take the first step — and we'll walk the rest with you.</p>
+    <div class="change-pillars">
+      <div class="pillar reveal">
+        <div class="pillar-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2"><path d="M12 21s-7-4.35-9.5-8.5C.5 9 2 5.5 5.5 5.5c2 0 3.5 1.2 4.5 3 1-1.8 2.5-3 4.5-3 3.5 0 5 3.5 3.5 7C18 16.65 12 21 12 21z"/></svg>
+        </div>
+        <h3>You're Not Alone</h3>
+        <p>Anxiety, depression, grief, relationship struggles — millions of people face exactly what you're facing. Feeling this way doesn't make you broken.</p>
+      </div>
+      <div class="pillar reveal">
+        <div class="pillar-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.1-6.2-4.5-6.2 4.5 2.4-7.1L2 9.4h7.6z"/></svg>
+        </div>
+        <h3>Help That Works</h3>
+        <p>Our therapists use proven, evidence-based approaches — CBT, DBT, trauma-focused therapy — tailored to your unique needs and goals.</p>
+      </div>
+      <div class="pillar reveal">
+        <div class="pillar-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <h3>Recovery Is Real</h3>
+        <p>We've watched thousands of clients go from "I can't do this" to "I did it." Lasting change doesn't happen overnight — but it happens.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Stats -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div><div class="stat-number">50+</div><div class="stat-label">Years Serving the Valley</div></div>
+    <div><div class="stat-number">6</div><div class="stat-label">Licensed Therapists</div></div>
+    <div><div class="stat-number">2</div><div class="stat-label">Locations</div></div>
+    <div><div class="stat-number">4.3</div><div class="stat-label">Star Rating</div></div>
+  </div>
+</div>
+
+<!-- Services -->
+<section class="services" id="services">
+  <div class="services-inner">
+    <div class="section-label">What We Offer</div>
+    <h2>Therapy for Every Season of Life</h2>
+    <p>Individual, couples, family, and adolescent counseling — in person in Ottawa or Mendota, with most major insurance accepted.</p>
+    <div class="service-grid">
+      <div class="service-card reveal">
+        <div class="service-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        </div>
+        <h3>Individual Therapy</h3>
+        <p>One-on-one counseling for anxiety, depression, stress, trauma, addiction, and life transitions. A safe, confidential space that's entirely yours.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="9" cy="8" r="3.5"/><circle cx="15" cy="8" r="3.5"/><path d="M3 20c0-3 2.5-5 6-5s6 2 6 5"/><path d="M15 15c3.5 0 6 2 6 5"/></svg>
+        </div>
+        <h3>Couples Counseling</h3>
+        <p>Rebuild trust, improve communication, and reconnect with your partner. For married couples, partners, and anyone trying to make it work.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 3l8 4v5c0 5-3.5 8.5-8 9-4.5-.5-8-4-8-9V7z"/><path d="M8 12l3 3 5-6"/></svg>
+        </div>
+        <h3>Family Therapy</h3>
+        <p>Help your family communicate, heal, and move forward together. For parents and kids, blended families, and everyone in between.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        </div>
+        <h3>Adolescent Counseling</h3>
+        <p>Teens face a different world. Our therapists help adolescents navigate anxiety, school stress, social pressures, and family conflict.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M4 12h16M12 4v16"/></svg>
+        </div>
+        <h3>Trauma & PTSD</h3>
+        <p>Evidence-based trauma treatment, including Prolonged Exposure and Cognitive Processing Therapy, to help you heal from what you've been through.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 2a10 10 0 010 20z"/><path d="M12 6v6l4 2"/></svg>
+        </div>
+        <h3>Substance Use Support</h3>
+        <p>Compassionate, judgment-free support for you or someone you love navigating addiction and recovery.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Therapists -->
+<section class="therapists" id="team">
+  <div class="therapists-inner">
+    <div class="section-label">Our Team</div>
+    <h2>Meet Your Therapists</h2>
+    <p>Licensed, experienced, and genuinely invested in your wellbeing. Serving Ottawa, Mendota and the surrounding area.</p>
+    <div class="therapist-grid">
+
+      <div class="therapist-card reveal">
+        <div class="therapist-photo-wrap"><img src="../images/portraits/shawn.jpg" alt="Shawn Slagle"></div>
+        <h3>Shawn Slagle</h3>
+        <div class="credentials">LCSW, ACSW, QCSW</div>
+        <div class="role">Owner · Licensed Clinical Social Worker</div>
+        <p>Many years of experience working with adolescents, adults, couples, and families. Also serves veterans through the Department of Veteran Affairs.</p>
+        <div class="therapist-specialties">
+          <span class="specialty-tag">Anxiety</span>
+          <span class="specialty-tag">Depression</span>
+          <span class="specialty-tag">Trauma / PTSD</span>
+          <span class="specialty-tag">Adolescents</span>
+          <span class="specialty-tag">Couples</span>
+          <span class="specialty-tag">Families</span>
+        </div>
+      </div>
+
+      <div class="therapist-card reveal">
+        <div class="therapist-photo-wrap"><div class="initials">LK</div></div>
+        <h3>Laura Kula</h3>
+        <div class="credentials">LCSW</div>
+        <div class="role">Licensed Clinical Social Worker</div>
+        <p>Over 15 years of experience providing outpatient therapy to clients of all ages. Specializes in anxiety, depression, mood disorders, stress, self-esteem, PTSD and bipolar disorder. Trained in DBT, CBT, and psychodynamic therapy.</p>
+        <div class="therapist-specialties">
+          <span class="specialty-tag">Anxiety</span>
+          <span class="specialty-tag">Depression</span>
+          <span class="specialty-tag">Mood Disorders</span>
+          <span class="specialty-tag">DBT</span>
+          <span class="specialty-tag">CBT</span>
+          <span class="specialty-tag">PTSD</span>
+        </div>
+      </div>
+
+      <div class="therapist-card reveal">
+        <div class="therapist-photo-wrap"><div class="initials">KR</div></div>
+        <h3>Kara Redshaw</h3>
+        <div class="credentials">LCSW</div>
+        <div class="role">Licensed Clinical Social Worker</div>
+        <p>Experience working with children, adolescents, adults and families. Former hospice social worker with extensive experience in grief and loss. Uses a variety of evidence-based approaches.</p>
+        <div class="therapist-specialties">
+          <span class="specialty-tag">Children</span>
+          <span class="specialty-tag">Adolescents</span>
+          <span class="specialty-tag">Grief & Loss</span>
+          <span class="specialty-tag">Families</span>
+        </div>
+      </div>
+
+      <div class="therapist-card reveal">
+        <div class="therapist-photo-wrap"><div class="initials">TM</div></div>
+        <h3>Teresa MacDavitt</h3>
+        <div class="credentials">LCPC</div>
+        <div class="role">Licensed Clinical Professional Counselor</div>
+        <p>Former school counselor with 15 years in the public school system. Experienced serving youth and families facing conflict, depression, anxiety, panic, mood issues, grief, bipolar, ADHD and self-harm.</p>
+        <div class="therapist-specialties">
+          <span class="specialty-tag">Youth</span>
+          <span class="specialty-tag">ADHD</span>
+          <span class="specialty-tag">Anxiety</span>
+          <span class="specialty-tag">Grief</span>
+          <span class="specialty-tag">Families</span>
+        </div>
+      </div>
+
+      <div class="therapist-card reveal">
+        <div class="therapist-photo-wrap"><div class="initials">DM</div></div>
+        <h3>Dawn McCollom</h3>
+        <div class="credentials">LCSW</div>
+        <div class="role">Licensed Clinical Social Worker</div>
+        <p>Over a decade of counseling experience, including 6 years in private practice. Trained in CBT, Motivational Interviewing, Family Systems Theory, and Solution-Focused Therapy.</p>
+        <div class="therapist-specialties">
+          <span class="specialty-tag">CBT</span>
+          <span class="specialty-tag">Motivational Interviewing</span>
+          <span class="specialty-tag">Family Systems</span>
+          <span class="specialty-tag">Solution-Focused</span>
+        </div>
+      </div>
+
+      <div class="therapist-card reveal">
+        <div class="therapist-photo-wrap"><div class="initials">JK</div></div>
+        <h3>Josie Klass</h3>
+        <div class="credentials">LCSW</div>
+        <div class="role">Licensed Clinical Social Worker</div>
+        <p>Many years of experience in mental health care, including bereavement services, depression counseling, and supporting individuals with dementia and their families.</p>
+        <div class="therapist-specialties">
+          <span class="specialty-tag">Grief</span>
+          <span class="specialty-tag">Depression</span>
+          <span class="specialty-tag">Dementia Support</span>
+          <span class="specialty-tag">Older Adults</span>
+        </div>
+      </div>
+
+      <div class="therapist-card reveal">
+        <div class="therapist-photo-wrap"><div class="initials">VK</div></div>
+        <h3>Vaughn Klaassen</h3>
+        <div class="credentials">LCPC</div>
+        <div class="role">Licensed Clinical Professional Counselor</div>
+        <p>Licensed for over 25 years, treating inpatient and outpatient clients. Experienced with depression, anxiety, panic, PTSD, OCD, bipolar, and thought disorders. Works with adolescents and adults using CBT and related approaches.</p>
+        <div class="therapist-specialties">
+          <span class="specialty-tag">Depression</span>
+          <span class="specialty-tag">Anxiety</span>
+          <span class="specialty-tag">PTSD</span>
+          <span class="specialty-tag">OCD</span>
+          <span class="specialty-tag">Bipolar</span>
+          <span class="specialty-tag">Adolescents</span>
+        </div>
+      </div>
+
+      <div class="therapist-card reveal">
+        <div class="therapist-photo-wrap"><img src="../images/portraits/cindy.jpg" alt="Cindy Slagle"></div>
+        <h3>Cindy Slagle</h3>
+        <div class="credentials">Co-Owner</div>
+        <div class="role">Operations Manager</div>
+        <p>Many years as a mental health professional. Cindy manages daily operations, scheduling, insurance questions, and makes sure every new patient gets taken care of.</p>
+        <div class="therapist-specialties">
+          <span class="specialty-tag">New Patients</span>
+          <span class="specialty-tag">Insurance</span>
+          <span class="specialty-tag">Scheduling</span>
+          <span class="specialty-tag">Intake</span>
+        </div>
+      </div>
+
+    </div>
+    <p style="text-align:center;color:var(--gray);font-size:0.85rem;margin-top:2rem;">We have additional therapists on staff. Your call back will be matched with the best available provider for your needs.</p>
+  </div>
+</section>
+
+<!-- Locations -->
+<section class="locations" id="locations">
+  <div class="locations-inner">
+    <div class="section-label">Visit Us</div>
+    <h2>Two Locations in the Illinois Valley</h2>
+    <p>Come see us in person at either of our offices. Both locations offer the same caring, confidential care.</p>
+    <div class="location-grid">
+      <div class="location-card reveal">
+        <h3>Ottawa</h3>
+        <p class="loc-addr">747 E Etna Rd, Ottawa, IL 61350</p>
+        <p class="loc-hours"><strong>Office hours:</strong><br>Mon–Fri 8 AM – 9 PM<br>Sat 8 AM – 8 PM<br>Sun Closed</p>
+      </div>
+      <div class="location-card reveal">
+        <h3>Mendota</h3>
+        <p class="loc-addr">Mendota, IL</p>
+        <p class="loc-hours"><strong>Office hours:</strong><br>Mon–Fri 8 AM – 9 PM<br>Sat 8 AM – 8 PM<br>Sun Closed</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Insurance -->
+<section class="insurance" id="insurance">
+  <div class="insurance-inner">
+    <div class="section-label">Insurance</div>
+    <h2>We Accept Most Major Insurance</h2>
+    <p>Not sure if we take your plan? Ask when we call you back and we'll verify your benefits before your first visit — at no charge. No surprise bills.</p>
+    <div class="insurance-logos">
+      <div class="insurance-logo">Aetna</div>
+      <div class="insurance-logo">Blue Cross Blue Shield</div>
+      <div class="insurance-logo">Cigna</div>
+      <div class="insurance-logo">Coventry</div>
+      <div class="insurance-logo">Health Alliance</div>
+      <div class="insurance-logo">Humana</div>
+      <div class="insurance-logo">Magellan</div>
+      <div class="insurance-logo">Medicare</div>
+      <div class="insurance-logo">Multiplan / PHCS</div>
+      <div class="insurance-logo">Tricare / MHN</div>
+      <div class="insurance-logo">Optum / UBH</div>
+      <div class="insurance-logo">Value Options</div>
+    </div>
+    <p style="font-size:0.75rem;color:var(--gray);">Plus many EAP (Employee Assistance Program) plans. List is subject to change and may vary by provider.</p>
+  </div>
+</section>
+
+<!-- Testimonial -->
+<section class="testimonial">
+  <div class="stars">★★★★★</div>
+  <blockquote>I highly recommend this place! The staff made it so easy to schedule an appointment. They called me back quickly and got me in fast.</blockquote>
+  <div class="attr">★★★★★ · Google Review, Ottawa IL</div>
+</section>
+
+<!-- Callback CTA -->
+<section class="callback-cta" id="contact">
+  <div class="callback-cta-inner">
+    <div class="section-label">Take the First Step</div>
+    <h2>Request a Call Back</h2>
+    <p>Leave your name and number below. Our office will call you back to find a time that works for you. No apps, no accounts, no waiting on hold.</p>
+    <div class="callback-box">
+      <form id="callbackForm" action="https://formsubmit.co/office@illinoisvalleycounseling.com" method="POST">
+        <input type="hidden" name="_subject" value="New callback request from website">
+        <input type="hidden" name="_template" value="box">
+        <input type="hidden" name="_captcha" value="false">
+        <div class="form-group">
+          <label for="name">Your Name *</label>
+          <input type="text" id="name" name="name" placeholder="Jane Smith" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Your Phone Number *</label>
+          <input type="tel" id="phone" name="phone" placeholder="(555) 555-5555" required>
+        </div>
+        <div class="form-group">
+          <label for="interest">What are you looking for?</label>
+          <select id="interest" name="interest">
+            <option value="">Select an option</option>
+            <option value="Individual counseling">Individual counseling</option>
+            <option value="Couples counseling">Couples counseling</option>
+            <option value="Family counseling">Family counseling</option>
+            <option value="Adolescent / teen counseling">Adolescent / teen counseling</option>
+            <option value="Substance use support">Substance use support</option>
+            <option value="Not sure yet">Not sure yet</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="preferred_time">Preferred time to call?</label>
+          <select id="preferred_time" name="preferred_time">
+            <option value="">Any time</option>
+            <option value="Morning">Morning</option>
+            <option value="Afternoon">Afternoon</option>
+            <option value="Evening">Evening</option>
+            <option value="Weekend">Weekend</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Anything we should know? (optional)</label>
+          <textarea id="message" name="message" placeholder="Briefly tell us how we can help..."></textarea>
+        </div>
+        <button type="submit" class="btn-primary">
+          Request My Call Back
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+        <p class="form-note">We typically call back within one business day. No spam, ever.</p>
+      </form>
+      <div class="form-success" id="formSuccess">
+        <div class="check-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--success)" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h3>Request Received</h3>
+        <p>Thank you! Our office will call you back to schedule your appointment. If this is urgent, please call us directly at <strong>(815) 993-1614</strong>.</p>
+      </div>
+    </div>
+    <p style="margin-top:1.5rem;font-size:0.82rem;color:var(--gray);">Prefer to talk now? Call us at <a href="tel:18159931614" style="color:var(--teal);font-weight:600;text-decoration:none;">(815) 993-1614</a></p>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="logo">Illinois Valley <span>Counseling Services</span></div>
+  <p style="margin-top:1.5rem;color:rgba(255,255,255,0.75);font-size:0.9rem;">747 E Etna Rd, Ottawa, IL 61350 · (815) 993-1614</p>
+  <p>Ottawa · Mendota</p>
+  <p style="margin-top:1.5rem;">© <span id="year"></span> Illinois Valley Counseling Services. All rights reserved.</p>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  reveals.forEach(r => io.observe(r));
+
+  // Year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Mobile menu
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const menuOverlay = document.getElementById('menuOverlay');
+  const closeMenu = document.getElementById('closeMenu');
+  function openMenu() { mobileMenu.classList.add('open'); menuOverlay.classList.add('open'); document.body.style.overflow = 'hidden'; }
+  function closeM() { mobileMenu.classList.remove('open'); menuOverlay.classList.remove('open'); document.body.style.overflow = ''; }
+  hamburger.addEventListener('click', openMenu);
+  closeMenu.addEventListener('click', closeM);
+  menuOverlay.addEventListener('click', closeM);
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeM));
+
+  // Callback form success state
+  const form = document.getElementById('callbackForm');
+  const success = document.getElementById('formSuccess');
+  if (form) {
+    form.addEventListener('submit', function() {
+      setTimeout(function() {
+        form.style.display = 'none';
+        success.style.display = 'block';
+      }, 100);
+    });
+  }
+</script>
+</body>
+</html>
