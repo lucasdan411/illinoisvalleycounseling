@@ -275,7 +275,7 @@
     .services { padding: 5rem 2rem; }
     .services-inner { max-width: 1000px; margin: 0 auto; }
     .services h2 { text-align: center; font-size: clamp(1.8rem, 3.5vw, 2.6rem); color: var(--teal-dark); margin-bottom: 0.5rem; }
-    .services > p { text-align: center; color: var(--gray); margin-bottom: 3rem; }
+    .services-inner > p { text-align: center; color: var(--gray); margin-bottom: 3rem; }
     .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
     .service-card { background: white; border-radius: 14px; border: 1px solid var(--light-gray); padding: 2rem; transition: all 0.25s; }
     .service-card:hover { border-color: var(--teal-light); box-shadow: 0 8px 30px rgba(26,95,90,0.08); transform: translateY(-3px); }
@@ -296,7 +296,7 @@
     .therapists { background: white; padding: 5rem 2rem; }
     .therapists-inner { max-width: 1000px; margin: 0 auto; }
     .therapists h2 { text-align: center; font-size: clamp(1.8rem, 3.5vw, 2.6rem); color: var(--teal-dark); margin-bottom: 0.5rem; }
-    .therapists > p { text-align: center; color: var(--gray); margin-bottom: 3rem; }
+    .therapists-inner > p { text-align: center; color: var(--gray); margin-bottom: 3rem; }
     .therapist-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
     .therapist-card { background: var(--cream); border-radius: 16px; padding: 1.8rem; border: 2px solid var(--light-gray); transition: all 0.25s; display: flex; flex-direction: column; }
     .therapist-card:hover { border-color: var(--teal-light); box-shadow: 0 8px 30px rgba(26,95,90,0.08); transform: translateY(-3px); }
@@ -314,7 +314,7 @@
     .locations { padding: 5rem 2rem; }
     .locations-inner { max-width: 860px; margin: 0 auto; }
     .locations h2 { text-align: center; font-size: clamp(1.8rem, 3.5vw, 2.6rem); color: var(--teal-dark); margin-bottom: 0.5rem; }
-    .locations > p { text-align: center; color: var(--gray); margin-bottom: 3rem; }
+    .locations-inner > p { text-align: center; color: var(--gray); margin-bottom: 3rem; }
     .location-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; }
     .location-card { background: white; border-radius: 14px; border: 1px solid var(--light-gray); padding: 2rem; }
     .location-card h3 { font-size: 1.2rem; color: var(--teal-dark); margin-bottom: 0.4rem; }
@@ -344,7 +344,7 @@
     .reviews { background: var(--warm-white); padding: 5rem 2rem; }
     .reviews-inner { max-width: 960px; margin: 0 auto; }
     .reviews h2 { text-align: center; font-size: clamp(1.8rem, 3.5vw, 2.6rem); color: var(--teal-dark); margin-bottom: 0.5rem; }
-    .reviews > p { text-align: center; color: var(--gray); margin-bottom: 2.5rem; }
+    .reviews-inner > p { text-align: center; color: var(--gray); margin-bottom: 2.5rem; }
     .review-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
     .review-card { background: white; border-radius: 14px; border: 1px solid var(--light-gray); padding: 1.8rem; box-shadow: 0 4px 16px rgba(26,95,90,0.05); }
     .review-stars { color: var(--amber); font-size: 1rem; letter-spacing: 3px; margin-bottom: 0.8rem; }
@@ -361,7 +361,7 @@
     .faq { background: white; padding: 5rem 2rem; }
     .faq-inner { max-width: 800px; margin: 0 auto; }
     .faq h2 { text-align: center; font-size: clamp(1.8rem, 3.5vw, 2.6rem); color: var(--teal-dark); margin-bottom: 0.5rem; }
-    .faq > p { text-align: center; color: var(--gray); margin-bottom: 3rem; }
+    .faq-inner > p { text-align: center; color: var(--gray); margin-bottom: 3rem; }
     .faq-list { display: flex; flex-direction: column; gap: 0.8rem; }
     .faq-item { background: var(--cream); border: 1px solid var(--light-gray); border-radius: 12px; overflow: hidden; transition: border-color 0.2s; }
     .faq-item.open { border-color: var(--teal-light); }
@@ -373,21 +373,21 @@
     .faq-note { margin-top: 2rem; text-align: center; font-size: 0.82rem; color: var(--gray); }
 
     /* Blog */
-    .blog { background: var(--warm-white); padding: 5rem 2rem; }
-    .blog-inner { max-width: 1000px; margin: 0 auto; }
-    .blog h2 { text-align: center; font-size: clamp(1.8rem, 3.5vw, 2.6rem); color: var(--teal-dark); margin-bottom: 0.5rem; }
-    .blog > p { text-align: center; color: var(--gray); margin-bottom: 3rem; }
-    .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
-    .blog-card { background: white; border-radius: 14px; border: 1px solid var(--light-gray); padding: 2rem; transition: all 0.25s; display: flex; flex-direction: column; }
-    .blog-card:hover { border-color: var(--teal-light); box-shadow: 0 8px 30px rgba(26,95,90,0.08); transform: translateY(-3px); }
-    .blog-card .blog-cat { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--amber); margin-bottom: 0.6rem; }
-    .blog-card h3 { font-size: 1.1rem; color: var(--teal-dark); margin-bottom: 0.5rem; font-family: 'Inter', sans-serif; font-weight: 600; line-height: 1.4; }
-    .blog-card h3 a { color: inherit; text-decoration: none; }
-    .blog-card h3 a:hover { color: var(--teal-light); }
-    .blog-card p { font-size: 0.88rem; color: var(--gray); line-height: 1.65; margin-bottom: 1.2rem; flex-grow: 1; }
-    .blog-card .blog-meta { font-size: 0.75rem; color: var(--gray); }
-    .blog-card .read-more { font-size: 0.85rem; font-weight: 700; color: var(--teal); text-decoration: none; margin-top: 0.5rem; }
-    .blog-card .read-more:hover { text-decoration: underline; }
+    .resources { background: var(--warm-white); padding: 5rem 2rem; }
+    .resources-inner { max-width: 1000px; margin: 0 auto; }
+    .resources h2 { text-align: center; font-size: clamp(1.8rem, 3.5vw, 2.6rem); color: var(--teal-dark); margin-bottom: 0.5rem; }
+    .resources > p { text-align: center; color: var(--gray); margin-bottom: 3rem; }
+    .resources-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+    .resources-card { background: white; border-radius: 14px; border: 1px solid var(--light-gray); padding: 2rem; transition: all 0.25s; display: flex; flex-direction: column; }
+    .resources-card:hover { border-color: var(--teal-light); box-shadow: 0 8px 30px rgba(26,95,90,0.08); transform: translateY(-3px); }
+    .resources-card .resources-cat { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--amber); margin-bottom: 0.6rem; }
+    .resources-card h3 { font-size: 1.1rem; color: var(--teal-dark); margin-bottom: 0.5rem; font-family: 'Inter', sans-serif; font-weight: 600; line-height: 1.4; }
+    .resources-card h3 a { color: inherit; text-decoration: none; }
+    .resources-card h3 a:hover { color: var(--teal-light); }
+    .resources-card p { font-size: 0.88rem; color: var(--gray); line-height: 1.65; margin-bottom: 1.2rem; flex-grow: 1; }
+    .resources-card .resources-meta { font-size: 0.75rem; color: var(--gray); }
+    .resources-card .read-more { font-size: 0.85rem; font-weight: 700; color: var(--teal); text-decoration: none; margin-top: 0.5rem; }
+    .resources-card .read-more:hover { text-decoration: underline; }
 
     /* Floating action buttons - appear only while scrolling back up */
     .fab { position: fixed; right: 1.2rem; z-index: 400; border: none; cursor: pointer; font-family: 'Inter', sans-serif; font-weight: 700; box-shadow: 0 8px 24px rgba(15,61,58,0.3); transition: opacity 0.3s, transform 0.3s; opacity: 0; pointer-events: none; transform: translateY(10px); }
@@ -466,7 +466,7 @@
       <a href="#services">Services</a>
       <a href="#team">Our Team</a>
       <a href="#faq">FAQ</a>
-      <a href="#blog">Blog</a>
+      <a href="#resources">Resources</a>
       <a href="#contact" class="nav-cta">Request a Call Back</a>
     </div>
     <button class="hamburger" id="hamburger" aria-label="Open menu">
@@ -484,7 +484,7 @@
   <a href="#services">Services</a>
   <a href="#team">Our Team</a>
   <a href="#faq">FAQ</a>
-  <a href="#blog">Blog</a>
+  <a href="#resources">Resources</a>
   <a href="#locations">Locations</a>
   <a href="#insurance">Insurance</a>
   <a href="#contact" class="nav-cta">Request a Call Back</a>
@@ -914,38 +914,38 @@
 </section>
 
 <!-- Blog -->
-<section class="blog" id="blog">
-  <div class="blog-inner">
-    <div class="section-label">From Our Blog</div>
+<section class="resources" id="resources">
+  <div class="resources-inner">
+    <div class="section-label">From Our Resources</div>
     <h2>Resources for Your Journey</h2>
     <p>Practical, honest articles about therapy, mental health, and change - written for the Illinois Valley community.</p>
-    <div class="blog-grid">
-      <div class="blog-card reveal">
-        <div class="blog-cat">Getting Started</div>
+    <div class="resources-grid">
+      <div class="resources-card reveal">
+        <div class="resources-cat">Getting Started</div>
         <h3><a href="blog/how-do-i-know-if-i-need-therapy.html">How Do I Know If I Need Therapy? 10 Signs It's Time to Talk to Someone</a></h3>
         <p>Not sure if therapy is "for you"? Here are ten honest signs that it might be time to reach out - and why asking for help is a strength, not a weakness.</p>
-        <div class="blog-meta">5 min read</div>
+        <div class="resources-meta">5 min read</div>
         <a class="read-more" href="blog/how-do-i-know-if-i-need-therapy.html">Read Article →</a>
       </div>
-      <div class="blog-card reveal">
-        <div class="blog-cat">Getting Started</div>
+      <div class="resources-card reveal">
+        <div class="resources-cat">Getting Started</div>
         <h3><a href="blog/what-to-expect-first-therapy-session.html">What to Expect in Your First Therapy Session</a></h3>
         <p>Nervous about your first appointment? Here's exactly what happens - from paperwork to the first conversation - so you can walk in feeling prepared.</p>
-        <div class="blog-meta">6 min read</div>
+        <div class="resources-meta">6 min read</div>
         <a class="read-more" href="blog/what-to-expect-first-therapy-session.html">Read Article →</a>
       </div>
-      <div class="blog-card reveal">
-        <div class="blog-cat">Mental Health</div>
+      <div class="resources-card reveal">
+        <div class="resources-cat">Mental Health</div>
         <h3><a href="blog/therapy-for-anxiety-ottawa-il.html">Therapy for Anxiety: How Counseling Helps You Take Control</a></h3>
         <p>Anxiety is one of the most common reasons people seek therapy. Learn how counseling actually works for anxiety - and what you can expect to change.</p>
-        <div class="blog-meta">7 min read</div>
+        <div class="resources-meta">7 min read</div>
         <a class="read-more" href="blog/therapy-for-anxiety-ottawa-il.html">Read Article →</a>
       </div>
-      <div class="blog-card reveal">
-        <div class="blog-cat">Relationships</div>
+      <div class="resources-card reveal">
+        <div class="resources-cat">Relationships</div>
         <h3><a href="blog/couples-counseling-when-to-go.html">Couples Counseling: 7 Signs It Might Be Time to Go</a></h3>
         <p>Many couples wait years before seeking help. Here are seven signs that couples counseling could help your relationship - and why sooner is better.</p>
-        <div class="blog-meta">6 min read</div>
+        <div class="resources-meta">6 min read</div>
         <a class="read-more" href="blog/couples-counseling-when-to-go.html">Read Article →</a>
       </div>
     </div>
@@ -1028,7 +1028,7 @@
 </section>
 
 <!-- Callback CTA -->
-<section class="callback-cta" id="contact">
+<section class="callback-cta" id="contact" style="scroll-margin-top:80px">
   <div class="callback-cta-inner">
     <div class="section-label">Take the First Step</div>
     <h2>Request a Call Back</h2>
