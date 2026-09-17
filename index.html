@@ -131,6 +131,14 @@
     .fab-callback:hover { background: var(--amber-light); }
     .fab-call { bottom: 5.4rem; background: var(--teal); color: white; padding: 0.9rem 1.5rem; border-radius: 50px; font-size: 0.92rem; display: flex; align-items: center; gap: 0.5rem; }
     .fab-call:hover { background: var(--teal-light); }
+
+    /* Lightbox */
+    .lightbox-overlay { position: fixed; inset: 0; background: rgba(15,61,58,0.92); z-index: 1000; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
+    .lightbox-overlay.open { opacity: 1; pointer-events: auto; }
+    .lightbox-overlay img { max-width: 90vw; max-height: 85vh; border-radius: 16px; box-shadow: 0 20px 60px rgba(0,0,0,0.5); object-fit: contain; }
+    .lightbox-close { position: absolute; top: 1.5rem; right: 1.5rem; background: rgba(255,255,255,0.15); border: none; color: white; width: 48px; height: 48px; border-radius: 50%; font-size: 1.5rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s; z-index: 1001; }
+    .lightbox-close:hover { background: rgba(255,255,255,0.3); }
+    .therapist-card img { cursor: pointer; }
     .locations { display: flex; flex-direction: column; gap: 0.5rem; }
     .location-item { display: flex; gap: 0.5rem; font-size: 0.85rem; color: var(--charcoal); }
     .location-item .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--teal); flex-shrink: 0; margin-top: 6px; }
@@ -449,6 +457,12 @@
   <p>Ottawa · Mendota</p>
 </footer>
 
+<!-- Lightbox for therapist photos -->
+<div class="lightbox-overlay" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close">✕</button>
+  <img src="" alt="" id="lightboxImg">
+</div>
+
 <!-- Floating action buttons: appear only while scrolling back up -->
 <a href="tel:18159931614" class="fab fab-call" id="fabCall" data-track="fab-call">
   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.22 1.14 2 2 0 012.21 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
@@ -509,7 +523,7 @@
     if (scrollingUp && y > 300) {
       showFabs();
       clearTimeout(hideTimer);
-      hideTimer = setTimeout(hideFabs, 1200);
+      hideTimer = setTimeout(hideFabs, 2000);
     } else if (!scrollingUp && y > 300) {
       hideFabs();
     } else if (y <= 300) {
@@ -517,6 +531,21 @@
     }
     lastScroll = y;
   }, { passive: true });
+
+  // Lightbox for therapist photos
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightboxImg");
+  document.querySelectorAll(".therapist-card img").forEach(function(img) {
+    img.addEventListener("click", function() {
+      lightboxImg.src = this.src;
+      lightbox.classList.add("open");
+      document.body.style.overflow = "hidden";
+    });
+  });
+  document.getElementById("lightboxClose").addEventListener("click", closeLightbox);
+  lightbox.addEventListener("click", function(e) { if (e.target === lightbox) closeLightbox(); });
+  document.addEventListener("keydown", function(e) { if (e.key === "Escape") closeLightbox(); });
+  function closeLightbox() { lightbox.classList.remove("open"); document.body.style.overflow = ""; }
 </script>
 </body>
 </html>

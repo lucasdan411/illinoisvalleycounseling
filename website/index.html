@@ -399,9 +399,19 @@
     .fab-top { bottom: 9.6rem; background: var(--teal); color: white; width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
     .fab-top:hover { background: var(--teal-dark); }
 
-    /* Hamburger: hidden by default; revealed only while scrolling back up (mobile) */
-    .hamburger { opacity: 0; visibility: hidden; transition: opacity 0.3s, visibility 0.3s; }
-    .hamburger.show { opacity: 1; visibility: visible; }
+    /* Hamburger: always visible on mobile, hidden on desktop */
+    .hamburger { transition: opacity 0.3s, visibility 0.3s; }
+    .hamburger.show { }
+
+    /* Lightbox */
+    .lightbox-overlay { position: fixed; inset: 0; background: rgba(15,61,58,0.92); z-index: 1000; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
+    .lightbox-overlay.open { opacity: 1; pointer-events: auto; }
+    .lightbox-overlay img { max-width: 90vw; max-height: 85vh; border-radius: 16px; box-shadow: 0 20px 60px rgba(0,0,0,0.5); object-fit: contain; }
+    .lightbox-close { position: absolute; top: 1.5rem; right: 1.5rem; background: rgba(255,255,255,0.15); border: none; color: white; width: 48px; height: 48px; border-radius: 50%; font-size: 1.5rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s; z-index: 1001; }
+    .lightbox-close:hover { background: rgba(255,255,255,0.3); }
+    .therapist-card .therapist-photo-wrap { cursor: pointer; position: relative; overflow: hidden; border-radius: 16px; }
+    .therapist-card .therapist-photo-wrap::after { content: '🔍'; position: absolute; bottom: 8px; right: 8px; background: rgba(15,61,58,0.75); color: white; width: 28px; height: 28px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; opacity: 0; transition: opacity 0.2s; }
+    .therapist-card .therapist-photo-wrap:hover::after { opacity: 1; }
 
     /* Callback CTA */
     .callback-cta { padding: 5rem 2rem; text-align: center; }
@@ -1089,6 +1099,12 @@
   <p style="margin-top:1.5rem;">© <span id="year"></span> Illinois Valley Counseling Services. All rights reserved.</p>
 </footer>
 
+<!-- Lightbox for therapist photos -->
+<div class="lightbox-overlay" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close">✕</button>
+  <img src="" alt="" id="lightboxImg">
+</div>
+
 <!-- Floating buttons -->
 <button class="fab fab-top" id="fabTop" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
@@ -1143,7 +1159,7 @@
   const fabTop = document.getElementById('fabTop');
   const fabCall = document.getElementById('fabCall');
   const fabCallback = document.getElementById('fabCallback');
-  const fabs = [fabTop, fabCall, fabCallback, hamburger];
+  const fabs = [fabTop, fabCall, fabCallback];
   const showFabs = () => fabs.forEach(f => f && f.classList.add('show'));
   const hideFabs = () => fabs.forEach(f => f && f.classList.remove('show'));
   let lastScroll = window.pageYOffset || document.documentElement.scrollTop;
@@ -1155,7 +1171,7 @@
       showFabs();
       // start a small grace period; if user pauses, hide
       clearTimeout(hideTimer);
-      hideTimer = setTimeout(hideFabs, 1200);
+      hideTimer = setTimeout(hideFabs, 2000);
     } else if (!scrollingUp && y > 300) {
       hideFabs();
     } else if (y <= 300) {
@@ -1217,6 +1233,21 @@
       }
     });
   }
+
+  // Lightbox for therapist photos
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightboxImg");
+  document.querySelectorAll(".therapist-card img").forEach(function(img) {
+    img.addEventListener("click", function() {
+      lightboxImg.src = this.src;
+      lightbox.classList.add("open");
+      document.body.style.overflow = "hidden";
+    });
+  });
+  document.getElementById("lightboxClose").addEventListener("click", closeLightbox);
+  lightbox.addEventListener("click", function(e) { if (e.target === lightbox) closeLightbox(); });
+  document.addEventListener("keydown", function(e) { if (e.key === "Escape") closeLightbox(); });
+  function closeLightbox() { lightbox.classList.remove("open"); document.body.style.overflow = ""; }
 </script>
 </body>
 </html>
