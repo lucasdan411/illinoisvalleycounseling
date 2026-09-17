@@ -82,7 +82,7 @@
     .stat-label { font-size: 0.78rem; color: var(--gray); font-weight: 500; margin-top: 0.2rem; }
 
     /* Booking section */
-    .booking-section { padding: 5rem 2rem; max-width: 1060px; margin: 0 auto; }
+    .booking-section { padding: 3rem 2rem; max-width: 1060px; margin: 0 auto; }
     .booking-section .section-label { color: var(--amber); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; text-align: center; margin-bottom: 0.75rem; }
     .booking-section h2 { text-align: center; font-size: clamp(1.7rem, 3vw, 2.5rem); color: var(--teal-dark); margin-bottom: 0.5rem; }
     .booking-section > p { text-align: center; color: var(--gray); margin-bottom: 3rem; }
@@ -146,7 +146,7 @@
     .insurance-note p { font-size: 0.82rem; color: var(--gray); line-height: 1.5; }
 
     /* Therapists */
-    .therapists { background: white; padding: 4rem 2rem; }
+    .therapists { background: white; padding: 3rem 2rem; }
     .therapists-inner { max-width: 960px; margin: 0 auto; }
     .section-label { color: var(--amber); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; text-align: center; margin-bottom: 0.75rem; }
     .therapists h2 { text-align: center; font-size: clamp(1.7rem, 3vw, 2.5rem); color: var(--teal-dark); margin-bottom: 0.5rem; }
@@ -163,7 +163,7 @@
     .specialty-tag { background: rgba(26,95,90,0.07); color: var(--teal); font-size: 0.7rem; font-weight: 600; padding: 0.2rem 0.55rem; border-radius: 50px; }
 
     /* What we treat */
-    .treatments { padding: 4rem 2rem; }
+    .treatments { padding: 2.5rem 2rem; }
     .treatments-inner { max-width: 960px; margin: 0 auto; }
     .treatments h2 { text-align: center; font-size: clamp(1.7rem, 3vw, 2.5rem); color: var(--teal-dark); margin-bottom: 2.5rem; }
     .treat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
@@ -172,7 +172,7 @@
     .treat-item p { font-size: 0.88rem; color: var(--charcoal); }
 
     /* Insurance */
-    .insurance { padding: 4rem 2rem; }
+    .insurance { padding: 2.5rem 2rem; }
     .insurance-inner { max-width: 600px; margin: 0 auto; text-align: center; }
     .insurance h2 { font-size: clamp(1.4rem, 2.5vw, 1.9rem); color: var(--teal-dark); margin-bottom: 1rem; }
     .insurance p { color: var(--gray); font-size: 0.92rem; line-height: 1.7; margin-bottom: 1.5rem; }
@@ -180,7 +180,7 @@
     .insurance-logo { background: white; padding: 0.5rem 1rem; border-radius: 8px; font-size: 0.78rem; font-weight: 600; color: var(--gray); border: 1px solid var(--light-gray); }
 
     /* Testimonial */
-    .testimonial { background: var(--teal-dark); padding: 4rem 2rem; text-align: center; }
+    .testimonial { background: var(--teal-dark); padding: 3rem 2rem; text-align: center; }
     .testimonial .stars { color: var(--amber); font-size: 1.1rem; letter-spacing: 4px; margin-bottom: 1rem; }
     .testimonial blockquote { max-width: 640px; margin: 0 auto 1.2rem; font-family: 'Playfair Display', serif; font-size: clamp(1.05rem, 2vw, 1.35rem); color: white; line-height: 1.7; font-style: italic; }
     .testimonial blockquote::before { content: '"'; color: var(--amber); }
@@ -506,6 +506,21 @@
       if (typeof gtag === 'function') {
         gtag('event', 'click', { event_category: 'engagement', event_label: el.getAttribute('data-track') });
       }
+    });
+  });
+
+  // Enhanced callback scroll: bring entire form into view smoothly
+  function scrollToCallback() {
+    var book = document.querySelector('#book');
+    if (book) {
+      book.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
+  // Wire up all "Request a Call Back" links to use enhanced scroll
+  document.querySelectorAll('a[href="#book"]').forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      scrollToCallback();
     });
   });
 
