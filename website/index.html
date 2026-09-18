@@ -68,7 +68,7 @@
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Adolescent Counseling" } },
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Trauma & PTSD Therapy" } },
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Substance Use Counseling" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Tele-Therapy" } }
+
       ]
     },
     "aggregateRating": {
@@ -108,7 +108,7 @@
       {
         "@type": "Question",
         "name": "Do you offer evening or weekend appointments?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Yes. We offer appointment times from 8 AM to 8 PM, including evening appointments, to fit busy schedules. Our office is open Monday through Friday from 8 AM to 5 PM." }
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. We offer appointment times from 8 AM to 8 PM, including evening appointments, to fit busy schedules. Our phone lines are open Monday through Friday from 9 AM to 5 PM." }
       },
       {
         "@type": "Question",
@@ -117,8 +117,8 @@
       },
       {
         "@type": "Question",
-        "name": "Can I do therapy over the phone or video?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Yes. We offer both phone therapy and secure video tele-therapy. You can receive the same quality care from the comfort of your home, without the commute." }
+        "name": "Can I do video therapy?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. We offer secure video tele-therapy so you can receive the same quality care from the comfort of your home, without the commute." }
       },
       {
         "@type": "Question",
@@ -189,7 +189,7 @@
 
     /* Top bar */
     .topbar { background: var(--teal-dark); color: white; text-align: center; padding: 0.6rem 1rem; font-size: 0.8rem; font-weight: 500; }
-    .topbar strong { color: var(--amber-light); }
+    .topbar strong { color: var(--cream); text-decoration: underline; }
 
     /* Nav */
     nav { background: white; border-bottom: 1px solid var(--light-gray); padding: 0 1.5rem; position: sticky; top: 0; z-index: 200; }
@@ -455,7 +455,7 @@
 
 <!-- Top bar -->
 <div class="topbar">
-  <strong>New patients welcome.</strong> Accepting new clients in Ottawa and Mendota. Call: <strong>(815) 993-1614</strong>
+  <strong>New patients welcome — by appointment only.</strong> Accepting new clients in Ottawa and Mendota. Call: <strong>(815) 993-1614</strong>
 </div>
 
 <!-- Nav -->
@@ -556,7 +556,7 @@
 <div class="stats-bar">
   <div class="stats-inner">
     <div><div class="stat-number">15+</div><div class="stat-label">Years Serving the Valley</div></div>
-    <div><div class="stat-number">6</div><div class="stat-label">Licensed Therapists</div></div>
+    <div><div class="stat-number">7</div><div class="stat-label">Licensed Therapists</div></div>
     <div><div class="stat-number">2</div><div class="stat-label">Locations</div></div>
     <div><div class="stat-number">4.3</div><div class="stat-label">Star Rating</div></div>
   </div>
@@ -594,8 +594,8 @@
         <div class="service-icon">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
         </div>
-        <h3>Adolescent Counseling</h3>
-        <p>Teens face a different world. Our therapists help adolescents navigate anxiety, school stress, social pressures, and family conflict.</p>
+        <h3>Child & Adolescent Counseling</h3>
+        <p>Specialized counseling for children, teens, and adolescents. Helping young people navigate anxiety, behavior challenges, school stress, social pressures, and family conflict.</p>
       </div>
       <div class="service-card reveal">
         <div class="service-icon">
@@ -604,13 +604,7 @@
         <h3>Trauma & PTSD</h3>
         <p>Evidence-based trauma treatment, including Prolonged Exposure and Cognitive Processing Therapy, to help you heal from what you've been through.</p>
       </div>
-      <div class="service-card reveal">
-        <div class="service-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.22 1.14 2 2 0 012.21 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-        </div>
-        <h3>Phone Therapy</h3>
-        <p>Talk with your therapist over the phone from anywhere. Same quality care, no commute, no waiting room. Perfect for busy schedules.</p>
-      </div>
+      
       <div class="service-card reveal">
         <div class="service-icon">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg>
@@ -632,13 +626,7 @@
           <h3>Grief & Loss Counseling</h3>
           <p>Compassionate support through loss, whether recent or long ago. Find a way to carry it and keep living.</p>
         </div>
-        <div class="service-card reveal">
-          <div class="service-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
-          </div>
-          <h3>Group Therapy</h3>
-          <p>Connect with others facing similar challenges in a supportive, professionally guided group setting.</p>
-        </div>
+        
         <div class="service-card reveal">
           <div class="service-icon">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
@@ -759,7 +747,7 @@
         <div class="therapist-photo-wrap"><img src="../images/portraits/scraped/josie-klass.jpg" alt="Josie Klass"></div>
         <h3>Josie Klass</h3>
         <div class="credentials">LCSW</div>
-        <div class="role">Licensed Clinical Social Worker</div>
+        <div class="role">Licensed Clinical Social Worker &mdash; Mendota</div>
         <p>Many years of experience in mental health care, including bereavement services, depression counseling, and supporting individuals with dementia and their families.</p>
         <div class="therapist-specialties">
           <span class="specialty-tag">Grief</span>
@@ -871,7 +859,7 @@
           Do you offer evening or weekend appointments?
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
         </button>
-        <div class="faq-answer"><div class="faq-answer-inner">Yes. We offer appointment times from 8 AM to 8 PM, including evening appointments, to fit busy schedules. Our office is open Monday through Friday from 8 AM to 5 PM.</div></div>
+        <div class="faq-answer"><div class="faq-answer-inner">Yes. We offer appointment times from 8 AM to 8 PM, including evening appointments, to fit busy schedules. Our phone lines are open Monday through Friday from 9 AM to 5 PM.</div></div>
       </div>
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)">
@@ -882,10 +870,10 @@
       </div>
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)">
-          Can I do therapy over the phone or video?
+          Can I do video therapy?
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
         </button>
-        <div class="faq-answer"><div class="faq-answer-inner">Yes. We offer both phone therapy and secure video tele-therapy. You can receive the same quality care from the comfort of your home, without the commute.</div></div>
+        <div class="faq-answer"><div class="faq-answer-inner">Yes. We offer secure video tele-therapy so you can receive the same quality care from the comfort of your home, without the commute.</div></div>
       </div>
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)">
@@ -962,12 +950,12 @@
       <div class="location-card reveal">
         <h3>Ottawa</h3>
         <p class="loc-addr">747 E Etna Rd, Ottawa, IL 61350</p>
-        <p class="loc-hours"><strong>Office hours:</strong><br>Mon-Fri 8 AM - 5 PM<br>Appointments 8 AM - 8 PM<br>Sat Appointments 8 AM - 8 PM<br>Sun Closed</p>
+        <p class="loc-hours"><strong>Phone hours:</strong><br>Mon-Fri 9 AM - 5 PM<br>Appointments Mon-Fri 8 AM - 8 PM<br>Sat Appointments 8 AM - 2 PM<br>By appointment only — no walk-ins</p>
       </div>
       <div class="location-card reveal">
         <h3>Mendota</h3>
-        <p class="loc-addr">Mendota, IL</p>
-        <p class="loc-hours"><strong>Office hours:</strong><br>Mon-Fri 8 AM - 5 PM<br>Appointments 8 AM - 8 PM<br>Sat Appointments 8 AM - 8 PM<br>Sun Closed</p>
+        <p class="loc-addr">901 Main St, Mendota, IL 61342</p>
+        <p class="loc-hours"><strong>Phone hours:</strong><br>Mon-Fri 9 AM - 5 PM<br>Appointments Tue-Thu 8 AM - 8 PM<br>By appointment only — no walk-ins</p>
       </div>
     </div>
   </div>
@@ -1092,7 +1080,7 @@
 <!-- Footer -->
 <footer>
   <div class="logo">Illinois Valley <span>Counseling Services</span></div>
-  <p style="margin-top:1.5rem;color:rgba(255,255,255,0.75);font-size:0.9rem;">747 E Etna Rd, Ottawa, IL 61350 · (815) 993-1614</p>
+  <p style="margin-top:1.5rem;color:rgba(255,255,255,0.75);font-size:0.9rem;">747 E Etna Rd, Ottawa, IL 61350 · 901 Main St, Mendota, IL 61342 · (815) 993-1614</p>
   <p>Ottawa · Mendota</p>
   <p style="margin-top:1rem;font-size:0.75rem;color:rgba(255,255,255,0.35);">If you are in crisis, call or text 988 (Suicide & Crisis Lifeline) or go to your nearest emergency room.</p>
   <p style="margin-top:1.5rem;">© <span id="year"></span> Illinois Valley Counseling Services. All rights reserved.</p>
