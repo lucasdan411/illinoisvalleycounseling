@@ -39,7 +39,30 @@
     "telephone": "+1-815-993-1614",
     "address": { "@type": "PostalAddress", "streetAddress": "747 E Etna Rd", "addressLocality": "Ottawa", "addressRegion": "IL", "postalCode": "61350", "addressCountry": "US" }
   }
-  </script>
+    // Floating action buttons: appear only while scrolling back up
+  var fabCall = document.getElementById('fabCall');
+  var fabCallback = document.getElementById('fabCallback');
+  var fabTop = document.getElementById('fabTop');
+  var fabs = [fabCall, fabCallback, fabTop];
+  var showFabs = function() { fabs.forEach(function(f) { if (f) f.classList.add('show'); }); };
+  var hideFabs = function() { fabs.forEach(function(f) { if (f) f.classList.remove('show'); }); };
+  var lastScroll = window.pageYOffset || document.documentElement.scrollTop;
+  var hideTimer = null;
+  window.addEventListener('scroll', function() {
+    var y = window.pageYOffset || document.documentElement.scrollTop;
+    var scrollingUp = y < lastScroll;
+    if (scrollingUp && y > 300) {
+      showFabs();
+      clearTimeout(hideTimer);
+      hideTimer = setTimeout(hideFabs, 2000);
+    } else if (!scrollingUp && y > 300) {
+      hideFabs();
+    } else if (y <= 300) {
+      hideFabs();
+    }
+    lastScroll = y;
+  }, { passive: true });
+</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
@@ -74,6 +97,16 @@
     footer { background: var(--teal-dark); padding: 2rem; text-align: center; }
     footer p { color: rgba(255,255,255,0.4); font-size: 0.8rem; }
     footer a { color: rgba(255,255,255,0.6); }
+
+    /* Floating action buttons - appear only while scrolling back up */
+    .fab { position: fixed; right: 1.2rem; z-index: 400; border: none; cursor: pointer; font-family: 'Inter', sans-serif; font-weight: 700; box-shadow: 0 8px 24px rgba(15,61,58,0.3); transition: opacity 0.3s, transform 0.3s; opacity: 0; pointer-events: none; transform: translateY(10px); text-decoration: none; }
+    .fab.show { opacity: 1; pointer-events: auto; transform: translateY(0); }
+    .fab-callback { bottom: 1.2rem; background: var(--amber); color: var(--teal-dark); padding: 0.9rem 1.5rem; border-radius: 50px; font-size: 0.92rem; display: flex; align-items: center; gap: 0.5rem; }
+    .fab-callback:hover { background: var(--amber-light); }
+    .fab-call { bottom: 5.4rem; background: var(--teal); color: white; padding: 0.9rem 1.5rem; border-radius: 50px; font-size: 0.92rem; display: flex; align-items: center; gap: 0.5rem; }
+    .fab-call:hover { background: var(--teal-light); }
+    .fab-top { bottom: 9.6rem; background: var(--teal); color: white; width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+    .fab-top:hover { background: var(--teal-dark); }
   </style>
 </head>
 <body>
@@ -151,5 +184,18 @@
   <p>Ottawa · Mendota · <a href="tel:18159931614">(815) 993-1614</a> · <a href="../index.html">Home</a></p>
   <p style="margin-top:0.8rem;font-size:0.7rem;">If you are in crisis, call or text 988 (Suicide & Crisis Lifeline) or go to your nearest emergency room.</p>
 </footer>
+<!-- Floating action buttons: appear only while scrolling back up -->
+<button class="fab fab-top" id="fabTop" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+<a href="tel:8159931614" class="fab fab-call" id="fabCall">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.22 1.14 2 2 0 012.21 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+  Call Now
+</a>
+<a href="../index.html#contact" class="fab fab-callback" id="fabCallback">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.22 1.14 2 2 0 012.21 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+  Request a Call Back
+</a>
+
 </body>
 </html>
