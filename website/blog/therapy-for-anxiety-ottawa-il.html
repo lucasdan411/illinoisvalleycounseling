@@ -38,11 +38,7 @@
     "url": "https://www.illinoisvalleycounseling.com/",
     "telephone": "+1-815-993-1614",
     "address": { "@type": "PostalAddress", "streetAddress": "747 E Etna Rd", "addressLocality": "Ottawa", "addressRegion": "IL", "postalCode": "61350", "addressCountry": "US" }
-  }
-    // Floating action buttons: appear only while scrolling back up
-  var fabCall = document.getElementById('fabCall');
-  var fabCallback = document.getElementById('fabCallback');
-  var fabTop = document.getElementById('fabTop');
+  }  var fabTop = document.getElementById('fabTop');
   var fabs = [fabCall, fabCallback, fabTop];
   var showFabs = function() { fabs.forEach(function(f) { if (f) f.classList.add('show'); }); };
   var hideFabs = function() { fabs.forEach(function(f) { if (f) f.classList.remove('show'); }); };
@@ -72,6 +68,7 @@
     h1, h2, h3 { font-family: 'Playfair Display', serif; line-height: 1.25; }
     .topbar { background: var(--teal-dark); color: white; text-align: center; padding: 0.6rem 1rem; font-size: 0.8rem; font-weight: 500; }
     .topbar strong { color: var(--amber); }
+    .topbar a { color: var(--amber); text-decoration: underline; }
     nav { background: white; border-bottom: 1px solid var(--light-gray); padding: 0 1.5rem; position: sticky; top: 0; z-index: 200; }
     nav .inner { max-width: 800px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
     .logo { font-family: 'Playfair Display', serif; font-size: 0.95rem; font-weight: 700; color: var(--teal); text-decoration: none; }
@@ -98,6 +95,8 @@
     footer p { color: rgba(255,255,255,0.4); font-size: 0.8rem; }
     footer a { color: rgba(255,255,255,0.6); }
 
+    
+
     /* Floating action buttons - appear only while scrolling back up */
     .fab { position: fixed; right: 1.2rem; z-index: 400; border: none; cursor: pointer; font-family: 'Inter', sans-serif; font-weight: 700; box-shadow: 0 8px 24px rgba(15,61,58,0.3); transition: opacity 0.3s, transform 0.3s; opacity: 0; pointer-events: none; transform: translateY(10px); text-decoration: none; }
     .fab.show { opacity: 1; pointer-events: auto; transform: translateY(0); }
@@ -110,7 +109,7 @@
   </style>
 </head>
 <body>
-<div class="topbar">Ottawa & Mendota, IL · <strong>(815) 993-1614</strong> · <a href="../index.html#contact" style="color:white;">Request a Call Back</a></div>
+<div class="topbar">Ottawa & Mendota, IL · <a href="tel:8159931614" style="color:white;text-decoration:underline;">(815) 993-1614</a> · <a href="../index.html#contact" style="color:white;">Request a Call Back</a></div>
 <nav>
   <div class="inner">
     <a href="../index.html" class="logo">Illinois Valley <span>Counseling Services</span></a>
@@ -181,9 +180,15 @@
 
 <footer>
   <p style="margin-bottom:0.5rem;">Illinois Valley Counseling Services · 747 E Etna Rd, Ottawa, IL 61350</p>
-  <p>Ottawa · Mendota · <a href="tel:18159931614">(815) 993-1614</a> · <a href="../index.html">Home</a></p>
+  <p>Ottawa · Mendota · <a href="tel:8159931614">(815) 993-1614</a> · <a href="../index.html">Home</a></p>
   <p style="margin-top:0.8rem;font-size:0.7rem;">If you are in crisis, call or text 988 (Suicide & Crisis Lifeline) or go to your nearest emergency room.</p>
 </footer>
+<a href="../index.html#contact" class="fab fab-callback" id="fabCallback">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.22 1.14 2 2 0 012.21 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+  Request a Call Back
+</a>
+
+
 <!-- Floating action buttons: appear only while scrolling back up -->
 <button class="fab fab-top" id="fabTop" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
@@ -196,6 +201,33 @@
   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.22 1.14 2 2 0 012.21 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
   Request a Call Back
 </a>
+
+
+<script>
+  // Floating action buttons: appear only while scrolling back up
+  var fabCall = document.getElementById('fabCall');
+  var fabCallback = document.getElementById('fabCallback');
+  var fabTop = document.getElementById('fabTop');
+  var fabs = [fabCall, fabCallback, fabTop];
+  var showFabs = function() { fabs.forEach(function(f) { if (f) f.classList.add('show'); }); };
+  var hideFabs = function() { fabs.forEach(function(f) { if (f) f.classList.remove('show'); }); };
+  var lastScroll = window.pageYOffset || document.documentElement.scrollTop;
+  var hideTimer = null;
+  window.addEventListener('scroll', function() {
+    var y = window.pageYOffset || document.documentElement.scrollTop;
+    var scrollingUp = y < lastScroll;
+    if (scrollingUp && y > 300) {
+      showFabs();
+      clearTimeout(hideTimer);
+      hideTimer = setTimeout(hideFabs, 2000);
+    } else if (!scrollingUp && y > 300) {
+      hideFabs();
+    } else if (y <= 300) {
+      hideFabs();
+    }
+    lastScroll = y;
+  }, { passive: true });
+</script>
 
 </body>
 </html>
