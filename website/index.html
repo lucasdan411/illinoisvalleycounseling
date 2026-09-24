@@ -1352,6 +1352,10 @@
 </a>
 
 <script>
+  // Prevent browser scroll restoration from jumping to random positions
+  if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
+  window.addEventListener('beforeunload', function() { window.scrollTo(0, 0); });
+
   // Scroll reveal
   const reveals = document.querySelectorAll('.reveal');
   const io = new IntersectionObserver((entries) => {
