@@ -453,6 +453,7 @@
 
     /* Dark mode - responds to system/browser preference */
     @media (prefers-color-scheme: dark) {
+    /* Auto dark mode from system preference */
       :root {
         --teal: #2d8a84;
         --teal-light: #3aada6;
@@ -538,6 +539,69 @@
       /* Hamburger bars */
       .hamburger .bar { background: var(--charcoal); }
     }
+    /* Manual dark mode toggle overrides system preference */
+    [data-theme="dark"] {
+      --teal: #2d8a84;
+      --teal-light: #3aada6;
+      --teal-dark: #0a2a27;
+      --amber: #e8a84a;
+      --amber-light: #f4c97a;
+      --cream: #1a1a1a;
+      --warm-white: #1e1e1e;
+      --charcoal: #e0e0e0;
+      --gray: #a0a0a0;
+      --light-gray: #2a2a2a;
+      --success: #3a9e6a;
+    }
+    [data-theme="dark"] body { background: var(--cream); color: var(--charcoal); }
+    [data-theme="dark"] .therapy-type-card,
+    [data-theme="dark"] .resources-card,
+    [data-theme="dark"] .callback-box,
+    [data-theme="dark"] .info-card,
+    [data-theme="dark"] .insurance-logo,
+    [data-theme="dark"] .treat-item,
+    [data-theme="dark"] .faq-card,
+    [data-theme="dark"] .review-card,
+    [data-theme="dark"] .location-card,
+    [data-theme="dark"] .services-card { background: #252525 !important; }
+    [data-theme="dark"] .therapist-card { background: #222 !important; border-color: var(--light-gray); }
+    [data-theme="dark"] .therapist-card:hover { border-color: var(--teal-light); }
+    [data-theme="dark"] .review-card { background: #222 !important; }
+    [data-theme="dark"] .stats-bar { background: #1e1e1e; border-bottom-color: var(--light-gray); }
+    [data-theme="dark"] nav { background: #1e1e1e; border-bottom-color: var(--light-gray); }
+    [data-theme="dark"] .hero { background: linear-gradient(160deg, #0a1a18 0%, #0f3d3a 60%, #1a5f5a 100%); }
+    [data-theme="dark"] .change-section { background: #1a1a1a; }
+    [data-theme="dark"] .therapists { background: #1a1a1a; }
+    [data-theme="dark"] .callback-cta { background: var(--cream); }
+    [data-theme="dark"] .faq { background: #1a1a1a; }
+    [data-theme="dark"] .locations { background: #1a1a1a; }
+    [data-theme="dark"] .contact-section { background: #1a1a1a; }
+    [data-theme="dark"] .resources { background: #1a1a1a; }
+    [data-theme="dark"] .reviews { background: #1a1a1a; }
+    [data-theme="dark"] .insurance { background: #1a1a1a; }
+    [data-theme="dark"] footer { background: #0a0a0a; }
+    [data-theme="dark"] .topbar { background: #0a0a0a; }
+    [data-theme="dark"] .specialty-tag { background: rgba(45,138,132,0.15); color: var(--teal-light); }
+    [data-theme="dark"] input, [data-theme="dark"] select, [data-theme="dark"] textarea { background: #2a2a2a !important; color: var(--charcoal) !important; border-color: var(--light-gray) !important; }
+    [data-theme="dark"] .nav-links a { color: var(--charcoal); }
+    [data-theme="dark"] .mobile-menu { background: #1e1e1e; }
+    [data-theme="dark"] .mobile-menu a { color: var(--charcoal); }
+    [data-theme="dark"] .lightbox-overlay { background: rgba(0,0,0,0.92); }
+    [data-theme="dark"] .insurance-note { background: rgba(45,138,132,0.08); border-color: rgba(45,138,132,0.12); }
+    [data-theme="dark"] .treat-item { background: #252525; border-color: var(--light-gray); }
+    [data-theme="dark"] .treat-item .check { background: rgba(45,138,132,0.15); }
+    [data-theme="dark"] .service-card { background: #252525; border-color: var(--light-gray); }
+    [data-theme="dark"] .btn-outline-white { border-color: rgba(255,255,255,0.5); color: white; }
+    [data-theme="dark"] .btn-outline-white:hover { background: rgba(255,255,255,0.15); }
+    [data-theme="dark"] .positive-note { background: rgba(45,138,132,0.1); }
+    [data-theme="dark"] .hamburger .bar { background: var(--charcoal); }
+    [data-theme="dark"] .logo { color: var(--teal-light); }
+
+    /* Dark mode toggle */
+    .theme-toggle { background: none; border: 1.5px solid var(--light-gray); cursor: pointer; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; transition: all 0.25s; color: var(--charcoal); padding: 0; flex-shrink: 0; }
+    .theme-toggle:hover { border-color: var(--teal); background: rgba(26,95,90,0.06); }
+    .mobile-menu .theme-toggle-row { display: flex; align-items: center; gap: 0.8rem; padding: 0.8rem 0; border-bottom: 1px solid var(--light-gray); font-size: 1.02rem; font-weight: 500; color: var(--charcoal); }
+    .mobile-menu .theme-toggle { margin-left: auto; }
   </style>
 </head>
 <body>
@@ -558,6 +622,7 @@
       <a href="#faq">FAQ</a>
       <a href="#resources">Resources</a>
       <a href="#contact" class="nav-cta">Request a Call Back</a>
+      <button class="theme-toggle" id="themeToggleDesktop" aria-label="Toggle dark mode" title="Toggle dark mode">🌙</button>
     </div>
     <button class="hamburger" id="hamburger" aria-label="Open menu">
       <span class="bar"></span>
@@ -574,11 +639,14 @@
   <a href="#services">Services</a>
   <a href="#team">Our Team</a>
   <a href="#therapy-types">Therapy Types</a>
-      <a href="#faq">FAQ</a>
+  <a href="#faq">FAQ</a>
   <a href="#resources">Resources</a>
-  <a href="#therapy-types">Therapy Types</a>
   <a href="#locations">Locations</a>
   <a href="#insurance">Insurance</a>
+  <div class="theme-toggle-row">
+    Dark Mode
+    <button class="theme-toggle" id="themeToggleMobile" aria-label="Toggle dark mode">🌙</button>
+  </div>
   <a href="#contact" class="nav-cta">Request a Call Back</a>
 </div>
 
@@ -1258,6 +1326,39 @@
     });
   }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
   reveals.forEach(r => io.observe(r));
+
+
+  // Dark mode toggle
+  (function() {
+    var theme = localStorage.getItem('theme');
+    if (theme === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    } else if (theme === 'light') {
+      document.documentElement.removeAttribute('data-theme');
+    }
+    // If no localStorage value, let system preference handle it (no data-theme attr)
+
+    var toggles = document.querySelectorAll('.theme-toggle');
+    function updateIcons() {
+      var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      toggles.forEach(function(t) { t.textContent = isDark ? '☀️' : '🌙'; });
+    }
+    updateIcons();
+
+    toggles.forEach(function(toggle) {
+      toggle.addEventListener('click', function() {
+        var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        if (isDark) {
+          document.documentElement.removeAttribute('data-theme');
+          localStorage.setItem('theme', 'light');
+        } else {
+          document.documentElement.setAttribute('data-theme', 'dark');
+          localStorage.setItem('theme', 'dark');
+        }
+        updateIcons();
+      });
+    });
+  })();
 
   // Year
   document.getElementById('year').textContent = new Date().getFullYear();
