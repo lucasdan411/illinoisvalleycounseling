@@ -481,7 +481,9 @@
       .services-card {
         background: #252525 !important;
       }
-      .therapist-card { background: #222 !important; border-color: var(--light-gray); }
+      .therapist-card, .pillar { background: #222 !important; border-color: var(--light-gray); }
+      .emergency-card { background: #222 !important; border-color: var(--light-gray); }
+      .emergency-card button { color: var(--charcoal); }
       .therapist-card:hover { border-color: var(--teal-light); }
       /* Review card */
       .review-card { background: #222 !important; }
@@ -564,7 +566,9 @@
     [data-theme="dark"] .review-card,
     [data-theme="dark"] .location-card,
     [data-theme="dark"] .services-card { background: #252525 !important; }
-    [data-theme="dark"] .therapist-card { background: #222 !important; border-color: var(--light-gray); }
+    [data-theme="dark"] .therapist-card, [data-theme="dark"] .pillar { background: #222 !important; border-color: var(--light-gray); }
+    [data-theme="dark"] .emergency-card { background: #222 !important; border-color: var(--light-gray); }
+    [data-theme="dark"] .emergency-card button { color: var(--charcoal); }
     [data-theme="dark"] .therapist-card:hover { border-color: var(--teal-light); }
     [data-theme="dark"] .review-card { background: #222 !important; }
     [data-theme="dark"] .stats-bar { background: #1e1e1e; border-bottom-color: var(--light-gray); }
@@ -712,11 +716,33 @@
   </div>
 </section>
 
-<!-- Crisis line -->
-<div style="text-align:center;padding:0.8rem 2rem 0;max-width:800px;margin:0 auto;">
-  <p style="font-size:0.72rem;color:var(--gray);line-height:1.5;">
-    If you or someone you know is in immediate danger, having thoughts of suicide or homicide, call or text <strong>988</strong> (Suicide & Crisis Lifeline) or go to your <strong>nearest emergency room</strong>. You are not alone, help is available 24/7.
-  </p>
+<!-- Emergency disclosure -->
+<div class="emergency-card" id="emergencyCard" style="max-width:720px;margin:1.5rem auto 0;background:white;border:1.5px solid var(--light-gray);border-radius:14px;overflow:hidden;transition:border-color 0.2s;">
+  <button id="emergencyToggle" aria-expanded="false" style="width:100%;background:none;border:none;padding:1rem 1.5rem;display:flex;align-items:center;gap:0.75rem;cursor:pointer;font-family:'Inter',sans-serif;text-align:left;color:var(--teal-dark);font-size:0.92rem;font-weight:600;transition:background 0.2s;" onmouseover="this.style.background='rgba(26,95,90,0.04)'" onmouseout="this.style.background='none'">
+    <span style="display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:rgba(26,95,90,0.08);flex-shrink:0;transition:background 0.2s;">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+    </span>
+    Is this an emergency?
+    <span id="emergencyChevron" style="margin-left:auto;transition:transform 0.25s;display:flex;align-items:center;">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--gray)" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+    </span>
+  </button>
+  <div id="emergencyContent" style="max-height:0;overflow:hidden;transition:max-height 0.35s ease;background:rgba(26,95,90,0.03);border-top:1px solid transparent;transition:max-height 0.35s ease, border-color 0.35s ease;">
+    <div style="padding:1.2rem 1.5rem;">
+      <p style="font-size:0.88rem;color:var(--charcoal);line-height:1.7;margin:0 0 1rem;">
+        If you or someone you know is in immediate danger or having thoughts of suicide or homicide:
+      </p>
+      <div style="display:flex;flex-direction:column;gap:0.6rem;">
+        <a href="tel:988" style="display:flex;align-items:center;gap:0.6rem;padding:0.75rem 1rem;background:var(--teal);color:white;border-radius:10px;text-decoration:none;font-weight:600;font-size:0.9rem;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.22 1.14 2 2 0 012.21 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          Call 988 (24/7 Crisis Lifeline)
+        </a>
+        <p style="font-size:0.82rem;color:var(--gray);margin:0;line-height:1.5;">
+          Or go to your <strong>nearest emergency room</strong>. You are not alone, help is available 24/7.
+        </p>
+      </div>
+    </div>
+  </div>
 </div>
 
 
@@ -1367,6 +1393,28 @@
       });
     });
   })();
+
+
+  // Emergency disclosure toggle
+  var emergencyToggle = document.getElementById('emergencyToggle');
+  var emergencyContent = document.getElementById('emergencyContent');
+  var emergencyChevron = document.getElementById('emergencyChevron');
+  var emergencyCard = document.getElementById('emergencyCard');
+  emergencyToggle.addEventListener('click', function() {
+    var isOpen = emergencyToggle.getAttribute('aria-expanded') === 'true';
+    emergencyToggle.setAttribute('aria-expanded', String(!isOpen));
+    if (!isOpen) {
+      emergencyContent.style.maxHeight = emergencyContent.scrollHeight + 'px';
+      emergencyContent.style.borderTopColor = 'var(--light-gray)';
+      emergencyChevron.style.transform = 'rotate(180deg)';
+      emergencyCard.style.borderColor = 'var(--teal)';
+    } else {
+      emergencyContent.style.maxHeight = '0';
+      emergencyContent.style.borderTopColor = 'transparent';
+      emergencyChevron.style.transform = 'rotate(0deg)';
+      emergencyCard.style.borderColor = 'var(--light-gray)';
+    }
+  });
 
   // Year
   document.getElementById('year').textContent = new Date().getFullYear();
