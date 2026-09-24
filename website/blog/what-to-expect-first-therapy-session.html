@@ -109,6 +109,34 @@
     .fab-call:hover { background: var(--teal-light); }
     .fab-top { bottom: 9.6rem; background: var(--teal); color: white; width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
     .fab-top:hover { background: var(--teal-dark); }
+
+    /* Dark mode - responds to system/browser preference */
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --teal: #2d8a84;
+        --teal-light: #3aada6;
+        --teal-dark: #0a2a27;
+        --amber: #e8a84a;
+        --amber-light: #f4c97a;
+        --cream: #1a1a1a;
+        --warm-white: #1e1e1e;
+        --charcoal: #e0e0e0;
+        --gray: #a0a0a0;
+        --light-gray: #2a2a2a;
+      }
+      body { background: var(--cream); color: var(--charcoal); }
+      nav { background: #1e1e1e; border-bottom-color: var(--light-gray); }
+      .type-card { background: #252525; border-color: var(--light-gray); }
+      .sign, .note { background: #252525; border-color: var(--light-gray); }
+      .note p, .sign p { color: var(--gray); }
+      .cta-box { background: var(--teal-dark); }
+      .related { border-top-color: var(--light-gray); }
+      footer { background: #0a0a0a; }
+      .topbar { background: #0a0a0a; }
+      input, select, textarea { background: #2a2a2a; color: var(--charcoal); border-color: var(--light-gray); }
+      .hamburger .bar { background: var(--charcoal); }
+      .logo { color: var(--teal-light); }
+    }
   </style>
 </head>
 <body>

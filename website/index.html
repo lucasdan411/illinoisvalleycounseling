@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Illinois Valley Counseling Services – Change Is Possible | Ottawa & Mendota, IL</title>
+  <title>Illinois Valley Counseling Services - Change Is Possible | Ottawa & Mendota, IL</title>
   <meta name="description" content="Illinois Valley Counseling Services helps people with mental health and substance abuse issues. Individual, couples, family, and adolescent therapy in Ottawa and Mendota, IL. Change is possible - request a call back today.">
   <link rel="canonical" href="https://www.illinoisvalleycounseling.com/">
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Illinois Valley Counseling Services – Change Is Possible">
+  <meta property="og:title" content="Illinois Valley Counseling Services - Change Is Possible">
   <meta property="og:description" content="Individual, couples, family, and adolescent therapy in Ottawa & Mendota, IL. Licensed therapists, most major insurance accepted. Change is possible - request a call back.">
   <meta property="og:image" content="https://lucasdan411.github.io/illinoisvalleycounseling/website/images/og-image.jpg">
   <meta property="og:url" content="https://www.illinoisvalleycounseling.com/">
@@ -16,7 +16,7 @@
   <meta property="og:locale" content="en_US">
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Illinois Valley Counseling Services – Change Is Possible">
+  <meta name="twitter:title" content="Illinois Valley Counseling Services - Change Is Possible">
   <meta name="twitter:description" content="Licensed therapists in Ottawa & Mendota, IL. Individual, couples, family, and adolescent counseling. Most major insurance accepted.">
   <meta name="twitter:image" content="https://lucasdan411.github.io/illinoisvalleycounseling/website/images/og-image.jpg">
   <!-- Geo / local SEO -->
@@ -450,6 +450,94 @@
       .nav-links { display: none; }
       .nav-phone span { display: none; }
     }
+
+    /* Dark mode - responds to system/browser preference */
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --teal: #2d8a84;
+        --teal-light: #3aada6;
+        --teal-dark: #0a2a27;
+        --amber: #e8a84a;
+        --amber-light: #f4c97a;
+        --cream: #1a1a1a;
+        --warm-white: #1e1e1e;
+        --charcoal: #e0e0e0;
+        --gray: #a0a0a0;
+        --light-gray: #2a2a2a;
+        --success: #3a9e6a;
+      }
+      body { background: var(--cream); color: var(--charcoal); }
+      /* Card backgrounds */
+      .therapy-type-card,
+      .resources-card,
+      .callback-box,
+      .info-card,
+      .insurance-logo,
+      .treat-item,
+      .faq-card,
+      .review-card,
+      .location-card,
+      .services-card {
+        background: #252525 !important;
+      }
+      .therapist-card { background: #222 !important; border-color: var(--light-gray); }
+      .therapist-card:hover { border-color: var(--teal-light); }
+      /* Review card */
+      .review-card { background: #222 !important; }
+      /* Stats bar */
+      .stats-bar { background: #1e1e1e; border-bottom-color: var(--light-gray); }
+      /* Nav */
+      nav { background: #1e1e1e; border-bottom-color: var(--light-gray); }
+      /* Hero teal stays - already uses var */
+      .hero { background: linear-gradient(160deg, #0a1a18 0%, #0f3d3a 60%, #1a5f5a 100%); }
+      /* Change section */
+      .change-section { background: #1a1a1a; }
+      /* Therapists section */
+      .therapists { background: #1a1a1a; }
+      /* Callback CTA */
+      .callback-cta { background: var(--cream); }
+      /* FAQ */
+      .faq { background: #1a1a1a; }
+      /* Locations */
+      .locations { background: #1a1a1a; }
+      /* Contact section */
+      .contact-section { background: #1a1a1a; }
+      /* Resources section */
+      .resources { background: #1a1a1a; }
+      /* Reviews section */
+      .reviews { background: #1a1a1a; }
+      /* Insurance section */
+      .insurance { background: #1a1a1a; }
+      /* Footer */
+      footer { background: #0a0a0a; }
+      /* Topbar */
+      .topbar { background: #0a0a0a; }
+      /* Specialty tags */
+      .specialty-tag { background: rgba(45,138,132,0.15); color: var(--teal-light); }
+      /* Form inputs */
+      input, select, textarea { background: #2a2a2a !important; color: var(--charcoal) !important; border-color: var(--light-gray) !important; }
+      /* Links in nav */
+      .nav-links a { color: var(--charcoal); }
+      /* Mobile menu */
+      .mobile-menu { background: #1e1e1e; }
+      .mobile-menu a { color: var(--charcoal); }
+      /* Lightbox */
+      .lightbox-overlay { background: rgba(0,0,0,0.92); }
+      /* Insurance note */
+      .insurance-note { background: rgba(45,138,132,0.08); border-color: rgba(45,138,132,0.12); }
+      /* Treat items */
+      .treat-item { background: #252525; border-color: var(--light-gray); }
+      .treat-item .check { background: rgba(45,138,132,0.15); }
+      /* Service cards */
+      .service-card { background: #252525; border-color: var(--light-gray); }
+      /* Buttons */
+      .btn-outline-white { border-color: rgba(255,255,255,0.5); color: white; }
+      .btn-outline-white:hover { background: rgba(255,255,255,0.15); }
+      /* Positive note */
+      .positive-note { background: rgba(45,138,132,0.1); }
+      /* Hamburger bars */
+      .hamburger .bar { background: var(--charcoal); }
+    }
   </style>
 </head>
 <body>
@@ -571,41 +659,41 @@
   <div class="therapy-types-inner" style="max-width:1060px;margin:0 auto;padding:3rem 2rem;">
     <div class="section-label">Types of Therapy We Offer</div>
     <h2 style="text-align:center;font-size:clamp(1.7rem,3vw,2.4rem);color:var(--teal-dark);margin-bottom:0.5rem;">Evidence-Based Approaches</h2>
-    <p style="text-align:center;color:var(--gray);margin-bottom:2rem;font-size:0.9rem;"><a href="blog/types-of-therapy-explained.html" style="color:var(--teal);font-weight:600;">Read our guide →</a> — a plain-English breakdown of how each type of therapy works and who it helps.</p>
+    <p style="text-align:center;color:var(--gray);margin-bottom:2rem;font-size:0.9rem;"><a href="blog/types-of-therapy-explained.html" style="color:var(--teal);font-weight:600;">Read our guide →</a> ,  a plain-English breakdown of how each type of therapy works and who it helps.</p>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.2rem;max-width:900px;margin:0 auto;">
-      <div class="therapy-type-card" style="background:white;border-radius:12px;padding:1.4rem;border:1px solid var(--light-gray);">
+      <div class="therapy-type-card" class="therapy-type-card" style="border-radius:12px;padding:1.4rem;">
         <h4 style="font-size:0.95rem;color:var(--teal-dark);margin-bottom:0.3rem;">Cognitive Behavioral Therapy (CBT)</h4>
         <p style="font-size:0.82rem;color:var(--gray);line-height:1.6;">Identify and reshape unhelpful thought patterns to change how you feel and act.</p>
       </div>
-      <div class="therapy-type-card" style="background:white;border-radius:12px;padding:1.4rem;border:1px solid var(--light-gray);">
+      <div class="therapy-type-card" class="therapy-type-card" style="border-radius:12px;padding:1.4rem;">
         <h4 style="font-size:0.95rem;color:var(--teal-dark);margin-bottom:0.3rem;">Dialectical Behavior Therapy (DBT)</h4>
         <p style="font-size:0.82rem;color:var(--gray);line-height:1.6;">Build skills in mindfulness, emotional regulation, distress tolerance, and relationships.</p>
       </div>
-      <div class="therapy-type-card" style="background:white;border-radius:12px;padding:1.4rem;border:1px solid var(--light-gray);">
+      <div class="therapy-type-card" class="therapy-type-card" style="border-radius:12px;padding:1.4rem;">
         <h4 style="font-size:0.95rem;color:var(--teal-dark);margin-bottom:0.3rem;">Acceptance and Commitment Therapy (ACT)</h4>
         <p style="font-size:0.82rem;color:var(--gray);line-height:1.6;">Accept what's out of your control and commit to actions that enrich your life.</p>
       </div>
-      <div class="therapy-type-card" style="background:white;border-radius:12px;padding:1.4rem;border:1px solid var(--light-gray);">
+      <div class="therapy-type-card" class="therapy-type-card" style="border-radius:12px;padding:1.4rem;">
         <h4 style="font-size:0.95rem;color:var(--teal-dark);margin-bottom:0.3rem;">Play Therapy</h4>
         <p style="font-size:0.82rem;color:var(--gray);line-height:1.6;">Using play to help children express feelings, process experiences, and develop coping skills.</p>
       </div>
-      <div class="therapy-type-card" style="background:white;border-radius:12px;padding:1.4rem;border:1px solid var(--light-gray);">
+      <div class="therapy-type-card" class="therapy-type-card" style="border-radius:12px;padding:1.4rem;">
         <h4 style="font-size:0.95rem;color:var(--teal-dark);margin-bottom:0.3rem;">Family Systems Therapy</h4>
         <p style="font-size:0.82rem;color:var(--gray);line-height:1.6;">Understanding individual challenges in the context of family relationships and dynamics.</p>
       </div>
-      <div class="therapy-type-card" style="background:white;border-radius:12px;padding:1.4rem;border:1px solid var(--light-gray);">
+      <div class="therapy-type-card" class="therapy-type-card" style="border-radius:12px;padding:1.4rem;">
         <h4 style="font-size:0.95rem;color:var(--teal-dark);margin-bottom:0.3rem;">Solution-Focused Therapy</h4>
         <p style="font-size:0.82rem;color:var(--gray);line-height:1.6;">Focus on your strengths and what's possible rather than dwelling on problems.</p>
       </div>
-      <div class="therapy-type-card" style="background:white;border-radius:12px;padding:1.4rem;border:1px solid var(--light-gray);">
+      <div class="therapy-type-card" class="therapy-type-card" style="border-radius:12px;padding:1.4rem;">
         <h4 style="font-size:0.95rem;color:var(--teal-dark);margin-bottom:0.3rem;">Trauma-Focused Therapy</h4>
         <p style="font-size:0.82rem;color:var(--gray);line-height:1.6;">Evidence-based approaches including Prolonged Exposure and CPT for PTSD and trauma recovery.</p>
       </div>
-      <div class="therapy-type-card" style="background:white;border-radius:12px;padding:1.4rem;border:1px solid var(--light-gray);">
+      <div class="therapy-type-card" class="therapy-type-card" style="border-radius:12px;padding:1.4rem;">
         <h4 style="font-size:0.95rem;color:var(--teal-dark);margin-bottom:0.3rem;">Interpersonal Psychotherapy</h4>
         <p style="font-size:0.82rem;color:var(--gray);line-height:1.6;">Improve your relationships and social functioning to relieve psychological symptoms.</p>
       </div>
-      <div class="therapy-type-card" style="background:white;border-radius:12px;padding:1.4rem;border:1px solid var(--light-gray);">
+      <div class="therapy-type-card" class="therapy-type-card" style="border-radius:12px;padding:1.4rem;">
         <h4 style="font-size:0.95rem;color:var(--teal-dark);margin-bottom:0.3rem;">EMDR</h4>
         <p style="font-size:0.82rem;color:var(--gray);line-height:1.6;">Eye Movement Desensitization and Reprocessing - a structured therapy for processing trauma and distressing memories.</p>
       </div>
@@ -984,7 +1072,7 @@
       <div class="resources-card reveal">
         <div class="resources-cat">Getting Started</div>
         <h3><a href="blog/types-of-therapy-explained.html">Types of Therapy Explained: Which Approach Is Right for You?</a></h3>
-        <p>Not sure what CBT, DBT, EMDR, or ACT actually mean? A plain-English guide to the types of therapy we offer — what they are, how they work, and who they help.</p>
+        <p>Not sure what CBT, DBT, EMDR, or ACT actually mean? A plain-English guide to the types of therapy we offer ,  what they are, how they work, and who they help.</p>
         <div class="resources-meta">8 min read</div>
         <a class="read-more" href="blog/types-of-therapy-explained.html">Read Article →</a>
       </div>
