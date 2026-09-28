@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+  (function(){try{var t=localStorage.getItem('theme');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');else if(t==='light')document.documentElement.setAttribute('data-theme','light');}catch(e){}})();
+  </script>
   <title>Illinois Valley Counseling Services - Change Is Possible | Ottawa & Mendota, IL</title>
   <meta name="description" content="Illinois Valley Counseling Services helps people with mental health and substance abuse issues. Individual, couples, family, and adolescent therapy in Ottawa and Mendota, IL. Change is possible - request a call back today.">
   <link rel="canonical" href="https://www.illinoisvalleycounseling.com/">
@@ -453,8 +456,8 @@
 
     /* Dark mode - responds to system/browser preference */
     @media (prefers-color-scheme: dark) {
-    /* Auto dark mode from system preference */
-      :root {
+    /* Auto dark mode from system preference (skipped when user forced light) */
+      :root:not([data-theme="light"]) {
         --teal: #2d8a84;
         --teal-light: #3aada6;
         --teal-dark: #14403c;
@@ -467,77 +470,81 @@
         --light-gray: #2a2a2a;
         --success: #3a9e6a;
       }
-      body { background: var(--cream); color: var(--charcoal); }
+      html:not([data-theme="light"]) body { background: var(--cream); color: var(--charcoal); }
       /* Card backgrounds */
-      .therapy-type-card,
-      .resources-card,
-      .callback-box,
-      .info-card,
-      .insurance-logo,
-      .treat-item,
-      .faq-card,
-      .review-card,
-      .location-card,
-      .services-card {
+      html:not([data-theme="light"]) .therapy-type-card,
+      html:not([data-theme="light"]) .resources-card,
+      html:not([data-theme="light"]) .callback-box,
+      html:not([data-theme="light"]) .info-card,
+      html:not([data-theme="light"]) .insurance-logo,
+      html:not([data-theme="light"]) .treat-item,
+      html:not([data-theme="light"]) .faq-card,
+      html:not([data-theme="light"]) .review-card,
+      html:not([data-theme="light"]) .location-card,
+      html:not([data-theme="light"]) .services-card {
         background: #252525 !important;
       }
-      .therapist-card, .pillar { background: #222 !important; border-color: var(--light-gray); }
-      .therapist-card:hover { border-color: var(--teal-light); }
+      html:not([data-theme="light"]) .therapist-card,
+      html:not([data-theme="light"]) .pillar { background: #222 !important; border-color: var(--light-gray); }
+      html:not([data-theme="light"]) .therapist-card:hover { border-color: var(--teal-light); }
       /* Review card */
-      .review-card { background: #222 !important; }
+      html:not([data-theme="light"]) .review-card { background: #222 !important; }
       /* Stats bar */
-      .stats-bar { background: #1e1e1e; border-bottom-color: var(--light-gray); }
+      html:not([data-theme="light"]) .stats-bar { background: #1e1e1e; border-bottom-color: var(--light-gray); }
       /* Nav */
-      nav { background: #1e1e1e; border-bottom-color: var(--light-gray); }
+      html:not([data-theme="light"]) nav { background: #1e1e1e; border-bottom-color: var(--light-gray); }
       /* Hero teal stays - already uses var */
-      .hero { background: linear-gradient(160deg, #1a2e2c 0%, #1e4a45 60%, #2a6b64 100%); }
+      html:not([data-theme="light"]) .hero { background: linear-gradient(160deg, #1a2e2c 0%, #1e4a45 60%, #2a6b64 100%); }
       /* Change section */
-      .change-section { background: #1a1a1a; }
+      html:not([data-theme="light"]) .change-section { background: #1a1a1a; }
       /* Therapists section */
-      .therapists { background: #1a1a1a; }
+      html:not([data-theme="light"]) .therapists { background: #1a1a1a; }
       /* Callback CTA */
-      .callback-cta { background: var(--cream); }
+      html:not([data-theme="light"]) .callback-cta { background: var(--cream); }
       /* FAQ */
-      .faq { background: #1a1a1a; }
+      html:not([data-theme="light"]) .faq { background: #1a1a1a; }
       /* Locations */
-      .locations { background: #1a1a1a; }
+      html:not([data-theme="light"]) .locations { background: #1a1a1a; }
       /* Contact section */
-      .contact-section { background: #1a1a1a; }
+      html:not([data-theme="light"]) .contact-section { background: #1a1a1a; }
       /* Resources section */
-      .resources { background: #1a1a1a; }
+      html:not([data-theme="light"]) .resources { background: #1a1a1a; }
       /* Reviews section */
-      .reviews { background: #1a1a1a; }
+      html:not([data-theme="light"]) .reviews { background: #1a1a1a; }
       /* Insurance section */
-      .insurance { background: #1a1a1a; }
+      html:not([data-theme="light"]) .insurance { background: #1a1a1a; }
       /* Footer */
-      footer { background: #0a0a0a; }
+      html:not([data-theme="light"]) footer { background: #0a0a0a; }
       /* Topbar */
-      .topbar { background: #0a0a0a; }
+      html:not([data-theme="light"]) .topbar { background: #0a0a0a; }
       /* Specialty tags */
-      .specialty-tag { background: rgba(45,138,132,0.15); color: var(--teal-light); }
+      html:not([data-theme="light"]) .specialty-tag { background: rgba(45,138,132,0.15); color: var(--teal-light); }
       /* Form inputs */
-      input, select, textarea { background: #2a2a2a !important; color: var(--charcoal) !important; border-color: var(--light-gray) !important; }
+      html:not([data-theme="light"]) input,
+      html:not([data-theme="light"]) select,
+      html:not([data-theme="light"]) textarea { background: #2a2a2a !important; color: var(--charcoal) !important; border-color: var(--light-gray) !important; }
       /* Links in nav */
-      .nav-links a { color: var(--charcoal); }
+      html:not([data-theme="light"]) .nav-links a { color: var(--charcoal); }
       /* Mobile menu */
-      .mobile-menu { background: #1e1e1e; }
-      .mobile-menu a { color: var(--charcoal); }
+      html:not([data-theme="light"]) .mobile-menu { background: #1e1e1e; }
+      html:not([data-theme="light"]) .mobile-menu a { color: var(--charcoal); }
       /* Lightbox */
-      .lightbox-overlay { background: rgba(0,0,0,0.92); }
+      html:not([data-theme="light"]) .lightbox-overlay { background: rgba(0,0,0,0.92); }
       /* Insurance note */
-      .insurance-note { background: rgba(45,138,132,0.08); border-color: rgba(45,138,132,0.12); }
+      html:not([data-theme="light"]) .insurance-note { background: rgba(45,138,132,0.08); border-color: rgba(45,138,132,0.12); }
       /* Treat items */
-      .treat-item { background: #252525; border-color: var(--light-gray); }
-      .treat-item .check { background: rgba(45,138,132,0.15); }
+      html:not([data-theme="light"]) .treat-item { background: #252525; border-color: var(--light-gray); }
+      html:not([data-theme="light"]) .treat-item .check { background: rgba(45,138,132,0.15); }
       /* Service cards */
-      .service-card { background: #252525; border-color: var(--light-gray); }
+      html:not([data-theme="light"]) .service-card { background: #252525; border-color: var(--light-gray); }
       /* Buttons */
-      .btn-outline-white { border-color: rgba(255,255,255,0.5); color: white; }
-      .btn-outline-white:hover { background: rgba(255,255,255,0.15); }
+      html:not([data-theme="light"]) .btn-outline-white { border-color: rgba(255,255,255,0.5); color: white; }
+      html:not([data-theme="light"]) .btn-outline-white:hover { background: rgba(255,255,255,0.15); }
       /* Positive note */
-      .positive-note { background: rgba(45,138,132,0.1); }
+      html:not([data-theme="light"]) .positive-note { background: rgba(45,138,132,0.1); }
       /* Hamburger bars */
-      .hamburger .bar { background: var(--charcoal); }
+      html:not([data-theme="light"]) .hamburger .bar { background: var(--charcoal); }
+
     }
     /* Manual dark mode toggle overrides system preference */
     [data-theme="dark"] {
@@ -1366,22 +1373,27 @@
     if (theme === 'dark') {
       document.documentElement.setAttribute('data-theme', 'dark');
     } else if (theme === 'light') {
-      document.documentElement.removeAttribute('data-theme');
+      document.documentElement.setAttribute('data-theme', 'light');
     }
     // If no localStorage value, let system preference handle it (no data-theme attr)
 
     var toggles = document.querySelectorAll('.theme-toggle');
+    function isDarkMode() {
+      var attr = document.documentElement.getAttribute('data-theme');
+      if (attr === 'dark') return true;
+      if (attr === 'light') return false;
+      return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    }
     function updateIcons() {
-      var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      var isDark = isDarkMode();
       toggles.forEach(function(t) { t.textContent = isDark ? '☀️' : '🌙'; });
     }
     updateIcons();
 
     toggles.forEach(function(toggle) {
       toggle.addEventListener('click', function() {
-        var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-        if (isDark) {
-          document.documentElement.removeAttribute('data-theme');
+        if (isDarkMode()) {
+          document.documentElement.setAttribute('data-theme', 'light');
           localStorage.setItem('theme', 'light');
         } else {
           document.documentElement.setAttribute('data-theme', 'dark');
