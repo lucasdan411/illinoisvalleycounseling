@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+  (function(){try{var t=localStorage.getItem('theme');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');else if(t==='light')document.documentElement.setAttribute('data-theme','light');}catch(e){}})();
+  </script>
   <title>Types of Therapy Explained: Which Approach Is Right for You? | Illinois Valley Counseling Services</title>
   <meta name="description" content="Not sure what CBT, DBT, EMDR, or ACT actually mean? We explain the most common types of therapy in plain English ,  what they are, how they work, and who they help.">
   <link rel="canonical" href="https://www.illinoisvalleycounseling.com/blog/types-of-therapy-explained.html">
@@ -38,27 +41,8 @@
     "url": "https://www.illinoisvalleycounseling.com/",
     "telephone": "+1-815-993-1614",
     "address": { "@type": "PostalAddress", "streetAddress": "747 E Etna Rd", "addressLocality": "Ottawa", "addressRegion": "IL", "postalCode": "61350", "addressCountry": "US" }
-  }  var fabTop = document.getElementById('fabTop');
-  var fabs = [fabCall, fabCallback, fabTop];
-  var showFabs = function() { fabs.forEach(function(f) { if (f) f.classList.add('show'); }); };
-  var hideFabs = function() { fabs.forEach(function(f) { if (f) f.classList.remove('show'); }); };
-  var lastScroll = window.pageYOffset || document.documentElement.scrollTop;
-  var hideTimer = null;
-  window.addEventListener('scroll', function() {
-    var y = window.pageYOffset || document.documentElement.scrollTop;
-    var scrollingUp = y < lastScroll;
-    if (scrollingUp && y > 300) {
-      showFabs();
-      clearTimeout(hideTimer);
-      hideTimer = setTimeout(hideFabs, 2000);
-    } else if (!scrollingUp && y > 300) {
-      hideFabs();
-    } else if (y <= 300) {
-      hideFabs();
-    }
-    lastScroll = y;
-  }, { passive: true });
-</script>
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
@@ -69,7 +53,7 @@
     .topbar { background: var(--teal-dark); color: white; text-align: center; padding: 0.6rem 1rem; font-size: 0.8rem; font-weight: 500; }
     .topbar strong { color: var(--amber); }
     .topbar a { color: var(--amber); text-decoration: underline; }
-    nav { background: white; border-bottom: 1px solid var(--light-gray); padding: 0 1.5rem; position: sticky; top: 0; z-index: 200; }
+    nav { background: var(--warm-white); border-bottom: 1px solid var(--light-gray); padding: 0 1.5rem; position: sticky; top: 0; z-index: 200; }
     nav .inner { max-width: 800px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
     .logo { font-family: 'Playfair Display', serif; font-size: 0.95rem; font-weight: 700; color: var(--teal); text-decoration: none; }
     .logo span { color: var(--amber); }
@@ -83,7 +67,7 @@
     article p { margin-bottom: 1.1rem; font-size: 0.98rem; }
     article ul, article ol { margin: 0 0 1.2rem 1.4rem; }
     article li { margin-bottom: 0.6rem; font-size: 0.96rem; }
-    .type-card { background: white; border: 1px solid var(--light-gray); border-radius: 12px; padding: 1.4rem 1.6rem; margin-bottom: 1.2rem; }
+    .type-card { background: var(--warm-white); border: 1px solid var(--light-gray); border-radius: 12px; padding: 1.4rem 1.6rem; margin-bottom: 1.2rem; }
     .type-card h3 { font-size: 1.05rem; color: var(--teal-dark); margin: 0 0 0.3rem; font-family: 'Inter', sans-serif; font-weight: 700; }
     .type-card .good-for { font-size: 0.78rem; color: var(--amber); font-weight: 700; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em; }
     .type-card p { margin: 0; font-size: 0.92rem; color: var(--gray); }
@@ -112,9 +96,9 @@
     .fab-top { bottom: 9.6rem; background: var(--teal); color: white; width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
     .fab-top:hover { background: var(--teal-dark); }
 
-    /* Dark mode - responds to system/browser preference */
+    /* Dark mode - system preference (unless user forced light) */
     @media (prefers-color-scheme: dark) {
-      :root {
+      :root:not([data-theme="light"]) {
         --teal: #2d8a84;
         --teal-light: #3aada6;
         --teal-dark: #14403c;
@@ -126,19 +110,55 @@
         --gray: #b0a590;
         --light-gray: #2a2a2a;
       }
-      body { background: var(--cream); color: var(--charcoal); }
-      nav { background: #1e1e1e; border-bottom-color: var(--light-gray); }
-      .type-card { background: #252525; border-color: var(--light-gray); }
-      .sign, .note { background: #252525; border-color: var(--light-gray); }
-      .note p, .sign p { color: var(--gray); }
-      .cta-box { background: var(--teal-dark); }
-      .related { border-top-color: var(--light-gray); }
-      footer { background: #0a0a0a; }
-      .topbar { background: #0a0a0a; }
-      input, select, textarea { background: #2a2a2a; color: var(--charcoal); border-color: var(--light-gray); }
-      .hamburger .bar { background: var(--charcoal); }
-      .logo { color: var(--teal-light); }
+      html:not([data-theme="light"]) body { background: var(--cream); color: var(--charcoal); }
+      html:not([data-theme="light"]) nav { background: var(--warm-white); border-bottom-color: var(--light-gray); }
+      html:not([data-theme="light"]) .type-card { background: #252525; border-color: var(--light-gray); }
+      html:not([data-theme="light"]) .sign, html:not([data-theme="light"]) .note { background: #252525; border-color: var(--light-gray); }
+      html:not([data-theme="light"]) .note p, html:not([data-theme="light"]) .sign p { color: var(--gray); }
+      html:not([data-theme="light"]) .cta-box { background: var(--teal-dark); }
+      html:not([data-theme="light"]) .related { border-top-color: var(--light-gray); }
+      html:not([data-theme="light"]) footer { background: #0a0a0a; }
+      html:not([data-theme="light"]) .topbar { background: #0a0a0a; }
+      html:not([data-theme="light"]) input, html:not([data-theme="light"]) select, html:not([data-theme="light"]) textarea { background: #2a2a2a; color: var(--charcoal); border-color: var(--light-gray); }
+      html:not([data-theme="light"]) .hamburger .bar { background: var(--charcoal); }
+      html:not([data-theme="light"]) .logo { color: var(--teal-light); }
+      html:not([data-theme="light"]) nav a.back { color: var(--teal-light); }
+      html:not([data-theme="light"]) .theme-toggle { color: var(--charcoal); border-color: var(--light-gray); }
     }
+    /* Manual dark mode (localStorage theme=dark) — matches main site toggle */
+    [data-theme="dark"] {
+      --teal: #2d8a84;
+      --teal-light: #3aada6;
+      --teal-dark: #14403c;
+      --amber: #e8a84a;
+      --amber-light: #f4c97a;
+      --cream: #1a1a1a;
+      --warm-white: #1e1e1e;
+      --charcoal: #d4c9b8;
+      --gray: #b0a590;
+      --light-gray: #2a2a2a;
+    }
+    [data-theme="dark"] body { background: var(--cream); color: var(--charcoal); }
+    [data-theme="dark"] nav { background: var(--warm-white); border-bottom-color: var(--light-gray); }
+    [data-theme="dark"] .type-card { background: #252525; border-color: var(--light-gray); }
+    [data-theme="dark"] .sign, [data-theme="dark"] .note { background: #252525; border-color: var(--light-gray); }
+    [data-theme="dark"] .note p, [data-theme="dark"] .sign p { color: var(--gray); }
+    [data-theme="dark"] .cta-box { background: var(--teal-dark); }
+    [data-theme="dark"] .related { border-top-color: var(--light-gray); }
+    [data-theme="dark"] footer { background: #0a0a0a; }
+    [data-theme="dark"] .topbar { background: #0a0a0a; }
+    [data-theme="dark"] input, [data-theme="dark"] select, [data-theme="dark"] textarea { background: #2a2a2a; color: var(--charcoal); border-color: var(--light-gray); }
+    [data-theme="dark"] .hamburger .bar { background: var(--charcoal); }
+    [data-theme="dark"] .logo { color: var(--teal-light); }
+    [data-theme="dark"] nav a.back { color: var(--teal-light); }
+    [data-theme="dark"] .theme-toggle { color: var(--charcoal); border-color: var(--light-gray); }
+
+    /* Theme toggle (shared with main site localStorage key "theme") */
+    .theme-toggle { background: none; border: 1.5px solid var(--light-gray); cursor: pointer; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; transition: all 0.25s; color: var(--charcoal); padding: 0; flex-shrink: 0; }
+    .theme-toggle:hover { border-color: var(--teal); background: rgba(26,95,90,0.06); }
+    nav .inner { gap: 0.75rem; }
+    nav .nav-actions { display: flex; align-items: center; gap: 0.75rem; }
+
   </style>
 </head>
 <body>
@@ -146,7 +166,10 @@
 <nav>
   <div class="inner">
     <a href="../index.html" class="logo">Illinois Valley <span>Counseling Services</span></a>
-    <a href="../index.html#resources" class="back">← All Articles</a>
+    <div class="nav-actions">
+      <a href="../index.html#resources" class="back">← All Articles</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle dark mode">🌙</button>
+    </div>
   </div>
 </nav>
 
@@ -155,7 +178,7 @@
   <h1>Types of Therapy Explained: Which Approach Is Right for You?</h1>
   <div class="post-meta">Illinois Valley Counseling Services · 8 min read</div>
 
-  <p>If you've ever looked into counseling, you've probably seen a wall of acronyms ,  CBT, DBT, EMDR, ACT ,  and wondered what any of it means. You're not alone. Most people don't know which type of therapy they need, and honestly, you don't have to.</p>
+  <p>If you've ever looked into counseling, you've probably seen a wall of acronyms ,  CBT (Cognitive Behavioral Therapy), DBT (Dialectical Behavior Therapy), EMDR (Eye Movement Desensitization and Reprocessing), ACT (Acceptance and Commitment Therapy) ,  and wondered what any of it means. You're not alone. Most people don't know which type of therapy they need, and honestly, you don't have to.</p>
   <p>Your therapist will figure out the right approach based on what you're dealing with. But knowing the basics can help you feel more confident walking in. Here's a plain-English guide to the types of therapy we offer at Illinois Valley Counseling Services ,  what each one is, how it works, and who it tends to help the most.</p>
 
   <h2>Cognitive Behavioral Therapy (CBT)</h2>
@@ -203,11 +226,11 @@
   <h2>Trauma-Focused Therapy</h2>
   <div class="type-card">
     <h3>What is Trauma-Focused Therapy?</h3>
-    <div class="good-for">Good for: PTSD, trauma, abuse, violence, accidents, loss</div>
-    <p>Trauma-focused therapy includes approaches specifically designed to help people heal from traumatic experiences. This includes Prolonged Exposure Therapy (gradually and safely facing trauma-related memories and situations you've been avoiding) and Cognitive Processing Therapy (working through beliefs about yourself and the world that trauma created). These are structured, evidence-based treatments that have been proven effective for PTSD.</p>
+    <div class="good-for">Good for: PTSD (Post-Traumatic Stress Disorder), trauma, abuse, violence, accidents, loss</div>
+    <p>Trauma-focused therapy includes approaches specifically designed to help people heal from traumatic experiences. This includes Prolonged Exposure Therapy (PE) — gradually and safely facing trauma-related memories and situations you've been avoiding — and Cognitive Processing Therapy (CPT) — working through beliefs about yourself and the world that trauma created. These are structured, evidence-based treatments that have been proven effective for PTSD.</p>
   </div>
 
-  <h2>Interpersonal Psychotherapy</h2>
+  <h2>Interpersonal Psychotherapy (IPT)</h2>
   <div class="type-card">
     <h3>What is Interpersonal Psychotherapy?</h3>
     <div class="good-for">Good for: depression, grief, life transitions, relationship difficulties</div>
@@ -218,7 +241,7 @@
   <div class="type-card">
     <h3>What is EMDR?</h3>
     <div class="good-for">Good for: PTSD, trauma, disturbing memories, anxiety related to past events</div>
-    <p>EMDR is a structured therapy that helps the brain reprocess traumatic memories so they lose their emotional charge. During a session, you'll briefly focus on a traumatic memory while your therapist guides your eye movements back and forth (or uses other bilateral stimulation like tapping). This helps your brain do what it does naturally during REM sleep ,  process and file away experiences ,  but for memories that got "stuck." It can feel unusual at first, but EMDR has strong research backing for its effectiveness with trauma.</p>
+    <p>EMDR is a structured therapy that helps the brain reprocess traumatic memories so they lose their emotional charge. During a session, you'll briefly focus on a traumatic memory while your therapist guides your eye movements back and forth (or uses other bilateral stimulation like tapping). This helps your brain do what it does naturally during REM (Rapid Eye Movement) sleep ,  process and file away experiences ,  but for memories that got "stuck." It can feel unusual at first, but EMDR has strong research backing for its effectiveness with trauma.</p>
   </div>
 
   <h2>How Your Therapist Chooses the Right Approach</h2>
@@ -290,6 +313,37 @@
     }
     lastScroll = y;
   }, { passive: true });
+</script>
+
+
+<script>
+  // Dark mode: sync with main site localStorage key "theme"
+  (function() {
+    var toggles = document.querySelectorAll('.theme-toggle');
+    function isDark() {
+      var attr = document.documentElement.getAttribute('data-theme');
+      if (attr === 'dark') return true;
+      if (attr === 'light') return false;
+      return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    }
+    function updateIcons() {
+      var dark = isDark();
+      toggles.forEach(function(t) { t.textContent = dark ? '☀️' : '🌙'; });
+    }
+    updateIcons();
+    toggles.forEach(function(toggle) {
+      toggle.addEventListener('click', function() {
+        if (isDark()) {
+          document.documentElement.setAttribute('data-theme', 'light');
+          localStorage.setItem('theme', 'light');
+        } else {
+          document.documentElement.setAttribute('data-theme', 'dark');
+          localStorage.setItem('theme', 'dark');
+        }
+        updateIcons();
+      });
+    });
+  })();
 </script>
 
 </body>
