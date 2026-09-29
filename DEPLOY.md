@@ -3,18 +3,30 @@
 ## Cloudflare Pages
 
 - **Project name:** `illinois-valley-counseling`
-- **GitHub repo / branch:** `lucasdan411/illinoisvalleycounseling` / `gh-pages`
-- **Root directory (required):** `website`
-- **Build command:** leave empty (static HTML)
-- **Build output directory:** `/` (or blank; content is already the publish root inside `website/`)
+- **Live hosts:** `illinoisvalleycounseling.com`, `illinois-valley-counseling.pages.dev` (also `go.illinoisvalleycounseling.com`)
+- **GitHub repo / branch (source of truth):** `lucasdan411/illinoisvalleycounseling` / `gh-pages`
+- **Publish directory:** contents of `website/` (the practice site)
 
-The repository root contains pitch videos, strategy docs, and older assets. Those must **not** be the Pages publish root. Serving from repo root previously showed the pitch instead of the practice homepage.
+### Important: Direct Upload, not Git-connected
+
+As of 2026-09-29 the Pages project has **no Git source** (`source: {}`). Pushing to `gh-pages` updates GitHub Pages / the repo, but **does not** automatically rebuild Cloudflare Pages.
+
+To update production after commits:
+
+```bash
+wrangler pages deploy website \
+  --project-name=illinois-valley-counseling \
+  --branch=gh-pages \
+  --commit-hash="$(git rev-parse HEAD)"
+```
+
+Optional later improvement: connect the GitHub repo in the Cloudflare dashboard (Root directory = `website`, production branch = `gh-pages`) so pushes auto-deploy. Do not change DNS or custom domains unless asked.
+
+The repository root contains pitch videos, strategy docs, and older assets. Those must **not** be the Pages publish root. Serving from repo root previously showed the pitch instead of the practice homepage. Root `index.html` is a noindex stub that points at the apex site.
 
 ## Soft 404s
 
-Cloudflare Pages serves `404.html` for missing paths when that file exists at the publish root. `website/404.html` is included so unknown URLs return a real 404 instead of the homepage (SPA fallback).
-
-If soft-404s persist after deploy, confirm in the Cloudflare dashboard that the project Root directory is still `website` and that a fresh deployment picked up `404.html`.
+`website/404.html` is required so unknown paths return HTTP 404 instead of Cloudflare's SPA fallback (homepage with 200). Verified after deploy: random paths return 404 with the custom page.
 
 ## Custom domains / DNS / Worker
 
