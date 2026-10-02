@@ -1,6 +1,6 @@
 # Illinois Valley Counseling Services
 
-> Licensed counseling practice serving Ottawa and the Illinois Valley (La Salle County), Illinois.
+> Licensed counseling practice serving Ottawa, Mendota, and the Illinois Valley (La Salle County), Illinois.
 
 - Website: https://illinoisvalleycounseling.com/
 - Phone: (815) 993-1614
@@ -11,6 +11,12 @@
 ### Ottawa
 - Address: 747 E Etna Rd, Ottawa, IL 61350
 - Appointment hours: Monday-Friday 8:00 AM - 8:00 PM; Saturday 8:00 AM - 2:00 PM
+- Phone hours: Monday-Friday 9:00 AM - 5:00 PM
+- By appointment only
+
+### Mendota
+- Address: 901 Main St, Mendota, IL 61342
+- Appointment hours: Tuesday-Thursday 8:00 AM - 8:00 PM
 - Phone hours: Monday-Friday 9:00 AM - 5:00 PM
 - By appointment only
 
