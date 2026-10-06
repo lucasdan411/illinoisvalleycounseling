@@ -1,6 +1,7 @@
 /* GA4 conversion events for Illinois Valley Counseling (G-RQVFPHMK1H).
  * Requires the gtag.js snippet in <head>. Events:
- *   phone_call_click      any click on an a[href^="tel:"] link (event delegation)
+ *   phone_call_click      click on a tel: link to the practice line (815) 993-1614
+ *   crisis_line_click     click on a crisis line tel: link (988, 911, etc.), never a conversion
  *   callback_form_submit  submit of the callback form (#callbackForm), beacon transport
  *   generate_lead         thank-you page load after a FormSubmit redirect (canonical lead)
  *   cta_click             clicks on non-phone [data-track] elements (e.g. "Request a Call Back")
@@ -37,19 +38,32 @@
     return 'body';
   }
 
+  // Practice line (815) 993-1614 is the only number that counts as phone_call_click.
+  // Crisis lines (988, 911, legacy Lifeline 1-800-273-8255, Crisis Text Line 741741)
+  // get their own crisis_line_click event so they never count as conversions.
+  var PRACTICE_NUMBER = '8159931614';
+  var CRISIS_NUMBERS = ['988', '911', '8002738255', '741741'];
+
   // Phone calls: one delegated listener covers every tel: link, including ones added later.
   document.addEventListener('click', function (e) {
     var target = e.target;
     if (!target || !target.closest) return;
     var link = target.closest('a[href^="tel:"]');
     if (link) {
-      send('phone_call_click', {
-        link_url: link.getAttribute('href'),
-        link_text: cleanText(link),
-        page_location: window.location.href,
-        button_location: locate(link),
-        transport_type: 'beacon'
-      });
+      var href = link.getAttribute('href') || '';
+      var digits = href.replace(/\D/g, '').replace(/^1(?=\d{10}$)/, '');
+      var eventName = null;
+      if (digits === PRACTICE_NUMBER) eventName = 'phone_call_click';
+      else if (CRISIS_NUMBERS.indexOf(digits) !== -1) eventName = 'crisis_line_click';
+      if (eventName) {
+        send(eventName, {
+          link_url: href,
+          link_text: cleanText(link),
+          page_location: window.location.href,
+          button_location: locate(link),
+          transport_type: 'beacon'
+        });
+      }
       return;
     }
     var cta = target.closest('[data-track]');
