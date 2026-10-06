@@ -162,10 +162,14 @@
       html:not([data-theme="light"]) .toc { background: #252525; border-color: var(--light-gray); }
       html:not([data-theme="light"]) .note { border-left-color: var(--amber); }
       html:not([data-theme="light"]) article a { color: var(--teal-light); }
+      html:not([data-theme="light"]) article h1 { color: var(--charcoal); }
+      html:not([data-theme="light"]) article h2, html:not([data-theme="light"]) article h3 { color: var(--teal-light); }
     }
     [data-theme="dark"] .toc { background: #252525; border-color: var(--light-gray); }
     [data-theme="dark"] .note { border-left-color: var(--amber); }
     [data-theme="dark"] article a { color: var(--teal-light); }
+    [data-theme="dark"] article h1 { color: var(--charcoal); }
+    [data-theme="dark"] article h2, [data-theme="dark"] article h3 { color: var(--teal-light); }
     @media (max-width: 600px) {
       article { padding: 2rem 1.1rem 3.5rem; }
       nav .inner { height: 58px; }
