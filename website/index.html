@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-RQVFPHMK1H"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-RQVFPHMK1H');</script>
+  <script defer src="/js/analytics-events.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script>
@@ -1582,21 +1586,7 @@
     answer.style.maxHeight = isOpen ? null : answer.scrollHeight + 'px';
   }
 
-  // Ad tracking: record call clicks and callback requests as conversion events
-  document.querySelectorAll('[data-track]').forEach(function(el) {
-    el.addEventListener('click', function() {
-      if (typeof gtag === 'function') {
-        gtag('event', 'click', { event_category: 'engagement', event_label: el.getAttribute('data-track') });
-      }
-    });
-  });
-  if (form) {
-    form.addEventListener('submit', function() {
-      if (typeof gtag === 'function') {
-        gtag('event', 'generate_lead', { event_category: 'callback_request' });
-      }
-    });
-  }
+  // Analytics events (phone_call_click, callback_form_submit, cta_click) live in /js/analytics-events.js
 
   // Lightbox for therapist photos
   const lightbox = document.getElementById("lightbox");
