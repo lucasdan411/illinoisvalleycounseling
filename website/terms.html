@@ -78,6 +78,7 @@
     /* Floating action buttons - appear only while scrolling back up */
     .fab { position: fixed; right: 1.2rem; z-index: 400; border: none; cursor: pointer; font-family: 'Inter', sans-serif; font-weight: 700; box-shadow: 0 8px 24px rgba(15,61,58,0.3); transition: opacity 0.3s, transform 0.3s; opacity: 0; pointer-events: none; transform: translateY(10px); text-decoration: none; }
     .fab.show { opacity: 1; pointer-events: auto; transform: translateY(0); }
+    .fab.fab-hidden { opacity: 0 !important; pointer-events: none !important; transform: translateY(12px) !important; }
     .fab-callback { bottom: 1.2rem; background: var(--amber); color: var(--teal-dark); padding: 0.9rem 1.5rem; border-radius: 50px; font-size: 0.92rem; display: flex; align-items: center; gap: 0.5rem; }
     .fab-callback:hover { background: var(--amber-light); }
     .fab-call { bottom: 5.4rem; background: var(--teal); color: white; padding: 0.9rem 1.5rem; border-radius: 50px; font-size: 0.92rem; display: flex; align-items: center; gap: 0.5rem; }
@@ -291,31 +292,7 @@
 </a>
 
 
-<script>
-  // Floating action buttons: appear only while scrolling back up
-  var fabCall = document.getElementById('fabCall');
-  var fabCallback = document.getElementById('fabCallback');
-  var fabTop = document.getElementById('fabTop');
-  var fabs = [fabCall, fabCallback, fabTop];
-  var showFabs = function() { fabs.forEach(function(f) { if (f) f.classList.add('show'); }); };
-  var hideFabs = function() { fabs.forEach(function(f) { if (f) f.classList.remove('show'); }); };
-  var lastScroll = window.pageYOffset || document.documentElement.scrollTop;
-  var hideTimer = null;
-  window.addEventListener('scroll', function() {
-    var y = window.pageYOffset || document.documentElement.scrollTop;
-    var scrollingUp = y < lastScroll;
-    if (scrollingUp && y > 300) {
-      showFabs();
-      clearTimeout(hideTimer);
-      hideTimer = setTimeout(hideFabs, 2000);
-    } else if (!scrollingUp && y > 300) {
-      hideFabs();
-    } else if (y <= 300) {
-      hideFabs();
-    }
-    lastScroll = y;
-  }, { passive: true });
-</script>
+<script defer src="/js/fab-controls.js"></script>
 
 
 <script>
