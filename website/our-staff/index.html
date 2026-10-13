@@ -32,6 +32,30 @@
     {"@type":"ListItem","position":1,"name":"Home","item":"https://illinoisvalleycounseling.com/"},
     {"@type":"ListItem","position":2,"name":"Our Staff","item":"https://illinoisvalleycounseling.com/our-staff/"}]}
   </script>
+  <script type="application/ld+json">
+  {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "Which therapists see clients at the Mendota office?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Dawn McCollom and Josie Klass, both licensed clinical social workers, see clients at our Mendota office at 901 Main St. Our other therapists are based at our Ottawa office at 747 E Etna Rd."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How do I choose the right therapist?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "You don't have to choose on your own. When you call (815) 993-1614 or request a call back, our office matches you with the best available provider for your needs, and you don't need a referral."
+   }
+  }
+ ]
+}
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
@@ -474,6 +498,13 @@
     .theme-toggle:hover { border-color: var(--teal); background: rgba(26,95,90,0.06); }
     .mobile-menu .theme-toggle-row { display: flex; align-items: center; gap: 0.8rem; padding: 0.8rem 0; border-bottom: 1px solid var(--light-gray); font-size: 1.02rem; font-weight: 500; color: var(--charcoal); }
     .mobile-menu .theme-toggle { margin-left: auto; }
+    /* Question and answer blocks */
+    .qa { max-width: 720px; margin: 2.5rem auto 0; text-align: left; }
+    .qa + .qa { margin-top: 1.8rem; }
+    .qa h3 { font-family: 'Playfair Display', serif; font-size: clamp(1.15rem, 2.2vw, 1.35rem); color: var(--teal-dark); margin-bottom: 0.5rem; line-height: 1.35; }
+    .qa p { color: var(--gray); font-size: 0.95rem; line-height: 1.7; margin: 0; }
+    @media (prefers-color-scheme: dark) { html:not([data-theme="light"]) .qa h3 { color: var(--teal-light); } }
+    [data-theme="dark"] .qa h3 { color: var(--teal-light); }
   </style>
 </head>
 <body>
@@ -653,6 +684,14 @@
 
     </div>
     <p style="text-align:center;color:var(--gray);font-size:0.85rem;margin-top:2rem;">We have additional therapists on staff. Your call back will be matched with the best available provider for your needs.</p>
+    <div class="qa">
+      <h3>Which therapists see clients at the Mendota office?</h3>
+      <p>Dawn McCollom and Josie Klass, both licensed clinical social workers, see clients at our Mendota office at 901 Main St. Our other therapists are based at our Ottawa office at 747 E Etna Rd.</p>
+    </div>
+    <div class="qa">
+      <h3>How do I choose the right therapist?</h3>
+      <p>You don't have to choose on your own. When you call (815) 993-1614 or request a call back, our office matches you with the best available provider for your needs, and you don't need a referral.</p>
+    </div>
   </div>
 </section>
 <section class="testimonial" style="padding:3rem 1.5rem;text-align:center;">

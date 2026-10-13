@@ -175,8 +175,13 @@
       },
       {
         "@type": "Question",
-        "name": "What ages do you treat?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Our therapists work with children, adolescents, adults, couples, and families. We match you with the best available provider for your needs." }
+        "name": "Do you work with children, teens, adults, couples, and families?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Our therapists in Ottawa and Mendota work with children, teens, adults, couples, and families across the Illinois Valley. When you call or request a call back, we match you with the best available provider for your needs." }
+      },
+      {
+        "@type": "Question",
+        "name": "What's the difference between the Ottawa and Mendota offices?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Our Ottawa office at 747 E Etna Rd offers appointments Monday through Friday, 8 AM to 8 PM, and Saturdays, 8 AM to 2 PM. Our Mendota office at 901 Main St offers appointments Tuesday through Thursday, 8 AM to 8 PM. Both are by appointment only, and a few specialized approaches (Dialectical Behavior Therapy, Acceptance and Commitment Therapy, play therapy, and Eye Movement Desensitization and Reprocessing) are offered by our Ottawa counselors." }
       },
       {
         "@type": "Question",
@@ -657,6 +662,13 @@
     .theme-toggle:hover { border-color: var(--teal); background: rgba(26,95,90,0.06); }
     .mobile-menu .theme-toggle-row { display: flex; align-items: center; gap: 0.8rem; padding: 0.8rem 0; border-bottom: 1px solid var(--light-gray); font-size: 1.02rem; font-weight: 500; color: var(--charcoal); }
     .mobile-menu .theme-toggle { margin-left: auto; }
+    /* Question and answer blocks */
+    .qa { max-width: 720px; margin: 2.5rem auto 0; text-align: left; }
+    .qa + .qa { margin-top: 1.8rem; }
+    .qa h3 { font-family: 'Playfair Display', serif; font-size: clamp(1.15rem, 2.2vw, 1.35rem); color: var(--teal-dark); margin-bottom: 0.5rem; line-height: 1.35; }
+    .qa p { color: var(--gray); font-size: 0.95rem; line-height: 1.7; margin: 0; }
+    @media (prefers-color-scheme: dark) { html:not([data-theme="light"]) .qa h3 { color: var(--teal-light); } }
+    [data-theme="dark"] .qa h3 { color: var(--teal-light); }
   </style>
 </head>
 <body>
@@ -811,6 +823,10 @@
     <div class="section-label">What We Offer</div>
     <h2>Therapy for Every Season of Life</h2>
     <p>Individual, couples, family, child, and adolescent counseling - in person in Ottawa or Mendota, with <a href="#insurance" style="color:var(--teal);font-weight:600;">most major insurance accepted</a>.</p>
+    <div class="qa" style="margin:1.5rem auto 2rem;">
+      <h3>Do you work with children, teens, adults, couples, and families?</h3>
+      <p>Yes. Our therapists in Ottawa and Mendota work with children, teens, adults, couples, and families across the Illinois Valley. When you call or request a call back, we match you with the best available provider for your needs.</p>
+    </div>
     <div class="service-grid">
       <div class="service-card reveal">
         <div class="service-icon">
@@ -1168,13 +1184,6 @@
       </div>
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)">
-          What ages do you treat?
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
-        </button>
-        <div class="faq-answer"><div class="faq-answer-inner">Our therapists work with children, adolescents, adults, couples, and families. We match you with the best available provider for your needs.</div></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">
           Do you treat substance use?
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
         </button>
@@ -1256,6 +1265,10 @@
         <p class="loc-addr">901 Main St, Mendota, IL 61342</p>
         <p class="loc-hours"><strong>Phone hours:</strong> Mon-Fri 9 AM - 5 PM<br><strong>Appointment hours:</strong> Tue-Thu 8 AM - 8 PM<br>By appointment only, no walk-ins</p>
       </div>
+    </div>
+    <div class="qa">
+      <h3>What's the difference between the Ottawa and Mendota offices?</h3>
+      <p>Our Ottawa office at 747 E Etna Rd offers appointments Monday through Friday, 8 AM to 8 PM, and Saturdays, 8 AM to 2 PM. Our Mendota office at 901 Main St offers appointments Tuesday through Thursday, 8 AM to 8 PM. Both are by appointment only, and a few specialized approaches (Dialectical Behavior Therapy, Acceptance and Commitment Therapy, play therapy, and Eye Movement Desensitization and Reprocessing) are offered by our Ottawa counselors.</p>
     </div>
   </div>
 </section>
