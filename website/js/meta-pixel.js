@@ -4,11 +4,14 @@
  *   - no user data / advanced matching passed to init
  *   - events: PageView (all public pages), Lead (thank-you page after callback form success),
  *     Contact (click on the practice phone number only; crisis lines never tracked)
+ *   - only on illinoisvalleycounseling.com / www (never preview or pages.dev hosts)
  *   - never loads on /admin/; on thank-you, skipped if the URL carries a query string
  */
 (function () {
   'use strict';
   var ID = '1128636546211662';
+  var host = window.location.hostname;
+  if (host !== 'illinoisvalleycounseling.com' && host !== 'www.illinoisvalleycounseling.com') return;
   var path = window.location.pathname || '/';
   if (/^\/admin(\/|$)/.test(path)) return;
   var isThankYou = /^\/thank-you(\.html)?\/?$/.test(path);
