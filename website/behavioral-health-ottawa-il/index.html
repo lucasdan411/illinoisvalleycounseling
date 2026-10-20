@@ -718,6 +718,16 @@
     @media (prefers-color-scheme: dark) { html:not([data-theme="light"]) .qa h3 { color: var(--teal-light); } }
     [data-theme="dark"] .qa h3 { color: var(--teal-light); }
   </style>
+<style id="seo-fixes">
+.care-pills{display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem;margin:0 auto 1.75rem;max-width:820px;padding:0 1rem}
+.care-pills-label{width:100%;text-align:center;font-weight:600;color:var(--gray);font-size:.9rem;margin-bottom:.15rem}
+.care-pills a,.care-pills a:visited{background:var(--cream);color:var(--teal-dark);border:1px solid var(--light-gray);border-radius:999px;padding:.55rem 1.05rem;font-size:.82rem;font-weight:600;text-decoration:none;line-height:1.2;transition:background .2s,color .2s,border-color .2s}
+.care-pills a:hover,.care-pills a:focus-visible{background:var(--teal);color:#fff;border-color:var(--teal)}
+[data-theme="dark"] .care-pills a,[data-theme="dark"] .care-pills a:visited{color:#f5efe4}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .care-pills a{color:#f5efe4}}
+.testimonial.cta-band p{color:#f5efe4 !important}
+.testimonial.cta-band a:not(.nav-cta),.testimonial.cta-band a:not(.nav-cta):visited{color:#e8b86c !important;font-weight:600}
+</style>
 </head>
 <body>
 
@@ -779,7 +789,7 @@
     <h2 style="margin-top:2.5rem;">More Ways We Can Help</h2><div class="insurance-logos"><a class="insurance-logo" href="/counseling-ottawa-il/" style="text-decoration:none;">Counseling in Ottawa</a><a class="insurance-logo" href="/counseling-mendota-il/" style="text-decoration:none;">Counseling in Mendota</a><a class="insurance-logo" href="/child-teen-counseling/" style="text-decoration:none;">Child &amp; Teen Counseling</a><a class="insurance-logo" href="/couples-marriage-counseling/" style="text-decoration:none;">Couples &amp; Marriage</a><a class="insurance-logo" href="/family-therapy/" style="text-decoration:none;">Family Therapy</a><a class="insurance-logo" href="/substance-use-counseling/" style="text-decoration:none;">Substance Use Counseling</a><a class="insurance-logo" href="/insurance-fees/" style="text-decoration:none;">Insurance &amp; Fees</a><a class="insurance-logo" href="/our-staff/" style="text-decoration:none;">Meet Our Staff</a></div>
   </div>
 </section>
-<section class="testimonial" style="padding:3rem 1.5rem;text-align:center;">
+<section class="testimonial cta-band" style="padding:3rem 1.5rem;text-align:center;">
   <p style="max-width:640px;margin:0 auto 1.5rem;">We see clients in person in Ottawa and Mendota, IL, by appointment only. Call <a href="tel:8159931614" style="color:var(--teal);font-weight:600;">(815) 993-1614</a> or request a call back and we will match you with the right provider.</p>
   <a href="/#contact" class="nav-cta" style="display:inline-block;">Request a Call Back</a>
 </section>
