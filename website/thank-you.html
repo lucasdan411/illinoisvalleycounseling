@@ -10,7 +10,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script>
-  (function(){try{var t=localStorage.getItem('theme');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');else if(t==='light')document.documentElement.setAttribute('data-theme','light');}catch(e){}})();
+  (function(){var d=document.documentElement,t=null;try{var q=new URLSearchParams(location.search).get('theme');if(q==='dark'||q==='light')t=q;else{var s=localStorage.getItem('theme');if(s==='dark'||s==='light')t=s;}}catch(e){}if(!t){var h=new Date().getHours();if(h>=21||h<6)t='dark';}if(t)d.dataset.theme=t;})();
   </script>
   <title>Thank You | Illinois Valley Counseling Services</title>
   <meta name="robots" content="noindex, follow">
@@ -38,6 +38,7 @@
     }
     [data-theme="dark"] { --cream: #121212; --warm-white: #1a1a1a; --charcoal: #e8e4de; --gray: #b0aaa0; --light-gray: #333; --teal-dark: #7ec8c3; }
   </style>
+  <link rel="stylesheet" href="/css/night-theme.css">
 </head>
 <body>
   <nav><div class="inner"><a class="logo" href="/">Illinois Valley <span>Counseling</span></a><a href="/#contact" style="color:var(--teal);font-weight:600;text-decoration:none;font-size:0.9rem;">Request a call back</a></div></nav>

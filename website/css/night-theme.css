@@ -1,0 +1,38 @@
+/* Night dark mode (9 PM-6 AM local, or ?theme=dark / toggle). Extends per-page [data-theme="dark"] rules.
+   Palette: deep green #0f3d3a, teal #2d8a84, gold #e8a84a, ink #1a1a1a, sand #d4c9b8. */
+[data-theme="dark"] { color-scheme: dark; --btn-teal: #1f6f6a; --btn-teal-hover: #23807a; }
+[data-theme="dark"] body { background: #1a1a1a; color: #d4c9b8; }
+[data-theme="dark"] h1, [data-theme="dark"] h2, [data-theme="dark"] h3, [data-theme="dark"] h4 { color: #ece4d6; }
+[data-theme="dark"] .hero h1 { color: #fff; }
+[data-theme="dark"] a:not([class]) { color: #5cc4bd; }
+/* Teal buttons: white on #2d8a84 is 4.1:1 (fails AA); use #1f6f6a (5.9:1) */
+[data-theme="dark"] .nav-cta, [data-theme="dark"] .fab-call, [data-theme="dark"] .fab-top,
+[data-theme="dark"] .btn-teal, [data-theme="dark"] button[type="submit"]:not(.btn-primary) { background: var(--btn-teal) !important; color: #fff !important; }
+[data-theme="dark"] .nav-cta:hover, [data-theme="dark"] .fab-call:hover, [data-theme="dark"] .fab-top:hover { background: var(--btn-teal-hover) !important; }
+/* Gold buttons keep deep-green text (8.0:1) */
+[data-theme="dark"] .btn-primary, [data-theme="dark"] .fab-callback { background: #e8a84a; color: #0f3d3a !important; }
+[data-theme="dark"] .btn-primary:hover, [data-theme="dark"] .fab-callback:hover { background: #f4c97a; }
+[data-theme="dark"] .fab { box-shadow: 0 8px 24px rgba(0,0,0,0.6), 0 0 0 1px rgba(212,201,184,0.18); }
+/* Header / footer / logo */
+[data-theme="dark"] nav { background: #141414 !important; border-bottom: 1px solid #2a2a2a; }
+[data-theme="dark"] .logo { color: #5cc4bd !important; }
+[data-theme="dark"] .logo span { color: #e8a84a !important; }
+[data-theme="dark"] footer, [data-theme="dark"] .topbar { background: #0f0f0f !important; color: #c9bfae; }
+[data-theme="dark"] footer a, [data-theme="dark"] .topbar a { color: #e8a84a; }
+[data-theme="dark"] .theme-toggle { border-color: #3a3a3a; color: #d4c9b8; }
+/* Forms */
+[data-theme="dark"] input, [data-theme="dark"] select, [data-theme="dark"] textarea { background: #242424 !important; color: #ece4d6 !important; border: 1.5px solid #4a4a4a !important; }
+[data-theme="dark"] input::placeholder, [data-theme="dark"] textarea::placeholder { color: #9a917f !important; }
+[data-theme="dark"] input:focus, [data-theme="dark"] select:focus, [data-theme="dark"] textarea:focus { border-color: #3aada6 !important; outline: 2px solid rgba(58,173,166,0.35); }
+[data-theme="dark"] label { color: #d4c9b8; }
+[data-theme="dark"] .callback-box { border: 1px solid #2f2f2f; }
+/* Images: soften without hiding; SVG/logo images get a light plate so dark marks stay visible */
+[data-theme="dark"] img:not([src$=".svg"]) { filter: brightness(0.92); }
+[data-theme="dark"] img[src$=".svg"], [data-theme="dark"] img[alt*="logo" i], [data-theme="dark"] .insurance-logo img { background: #f3efe8; border-radius: 6px; padding: 2px; filter: none; }
+/* AA fixes: text that used --teal-dark (#14403c) or --teal (#2d8a84) as foreground */
+[data-theme="dark"] h1:not(.hero h1), [data-theme="dark"] h2, [data-theme="dark"] h3, [data-theme="dark"] h4,
+[data-theme="dark"] .faq-question, [data-theme="dark"] .review-author { color: #ece4d6 !important; }
+[data-theme="dark"] .more-btn, [data-theme="dark"] .read-more, [data-theme="dark"] a[href^="tel:"]:not(.fab):not(.btn-primary):not(.nav-cta),
+[data-theme="dark"] main a:not([class]), [data-theme="dark"] section a:not([class]) { color: #5cc4bd !important; border-color: #3aada6; }
+[data-theme="dark"] .review-rating-badge { background: var(--btn-teal) !important; color: #fff !important; }
+[data-theme="dark"] a[href="tel:988"][style*="amber"] { color: #0f3d3a !important; }

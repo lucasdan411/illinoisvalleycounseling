@@ -10,7 +10,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script>
-  (function(){try{var t=localStorage.getItem('theme');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');else if(t==='light')document.documentElement.setAttribute('data-theme','light');}catch(e){}})();
+  (function(){var d=document.documentElement,t=null;try{var q=new URLSearchParams(location.search).get('theme');if(q==='dark'||q==='light')t=q;else{var s=localStorage.getItem('theme');if(s==='dark'||s==='light')t=s;}}catch(e){}if(!t){var h=new Date().getHours();if(h>=21||h<6)t='dark';}if(t)d.dataset.theme=t;})();
   </script>
   <title>Insurance and Fees | Illinois Valley Counseling Services, Ottawa and Mendota, IL</title>
   <meta name="description" content="Illinois Valley Counseling Services accepts most major insurance, including Aetna, Blue Cross Blue Shield, Cigna, Medicare, and many EAP plans. We verify your benefits before your first visit.">
@@ -508,6 +508,7 @@
     @media (prefers-color-scheme: dark) { html:not([data-theme="light"]) .qa h3 { color: var(--teal-light); } }
     [data-theme="dark"] .qa h3 { color: var(--teal-light); }
   </style>
+  <link rel="stylesheet" href="/css/night-theme.css">
 </head>
 <body>
 
@@ -661,7 +662,7 @@
 
   // Dark mode toggle
   (function() {
-    var theme = localStorage.getItem('theme');
+    var theme = /[?&]theme=(dark|light)/.test(location.search) ? null : localStorage.getItem('theme');
     if (theme === 'dark') {
       document.documentElement.setAttribute('data-theme', 'dark');
     } else if (theme === 'light') {
