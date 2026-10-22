@@ -32,7 +32,7 @@
 /* AA fixes: text that used --teal-dark (#14403c) or --teal (#2d8a84) as foreground */
 [data-theme="dark"] h1:not(.hero h1), [data-theme="dark"] h2, [data-theme="dark"] h3, [data-theme="dark"] h4,
 [data-theme="dark"] .faq-question, [data-theme="dark"] .review-author { color: #ece4d6 !important; }
-[data-theme="dark"] .more-btn, [data-theme="dark"] .read-more, [data-theme="dark"] a[href^="tel:"]:not(.fab):not(.btn-primary):not(.nav-cta),
+[data-theme="dark"] .more-btn, [data-theme="dark"] .read-more, [data-theme="dark"] a[href^="tel:"]:not(.fab):not(.btn-primary):not(.nav-cta):not([style*="amber"]),
 [data-theme="dark"] main a:not([class]), [data-theme="dark"] section a:not([class]) { color: #5cc4bd !important; border-color: #3aada6; }
 [data-theme="dark"] .review-rating-badge { background: var(--btn-teal) !important; color: #fff !important; }
 [data-theme="dark"] a[href="tel:988"][style*="amber"] { color: #0f3d3a !important; }
