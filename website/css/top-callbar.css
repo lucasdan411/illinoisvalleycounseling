@@ -1,0 +1,11 @@
+/* Slim always-visible call bar fixed at the top. Body is padded and the sticky nav offset so nothing is covered. */
+:root{--ctb-h:40px}
+body{padding-top:var(--ctb-h)!important}
+nav{top:var(--ctb-h)!important}
+html{scroll-padding-top:calc(var(--ctb-h) + 80px)}
+.top-callbar{position:fixed;top:0;left:0;right:0;height:var(--ctb-h);z-index:250;display:flex;align-items:center;justify-content:center;gap:.5rem;padding:0 .6rem;box-sizing:border-box;background:#0f3d3a;box-shadow:0 1px 6px rgba(0,0,0,.15)}
+.top-callbar a{display:inline-flex;align-items:center;justify-content:center;height:28px;padding:0 .9rem;border-radius:50px;font:700 .84rem/1 'Inter',sans-serif;text-decoration:none;white-space:nowrap}
+.top-callbar .tcb-call{background:#fff;color:#0f3d3a!important}
+.top-callbar .tcb-callback{border:1.5px solid rgba(255,255,255,.8);color:#fff!important}
+.top-callbar a:hover{opacity:.9}
+@media (max-width:380px){.top-callbar a{padding:0 .6rem;font-size:.78rem}}
