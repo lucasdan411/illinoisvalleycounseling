@@ -1,0 +1,16 @@
+/* Warm hero intro above the top callback block. .hero-photo is an empty slot for a future image. */
+.hero-intro{display:flex;flex-direction:column;gap:.9rem;max-width:640px;margin:.6rem 0 .4rem}
+.hero .hero-intro{margin:.6rem auto .4rem;text-align:center}
+.hero-intro .hero-photo:empty{display:none}
+.hero-intro .hero-photo img{width:100%;height:auto;border-radius:16px;display:block;object-fit:cover}
+.hero-intro p.hero-intro-text{font-size:1.05rem;line-height:1.6;margin:0;color:inherit}
+@media (min-width:900px){.hero-intro.has-photo{flex-direction:row;align-items:center}.hero-intro.has-photo .hero-photo{flex:0 0 42%}}
+/* Slim call bar: hidden until the user scrolls past the top callback block and then scrolls up. */
+.scroll-callbar{position:fixed;left:0;right:0;bottom:0;z-index:9990;display:flex;gap:.5rem;justify-content:center;align-items:center;padding:.45rem .75rem calc(.45rem + env(safe-area-inset-bottom));background:rgba(255,255,255,.97);border-top:1px solid rgba(26,95,90,.18);box-shadow:0 -4px 16px rgba(15,61,58,.10);transform:translateY(110%);transition:transform .28s ease;visibility:hidden}
+.scroll-callbar.is-visible{transform:translateY(0);visibility:visible}
+.scroll-callbar a{flex:1 1 0;max-width:260px;text-align:center;text-decoration:none;font-weight:700;font-size:.95rem;padding:.6rem .8rem;border-radius:50px;line-height:1.2}
+.scroll-callbar .scb-call{background:#1a5f5a;color:#fff!important}
+.scroll-callbar .scb-callback{border:2px solid #1a5f5a;color:#1a5f5a!important;background:#fff}
+[data-theme="dark"] .scroll-callbar{background:rgba(15,23,22,.97);border-color:rgba(212,201,184,.2)}
+[data-theme="dark"] .scroll-callbar .scb-callback{background:transparent;color:#8fd3cc!important;border-color:#2d8a84}
+@media (prefers-reduced-motion:reduce){.scroll-callbar{transition:none}}
