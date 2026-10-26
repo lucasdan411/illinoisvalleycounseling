@@ -17,4 +17,4 @@
 .hero .hero-intro p.hero-intro-text{color:rgba(255,255,255,.88)}
 .scroll-callbar a{white-space:nowrap}
 @media (max-width:400px){.scroll-callbar a{font-size:.88rem;padding:.6rem .5rem}}
-body.scb-on .fab{translate:0 -64px;transition:translate .28s ease}
+body.scb-on .fab{opacity:0!important;visibility:hidden!important;pointer-events:none!important}
