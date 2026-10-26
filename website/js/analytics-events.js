@@ -148,9 +148,10 @@
   // Callback form submit (secondary signal; generate_lead fires on the thank-you page).
   document.addEventListener('submit', function (e) {
     var form = e.target;
-    if (form && form.id === 'callbackForm') {
+    if (form && (form.id === 'callbackForm' || (form.classList && form.classList.contains('quick-callback')))) {
       send('callback_form_submit', {
         form_name: 'callback',
+        form_location: form.getAttribute('data-callback-form') || 'contact',
         page_location: window.location.href,
         transport_type: 'beacon',
         event_callback: function () {},

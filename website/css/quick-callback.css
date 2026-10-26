@@ -1,0 +1,20 @@
+/* Quick callback block: call button + short form, shown in the first screen and near the bottom. */
+.qcb{background:#fff;color:#1f2d2b;border:1px solid rgba(26,95,90,.18);border-radius:16px;box-shadow:0 6px 22px rgba(15,61,58,.10);padding:1.1rem 1.1rem 1rem;margin:1rem 0 1.5rem;max-width:640px;text-align:left;scroll-margin-top:110px}
+.qcb .qcb-title{font-family:'Inter',sans-serif;font-weight:700;font-size:1.05rem;margin:0 0 .7rem;color:#1f2d2b!important;line-height:1.35}
+.qcb-call{display:flex;align-items:center;justify-content:center;gap:.5rem;width:100%;box-sizing:border-box;background:#1a5f5a;color:#fff!important;text-decoration:none;font-weight:700;font-size:1.05rem;padding:.85rem 1rem;border-radius:50px}
+.qcb-call:hover{background:#144b47}
+.qcb .qcb-or{text-align:center;font-size:.85rem;color:#5b6b68;margin:.45rem 0!important}
+.qcb form{display:grid;grid-template-columns:1fr 1fr;gap:.55rem}
+.qcb label{position:absolute;left:-9999px}
+.qcb input,.qcb select{width:100%;box-sizing:border-box;font:inherit;font-size:16px;padding:.7rem .8rem;border:1px solid #c9d3d1;border-radius:10px;background:#fff;color:#1f2d2b!important;line-height:1.35}
+.qcb .qcb-full{grid-column:1/-1}
+.qcb button{grid-column:1/-1;font:inherit;font-weight:700;font-size:1rem;padding:.8rem 1rem;border:2px solid #1a5f5a;background:#fff;color:#1a5f5a;border-radius:50px;cursor:pointer}
+.qcb button:hover{background:#eef5f4}
+.qcb .qcb-note{font-size:.85rem;line-height:1.45;color:#3f4f4c;margin:.7rem 0 0}
+@media (max-width:480px){.qcb form{grid-template-columns:1fr}.qcb{padding:1rem .9rem .9rem}}
+[data-theme="dark"] .qcb{background:#16201f;color:#e9e3d8;border-color:rgba(212,201,184,.2)}
+[data-theme="dark"] .qcb-title{color:#e9e3d8}
+[data-theme="dark"] .qcb input,[data-theme="dark"] .qcb select{background:#0f1716;color:#e9e3d8;border-color:#3a4a48}
+[data-theme="dark"] .qcb-note,[data-theme="dark"] .qcb-or{color:#c8c0b2}
+[data-theme="dark"] .qcb button{background:transparent;color:#8fd3cc;border-color:#2d8a84}
+.hero .qcb{margin:1.4rem auto 1.2rem}
