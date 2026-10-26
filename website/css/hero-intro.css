@@ -14,3 +14,7 @@
 [data-theme="dark"] .scroll-callbar{background:rgba(15,23,22,.97);border-color:rgba(212,201,184,.2)}
 [data-theme="dark"] .scroll-callbar .scb-callback{background:transparent;color:#8fd3cc!important;border-color:#2d8a84}
 @media (prefers-reduced-motion:reduce){.scroll-callbar{transition:none}}
+.hero .hero-intro p.hero-intro-text{color:rgba(255,255,255,.88)}
+.scroll-callbar a{white-space:nowrap}
+@media (max-width:400px){.scroll-callbar a{font-size:.88rem;padding:.6rem .5rem}}
+body.scb-on .fab{translate:0 -64px;transition:translate .28s ease}

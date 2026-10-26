@@ -17,6 +17,7 @@
   function set(v) {
     if (v === shown) return; shown = v;
     bar.classList.toggle('is-visible', v);
+    document.body.classList.toggle('scb-on', v);
     bar.setAttribute('aria-hidden', v ? 'false' : 'true');
     for (var i = 0; i < links.length; i++) links[i].tabIndex = v ? 0 : -1;
   }
