@@ -6,3 +6,6 @@
 .hero-intro p.hero-intro-text{font-size:1.05rem;line-height:1.6;margin:0;color:inherit}
 @media (min-width:900px){.hero-intro.has-photo{flex-direction:row;align-items:center}.hero-intro.has-photo .hero-photo{flex:0 0 42%}}
 .hero .hero-intro p.hero-intro-text{color:rgba(255,255,255,.88)}
+.hero-intro.has-photo{flex-direction:column!important}
+.hero-intro.has-photo .hero-photo{width:100%}
+.hero-intro .hero-photo img{aspect-ratio:2/1;box-shadow:0 8px 26px rgba(0,0,0,.18)}
