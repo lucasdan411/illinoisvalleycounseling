@@ -21,3 +21,16 @@
 .qcb .qcb-hours{font-size:.78rem!important;line-height:1.35;color:#5b6b68;text-align:center;margin:.4rem 0 0!important}
 .qcb .qcb-avail{font-size:.8rem!important;line-height:1.4;color:#3f4f4c;margin:.35rem 0 0!important}
 [data-theme="dark"] .qcb .qcb-hours,[data-theme="dark"] .qcb .qcb-avail{color:#c8c0b2}
+/* Softer, warmer callback blocks (less stark white, less empty space) */
+.qcb .qcb-lead{font-size:.92rem!important;line-height:1.45;color:#4a5a57!important;margin:-.35rem 0 .7rem!important}
+html:not([data-theme="dark"]) .qcb{background:#f6f0e6;border:1px solid #e6dccb;box-shadow:0 3px 14px rgba(60,45,25,.08);padding:1rem 1rem .9rem}
+html:not([data-theme="dark"]) .qcb input,html:not([data-theme="dark"]) .qcb select{background:#fffdf9;border-color:#ddd3c3}
+.qcb input:focus,.qcb select:focus{outline:none;border-color:#1a5f5a;box-shadow:0 0 0 3px rgba(26,95,90,.15)}
+html:not([data-theme="dark"]) .qcb button{background:#fffdf9}
+html:not([data-theme="dark"]) .callback-cta{background:#f3ece1;padding:2rem 1.25rem}
+.callback-cta .callback-cta-inner p{margin-bottom:1.2rem}
+html:not([data-theme="dark"]) .callback-box{background:#fbf7f0;border:1px solid #e3d8c6;border-radius:16px;box-shadow:0 4px 18px rgba(60,45,25,.08);padding:1.5rem}
+html:not([data-theme="dark"]) .callback-box input,html:not([data-theme="dark"]) .callback-box select,html:not([data-theme="dark"]) .callback-box textarea{background:#fffdf9;border:1px solid #ddd3c3;border-radius:10px}
+.callback-box .form-group{margin-bottom:.8rem}
+@media (max-width:480px){.callback-box{padding:1.1rem!important}}
+@media (prefers-color-scheme:dark){html:not([data-theme="light"]):not([data-theme="dark"]) .qcb{background:#16201f;border-color:rgba(212,201,184,.2)}html:not([data-theme="light"]):not([data-theme="dark"]) .qcb input,html:not([data-theme="light"]):not([data-theme="dark"]) .qcb select,html:not([data-theme="light"]):not([data-theme="dark"]) .qcb button{background:#0f1716}html:not([data-theme="light"]):not([data-theme="dark"]) .callback-cta{background:#1a1a1a}html:not([data-theme="light"]):not([data-theme="dark"]) .callback-box{background:#242424;border-color:#3a3a3a}}
