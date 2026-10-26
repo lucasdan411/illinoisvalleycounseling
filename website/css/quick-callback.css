@@ -18,3 +18,6 @@
 [data-theme="dark"] .qcb-note,[data-theme="dark"] .qcb-or{color:#c8c0b2}
 [data-theme="dark"] .qcb button{background:transparent;color:#8fd3cc;border-color:#2d8a84}
 .hero .qcb{margin:1.4rem auto 1.2rem}
+.qcb .qcb-hours{font-size:.78rem!important;line-height:1.35;color:#5b6b68;text-align:center;margin:.4rem 0 0!important}
+.qcb .qcb-avail{font-size:.8rem!important;line-height:1.4;color:#3f4f4c;margin:.35rem 0 0!important}
+[data-theme="dark"] .qcb .qcb-hours,[data-theme="dark"] .qcb .qcb-avail{color:#c8c0b2}
