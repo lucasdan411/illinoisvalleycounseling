@@ -5,9 +5,77 @@
  *   callback_form_submit  submit of the callback form (#callbackForm), beacon transport
  *   generate_lead         thank-you page load after a FormSubmit redirect (canonical lead)
  *   cta_click             clicks on non-phone [data-track] elements (e.g. "Request a Call Back")
+ * Lead attribution: the landing source (utm_*, gclid, fbclid, referrer, first page) is stored
+ * in sessionStorage (this visit) and localStorage (30 day backup) and sent with generate_lead,
+ * so leads keep their true source even though the FormSubmit hop looks like Direct.
  */
 (function () {
   'use strict';
+
+  // ---- Lead attribution capture ----
+  var ATTR_KEY = 'ivcs_attr';
+  var ATTR_TTL = 30 * 24 * 3600 * 1000;
+  var path = window.location.pathname.replace(/\/+$/, '');
+  var isThankYou = /\/thank-you(\.html)?$/.test(path);
+
+  function readStore(store) {
+    try { var v = JSON.parse(store.getItem(ATTR_KEY) || 'null'); return v && typeof v === 'object' ? v : null; } catch (e) { return null; }
+  }
+  function writeStore(store, v) { try { store.setItem(ATTR_KEY, JSON.stringify(v)); } catch (e) {} }
+
+  function refHost(ref) {
+    try { return ref ? new URL(ref).hostname.replace(/^www\./, '') : ''; } catch (e) { return ''; }
+  }
+  function classify(a) {
+    if (a.utm_source || a.utm_medium) return { source: a.utm_source || '(not set)', medium: a.utm_medium || '(not set)' };
+    if (a.gclid) return { source: 'google', medium: 'cpc' };
+    if (a.fbclid) return { source: 'facebook', medium: 'paid_or_social' };
+    var h = a.referrer_host;
+    if (!h) return { source: '(direct)', medium: '(none)' };
+    if (/(^|\.)google\.|bing\.com|yahoo\.|duckduckgo\.com|ecosia\.org/.test(h)) return { source: h.split('.').slice(-2, -1)[0] || h, medium: 'organic' };
+    if (/facebook\.com|instagram\.com|fb\.me|t\.co|x\.com|linkedin\.com/.test(h)) return { source: h, medium: 'social' };
+    return { source: h, medium: 'referral' };
+  }
+
+  function captureAttribution() {
+    var q = new URLSearchParams(window.location.search);
+    var ref = document.referrer || '';
+    var rh = refHost(ref);
+    var internal = rh === 'illinoisvalleycounseling.com' || rh === 'formsubmit.co';
+    var a = {
+      utm_source: q.get('utm_source') || '', utm_medium: q.get('utm_medium') || '',
+      utm_campaign: q.get('utm_campaign') || '', utm_term: q.get('utm_term') || '', utm_content: q.get('utm_content') || '',
+      gclid: q.get('gclid') || q.get('gbraid') || q.get('wbraid') || '', fbclid: q.get('fbclid') || '',
+      referrer_host: internal ? '' : rh,
+      landing_page: window.location.pathname,
+      ts: Date.now()
+    };
+    var hasSignal = a.utm_source || a.utm_medium || a.gclid || a.fbclid || a.referrer_host;
+    // This visit: keep the first touch unless a new campaign signal arrives.
+    var sess = readStore(window.sessionStorage);
+    if (!sess || (hasSignal && !internal)) writeStore(window.sessionStorage, a);
+    // 30 day backup: only overwrite with a real (non-direct) touch.
+    var loc = readStore(window.localStorage);
+    if (hasSignal || !loc || (Date.now() - (loc.ts || 0)) > ATTR_TTL) writeStore(window.localStorage, a);
+  }
+
+  function leadParams() {
+    var s = readStore(window.sessionStorage);
+    var l = readStore(window.localStorage);
+    if (l && (Date.now() - (l.ts || 0)) > ATTR_TTL) l = null;
+    var sDirect = !s || !(s.utm_source || s.utm_medium || s.gclid || s.fbclid || s.referrer_host);
+    var a = (sDirect && l) ? l : (s || l || {});
+    var c = classify(a);
+    return {
+      lead_source: c.source, lead_medium: c.medium,
+      lead_campaign: a.utm_campaign || '', lead_term: a.utm_term || '', lead_content: a.utm_content || '',
+      lead_gclid_present: a.gclid ? 'yes' : 'no', lead_fbclid_present: a.fbclid ? 'yes' : 'no',
+      lead_referrer: a.referrer_host || '', lead_landing_page: a.landing_page || '',
+      lead_attr_scope: (sDirect && l) ? 'returning' : 'session'
+    };
+  }
+
+  if (!isThankYou) captureAttribution();
 
   function send(name, params) {
     if (typeof window.gtag === 'function') {
@@ -84,21 +152,25 @@
       send('callback_form_submit', {
         form_name: 'callback',
         page_location: window.location.href,
-        transport_type: 'beacon'
+        transport_type: 'beacon',
+        event_callback: function () {},
+        event_timeout: 1000
       });
     }
   }, true);
 
   // Canonical lead conversion: FormSubmit redirects to /thank-you/#callback-success.
-  var path = window.location.pathname.replace(/\/+$/, '');
-  if (/\/thank-you(\.html)?$/.test(path)) {
+  if (isThankYou) {
     var isReload = false;
     try {
       var nav = performance.getEntriesByType && performance.getEntriesByType('navigation')[0];
       isReload = !!(nav && nav.type === 'reload');
     } catch (err) {}
     if (!isReload) {
-      send('generate_lead', { form_name: 'callback', page_location: window.location.href });
+      var lp = leadParams();
+      lp.form_name = 'callback';
+      lp.page_location = window.location.href;
+      send('generate_lead', lp);
     }
   }
 })();
