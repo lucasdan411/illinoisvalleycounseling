@@ -6,3 +6,22 @@
 .hero-intro p.hero-intro-text{font-size:1.05rem;line-height:1.6;margin:0;color:inherit}
 @media (min-width:900px){.hero-intro.has-photo{flex-direction:row;align-items:center}.hero-intro.has-photo .hero-photo{flex:0 0 42%}}
 .hero .hero-intro p.hero-intro-text{color:rgba(255,255,255,.88)}
+.hero-intro.has-photo{flex-direction:column!important}
+.hero-intro.has-photo .hero-photo{width:100%}
+.hero-intro .hero-photo img{aspect-ratio:2/1;box-shadow:0 8px 26px rgba(0,0,0,.18)}
+/* Team headshots overlaid on the lower (parking lot) part of the hero photo */
+.hero-photo{position:relative;border-radius:16px;overflow:hidden}
+.hero-faces{position:absolute;left:0;right:0;bottom:0;display:flex;flex-direction:column;align-items:center;gap:.25rem;padding:2.2rem .5rem .55rem;background:linear-gradient(to bottom,rgba(10,40,38,0) 0%,rgba(10,40,38,.55) 45%,rgba(10,40,38,.85) 100%);text-decoration:none!important;color:#fff!important}
+.hero-faces ul{list-style:none;margin:0;padding:0;display:flex;justify-content:center;gap:.7rem}
+.hero-faces li{display:flex;flex-direction:column;align-items:center;gap:.2rem}
+.hero-intro .hero-faces img{width:58px;height:58px;aspect-ratio:1;border-radius:50%;object-fit:cover;border:2px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.35)}
+.hero-faces span{font-size:.7rem;font-weight:600;line-height:1;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.6)}
+.hero-faces em{font-style:normal;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.6)}
+@media (max-width:600px){
+ .hero-faces{padding:1.4rem .3rem .4rem;gap:.2rem}
+ .hero-faces ul{gap:0}
+ .hero-faces li{margin-left:-7px}.hero-faces li:first-child{margin-left:0}
+ .hero-intro .hero-faces img{width:36px;height:36px;border-width:2px}
+ .hero-faces span{display:none}
+ .hero-faces em{font-size:.62rem}
+}
