@@ -41,3 +41,11 @@ html:not([data-theme="dark"]) .qcb .qcb-divider{background:#e0d4c0}
 .qcb .qcb-sub+.qcb-lead{margin:0 0 .65rem!important}
 [data-theme="dark"] .qcb .qcb-sub{color:#e9e3d8!important}
 [data-theme="dark"] .qcb .qcb-divider{background:rgba(212,201,184,.2)}
+/* v5: homepage bottom CTA two-part layout */
+.callback-cta .cta-call{max-width:420px;margin:0 auto}
+.callback-cta .cta-hours{font-size:.8rem!important;color:#5b6b68;text-align:center;margin:.5rem 0 0!important}
+.callback-cta .cta-divider{height:1px;max-width:420px;margin:1.4rem auto 1.2rem;background:#e0d4c0}
+.callback-cta .cta-sub{font-family:'Inter',sans-serif;font-weight:700;font-size:1.15rem;margin:0 0 .35rem;text-align:center}
+.callback-cta .cta-lead{margin:0 0 1rem!important}
+[data-theme="dark"] .callback-cta .cta-hours{color:#c8c0b2}
+[data-theme="dark"] .callback-cta .cta-divider{background:rgba(212,201,184,.2)}
