@@ -34,3 +34,10 @@ html:not([data-theme="dark"]) .callback-box input,html:not([data-theme="dark"]) 
 .callback-box .form-group{margin-bottom:.8rem}
 @media (max-width:480px){.callback-box{padding:1.1rem!important}}
 @media (prefers-color-scheme:dark){html:not([data-theme="light"]):not([data-theme="dark"]) .qcb{background:#16201f;border-color:rgba(212,201,184,.2)}html:not([data-theme="light"]):not([data-theme="dark"]) .qcb input,html:not([data-theme="light"]):not([data-theme="dark"]) .qcb select,html:not([data-theme="light"]):not([data-theme="dark"]) .qcb button{background:#0f1716}html:not([data-theme="light"]):not([data-theme="dark"]) .callback-cta{background:#1a1a1a}html:not([data-theme="light"]):not([data-theme="dark"]) .callback-box{background:#242424;border-color:#3a3a3a}}
+/* v4: two-part layout (call now / prefer we call you) */
+.qcb .qcb-divider{height:1px;background:rgba(26,95,90,.18);margin:.95rem 0 .8rem}
+html:not([data-theme="dark"]) .qcb .qcb-divider{background:#e0d4c0}
+.qcb .qcb-sub{font-family:'Inter',sans-serif;font-weight:700;font-size:.98rem;margin:0 0 .3rem!important;color:#1f2d2b!important;line-height:1.35}
+.qcb .qcb-sub+.qcb-lead{margin:0 0 .65rem!important}
+[data-theme="dark"] .qcb .qcb-sub{color:#e9e3d8!important}
+[data-theme="dark"] .qcb .qcb-divider{background:rgba(212,201,184,.2)}
