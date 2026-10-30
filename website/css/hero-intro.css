@@ -25,3 +25,12 @@
  .hero-faces span{display:none}
  .hero-faces em{font-size:.62rem}
 }
+/* v6: laptop fold — tighter hero so the photo and team faces sit above the fold (desktop only) */
+@media (min-width:900px){
+ .hero{padding-top:1.6rem!important;padding-bottom:3rem!important}
+ .hero .hero-badge{margin-bottom:.6rem!important}
+ .hero h1{font-size:clamp(2rem,3.2vw,2.7rem)!important;margin-bottom:.45rem!important;line-height:1.12}
+ .hero .hero-sub{margin:0 auto .8rem!important;line-height:1.5}
+ .hero .hero-intro{margin-top:.2rem!important}
+ .hero-intro .hero-photo img{aspect-ratio:auto!important;height:min(320px,max(220px,calc(100vh - 360px)))!important;object-fit:cover;object-position:center 55%}
+}

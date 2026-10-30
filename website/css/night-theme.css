@@ -32,7 +32,38 @@
 /* AA fixes: text that used --teal-dark (#14403c) or --teal (#2d8a84) as foreground */
 [data-theme="dark"] h1:not(.hero h1), [data-theme="dark"] h2, [data-theme="dark"] h3, [data-theme="dark"] h4,
 [data-theme="dark"] .faq-question, [data-theme="dark"] .review-author { color: #ece4d6 !important; }
-[data-theme="dark"] .more-btn, [data-theme="dark"] .read-more, [data-theme="dark"] a[href^="tel:"]:not(.fab):not(.btn-primary):not(.nav-cta):not([style*="amber"]),
+[data-theme="dark"] .more-btn, [data-theme="dark"] .read-more, [data-theme="dark"] a[href^="tel:"]:not(.fab):not(.btn-primary):not(.nav-cta):not(.qcb-call):not(.tcb-call):not([style*="amber"]),
 [data-theme="dark"] main a:not([class]), [data-theme="dark"] section a:not([class]) { color: #5cc4bd !important; border-color: #3aada6; }
 [data-theme="dark"] .review-rating-badge { background: var(--btn-teal) !important; color: #fff !important; }
 [data-theme="dark"] a[href="tel:988"][style*="amber"] { color: #0f3d3a !important; }
+
+/* v6: AA contrast fixes for footer, nav, stats, FAQ, links (toggle + system) */
+html[data-theme="dark"] footer p,html[data-theme="dark"] footer span,html[data-theme="dark"] footer .footer-legal,html[data-theme="dark"] footer .footer-legal a{color:rgba(255,255,255,.72)!important}
+html[data-theme="dark"] .top-callbar .tcb-call{background:#fff!important;color:#0f3d3a!important}
+html[data-theme="dark"] .top-callbar .tcb-callback{color:#fff!important}
+html[data-theme="dark"] .logo{color:#5cc4bd!important}
+html[data-theme="dark"] .stat-number{color:#5cc4bd!important}
+html[data-theme="dark"] .resources-card .read-more,html[data-theme="dark"] .read-more{color:#5cc4bd!important}
+html[data-theme="dark"] .more-btn{color:#5cc4bd!important;border-color:#3aada6!important}
+html[data-theme="dark"] .more-btn:hover{color:#0f1716!important;background:#5cc4bd!important}
+html[data-theme="dark"] .faq-question{color:#ece4d6!important}
+html[data-theme="dark"] .nav-cta{background:#1f6f6a!important;color:#fff!important}
+html[data-theme="dark"] .testimonial .attr{color:rgba(255,255,255,.75)!important}
+@media (prefers-color-scheme:dark){
+html:not([data-theme="light"]) footer p,html:not([data-theme="light"]) footer span,html:not([data-theme="light"]) footer .footer-legal,html:not([data-theme="light"]) footer .footer-legal a{color:rgba(255,255,255,.72)!important}
+html:not([data-theme="light"]) .top-callbar .tcb-call{background:#fff!important;color:#0f3d3a!important}
+html:not([data-theme="light"]) .top-callbar .tcb-callback{color:#fff!important}
+html:not([data-theme="light"]) .logo{color:#5cc4bd!important}
+html:not([data-theme="light"]) .stat-number{color:#5cc4bd!important}
+html:not([data-theme="light"]) .resources-card .read-more,html:not([data-theme="light"]) .read-more{color:#5cc4bd!important}
+html:not([data-theme="light"]) .more-btn{color:#5cc4bd!important;border-color:#3aada6!important}
+html:not([data-theme="light"]) .more-btn:hover{color:#0f1716!important;background:#5cc4bd!important}
+html:not([data-theme="light"]) .faq-question{color:#ece4d6!important}
+html:not([data-theme="light"]) .nav-cta{background:#1f6f6a!important;color:#fff!important}
+html:not([data-theme="light"]) .testimonial .attr{color:rgba(255,255,255,.75)!important}
+}
+footer p,footer .footer-legal{color:rgba(255,255,255,.72)}
+html[data-theme="dark"] .review-rating-badge{background:#1f6f6a!important}
+@media (prefers-color-scheme:dark){html:not([data-theme="light"]) .review-rating-badge{background:#1f6f6a!important}}
+html[data-theme="dark"] a[href="tel:988"][style*="amber"]{color:#0f3d3a!important}
+@media (prefers-color-scheme:dark){html:not([data-theme="light"]) a[href="tel:988"][style*="amber"]{color:#0f3d3a!important}}
