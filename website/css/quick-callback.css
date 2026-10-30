@@ -76,3 +76,20 @@ html:not([data-theme="light"]) .qcb .qcb-divider,html:not([data-theme="light"]) 
 html:not([data-theme="light"]) .callback-cta h2,html:not([data-theme="light"]) .callback-cta .cta-sub{color:#f3e6c8!important}
 html:not([data-theme="light"]) .callback-cta p,html:not([data-theme="light"]) .callback-cta .cta-hours,html:not([data-theme="light"]) .callback-cta .cta-lead{color:#e0d6c4!important}
 }
+/* v7: after-hours layout (js/hours.js adds .after-hours): form first, call demoted to a small line */
+.after-hours .qcb-hours,.after-hours .qcb-sub,.after-hours .qcb-divider,.callback-cta.after-hours .cta-hours,.callback-cta.after-hours .cta-sub,.callback-cta.after-hours .cta-divider{display:none!important}
+.qcb.after-hours .qcb-lead{margin:-.3rem 0 .75rem!important}
+.qcb.after-hours button{background:#1a5f5a!important;color:#fff!important;border-color:#1a5f5a!important}
+.qcb.after-hours button:hover{background:#144b47!important}
+.qcb .qcb-ah-phone,.callback-cta .cta-ah-phone{font-size:.85rem!important;line-height:1.4;color:#3f4f4c!important;text-align:center;margin:.6rem 0 0!important}
+.callback-cta .cta-ah-phone{margin:1rem auto 0!important}
+.ah-phonelink{color:#1a5f5a!important;font-weight:700;text-decoration:underline;white-space:nowrap}
+html[data-theme="dark"] .qcb.after-hours button,html[data-theme="dark"] .callback-cta.after-hours button{background:#e8a84a!important;color:#0f3d3a!important;border-color:#e8a84a!important}
+html[data-theme="dark"] .qcb.after-hours button:hover,html[data-theme="dark"] .callback-cta.after-hours button:hover{background:#f4c97a!important}
+html[data-theme="dark"] .qcb .qcb-ah-phone,html[data-theme="dark"] .callback-cta .cta-ah-phone{color:#e0d6c4!important}
+html[data-theme="dark"] .ah-phonelink{color:#f4c97a!important}
+@media (prefers-color-scheme:dark){
+html:not([data-theme="light"]) .qcb.after-hours button,html:not([data-theme="light"]) .callback-cta.after-hours button{background:#e8a84a!important;color:#0f3d3a!important;border-color:#e8a84a!important}
+html:not([data-theme="light"]) .qcb .qcb-ah-phone,html:not([data-theme="light"]) .callback-cta .cta-ah-phone{color:#e0d6c4!important}
+html:not([data-theme="light"]) .ah-phonelink{color:#f4c97a!important}
+}
