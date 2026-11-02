@@ -51,3 +51,4 @@ html:not([data-theme="light"]) .testimonial.cta-band .qcb p.qcb-lead,html:not([d
 .cv-card-call:hover{background:#1a5f5a;color:#fff}
 html[data-theme="dark"] .cv-card-call{border-color:#e8b86c;color:#f3e6c8}
 @media (prefers-color-scheme:dark){html:not([data-theme="light"]) .cv-card-call{border-color:#e8b86c;color:#f3e6c8}}
+.cv-steps li .cv-hours{grid-column:2;margin-top:.15rem}.cv-steps li:has(.cv-hours) .cv-ico{grid-row:1/4}
