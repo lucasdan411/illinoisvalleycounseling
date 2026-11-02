@@ -38,3 +38,4 @@ html:not([data-theme="light"]) .cv-meet a,html:not([data-theme="light"]) .cv-ins
 html:not([data-theme="light"]) .cv-ico{background:#1d3a37;color:#8fd3cc}
 html:not([data-theme="light"]) .cv-steps li:nth-child(2) .cv-ico{background:#3a2f1c;color:#e8a84a}
 }
+.hero .cv-meet a,html[data-theme] .hero .cv-meet a{color:#f6ecd8!important;border-color:#e8a84a}
