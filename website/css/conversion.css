@@ -1,0 +1,25 @@
+/* Conversion preview v1: insurance strip, next-steps, meet-our-counselors link. Cream / teal / gold. */
+.cv-meet{text-align:center;margin:.6rem 0 .2rem}
+.cv-meet a{display:inline-block;color:#1a5f5a;font-weight:600;font-size:.95rem;text-decoration:none;border-bottom:2px solid #e8a84a;padding-bottom:1px}
+.cv-meet a:hover{color:#0f3d3a}
+.cv-ins,.cv-steps{max-width:760px;margin:1.4rem auto;padding:1.15rem 1.2rem;background:#f6f0e6;border:1px solid #e6dccb;border-radius:16px;box-shadow:0 3px 14px rgba(60,45,25,.07);text-align:center;box-sizing:border-box}
+.cv-ins h2,.cv-steps h2{font-family:'Playfair Display',serif;font-size:1.25rem!important;margin:0 0 .3rem!important;color:#0f3d3a}
+.cv-ins p.cv-ins-lead{font-size:.92rem;color:#4a5a57;margin:0 0 .8rem}
+.cv-ins ul{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem;margin:0 0 .85rem;padding:0}
+.cv-ins li{background:#fffdf9;border:1px solid #e2d6c2;border-radius:50px;padding:.42rem .9rem;font-size:.85rem;font-weight:600;color:#1a5f5a}
+.cv-ins a.cv-ins-all{color:#1a5f5a;font-weight:600;font-size:.92rem;text-decoration:none;border-bottom:2px solid #e8a84a}
+.cv-steps ol{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;margin:.9rem 0 .6rem;padding:0;counter-reset:s}
+.cv-steps li{background:#fffdf9;border:1px solid #e9dfcf;border-radius:14px;padding:1rem .8rem;font-size:.92rem;line-height:1.45;color:#3f4f4c}
+.cv-steps li strong{display:block;color:#0f3d3a;font-size:.98rem;margin:.45rem 0 .2rem}
+.cv-ico{display:inline-flex;width:46px;height:46px;border-radius:50%;align-items:center;justify-content:center;background:#e4efec;color:#1a5f5a}
+.cv-ico svg{width:22px;height:22px}
+.cv-steps li:nth-child(2) .cv-ico{background:#f7e8cc;color:#9a6418}
+.cv-avail{font-size:.9rem;color:#4a5a57;margin:.3rem 0 0;font-style:italic}
+@media (max-width:640px){.cv-steps ol{grid-template-columns:1fr}.cv-steps li{display:grid;grid-template-columns:46px 1fr;gap:.2rem .8rem;text-align:left;align-items:center}.cv-steps li .cv-ico{grid-row:1/3}.cv-steps li strong{margin:0}.cv-ins,.cv-steps{padding:1rem .9rem}}
+[data-theme="dark"] .cv-ins,[data-theme="dark"] .cv-steps{background:#1f2321;border-color:#34302a;box-shadow:none}
+[data-theme="dark"] .cv-ins li,[data-theme="dark"] .cv-steps li{background:#262a28;border-color:#3a3630;color:#d4c9b8}
+[data-theme="dark"] .cv-steps li strong,[data-theme="dark"] .cv-ins li{color:#ece4d6!important}
+[data-theme="dark"] .cv-ins p.cv-ins-lead,[data-theme="dark"] .cv-avail{color:#c8c0b2}
+[data-theme="dark"] .cv-meet a,[data-theme="dark"] .cv-ins a.cv-ins-all{color:#5cc4bd!important;border-color:#e8a84a}
+[data-theme="dark"] .cv-ico{background:#1d3a37;color:#8fd3cc}
+[data-theme="dark"] .cv-steps li:nth-child(2) .cv-ico{background:#3a2f1c;color:#e8a84a}
