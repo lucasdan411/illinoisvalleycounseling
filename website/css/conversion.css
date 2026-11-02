@@ -39,3 +39,15 @@ html:not([data-theme="light"]) .cv-ico{background:#1d3a37;color:#8fd3cc}
 html:not([data-theme="light"]) .cv-steps li:nth-child(2) .cv-ico{background:#3a2f1c;color:#e8a84a}
 }
 .hero .cv-meet a,html[data-theme] .hero .cv-meet a{color:#f6ecd8!important;border-color:#e8a84a}
+/* Callback box inside teal cta-band: keep box text readable in light mode (cta-band p rule was turning it cream-on-cream). */
+.testimonial.cta-band .qcb p.qcb-title,.testimonial.cta-band .qcb p.qcb-sub{color:#1f2d2b!important}
+.testimonial.cta-band .qcb p.qcb-lead,.testimonial.cta-band .qcb p.qcb-note,.testimonial.cta-band .qcb p.qcb-avail,.testimonial.cta-band .qcb p.qcb-hours{color:#4a5a57!important}
+html[data-theme="dark"] .testimonial.cta-band .qcb p.qcb-title,html[data-theme="dark"] .testimonial.cta-band .qcb p.qcb-sub{color:#f3e6c8!important}
+html[data-theme="dark"] .testimonial.cta-band .qcb p.qcb-lead,html[data-theme="dark"] .testimonial.cta-band .qcb p.qcb-note,html[data-theme="dark"] .testimonial.cta-band .qcb p.qcb-avail,html[data-theme="dark"] .testimonial.cta-band .qcb p.qcb-hours{color:#e0d6c4!important}
+@media (prefers-color-scheme:dark){html:not([data-theme="light"]) .testimonial.cta-band .qcb p.qcb-title,html:not([data-theme="light"]) .testimonial.cta-band .qcb p.qcb-sub{color:#f3e6c8!important}
+html:not([data-theme="light"]) .testimonial.cta-band .qcb p.qcb-lead,html:not([data-theme="light"]) .testimonial.cta-band .qcb p.qcb-note,html:not([data-theme="light"]) .testimonial.cta-band .qcb p.qcb-avail,html:not([data-theme="light"]) .testimonial.cta-band .qcb p.qcb-hours{color:#e0d6c4!important}}
+.cv-steps .cv-hours{display:block;margin-top:.3rem;font-size:.85rem;opacity:.85}
+.cv-card-call{display:inline-block;margin-top:.9rem;padding:.55rem 1rem;border:2px solid #1a5f5a;border-radius:50px;color:#1a5f5a;font-weight:600;font-size:.9rem;text-decoration:none}
+.cv-card-call:hover{background:#1a5f5a;color:#fff}
+html[data-theme="dark"] .cv-card-call{border-color:#e8b86c;color:#f3e6c8}
+@media (prefers-color-scheme:dark){html:not([data-theme="light"]) .cv-card-call{border-color:#e8b86c;color:#f3e6c8}}
