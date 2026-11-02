@@ -23,3 +23,18 @@
 [data-theme="dark"] .cv-meet a,[data-theme="dark"] .cv-ins a.cv-ins-all{color:#5cc4bd!important;border-color:#e8a84a}
 [data-theme="dark"] .cv-ico{background:#1d3a37;color:#8fd3cc}
 [data-theme="dark"] .cv-steps li:nth-child(2) .cv-ico{background:#3a2f1c;color:#e8a84a}
+/* Insurance page: keep the call button readable inside the cta-band (overrides gold link color) */
+.testimonial.cta-band .qcb a.qcb-call{color:#fff!important}
+html[data-theme="dark"] .testimonial.cta-band .qcb a.qcb-call{color:#0f3d3a!important}
+@media (prefers-color-scheme:dark){html:not([data-theme="light"]) .testimonial.cta-band .qcb a.qcb-call{color:#0f3d3a!important}}
+
+/* System dark mode (no explicit toggle) */
+@media (prefers-color-scheme:dark){
+html:not([data-theme="light"]) .cv-ins,html:not([data-theme="light"]) .cv-steps{background:#1f2321;border-color:#34302a;box-shadow:none}
+html:not([data-theme="light"]) .cv-ins li,html:not([data-theme="light"]) .cv-steps li{background:#262a28;border-color:#3a3630;color:#d4c9b8}
+html:not([data-theme="light"]) .cv-steps li strong,html:not([data-theme="light"]) .cv-ins li{color:#ece4d6!important}
+html:not([data-theme="light"]) .cv-ins p.cv-ins-lead,html:not([data-theme="light"]) .cv-avail{color:#c8c0b2}
+html:not([data-theme="light"]) .cv-meet a,html:not([data-theme="light"]) .cv-ins a.cv-ins-all{color:#5cc4bd!important;border-color:#e8a84a}
+html:not([data-theme="light"]) .cv-ico{background:#1d3a37;color:#8fd3cc}
+html:not([data-theme="light"]) .cv-steps li:nth-child(2) .cv-ico{background:#3a2f1c;color:#e8a84a}
+}
