@@ -93,3 +93,14 @@ html:not([data-theme="light"]) .qcb.after-hours button,html:not([data-theme="lig
 html:not([data-theme="light"]) .qcb .qcb-ah-phone,html:not([data-theme="light"]) .callback-cta .cta-ah-phone{color:#e0d6c4!important}
 html:not([data-theme="light"]) .ah-phonelink{color:#f4c97a!important}
 }
+
+/* Obfuscated contact email (assembled at runtime by js/email.js) */
+.qcb .qcb-email,.callback-cta .cta-email,.cta-band .cta-email{font-size:.85rem;line-height:1.45;color:#3f4f4c;margin:.7rem 0 0;text-align:center}
+.qcb .qcb-email a,.callback-cta .cta-email a,.cta-band .cta-email a{color:#1a5f5a;font-weight:600;text-decoration:underline}
+.qcb .qcb-email a:hover,.callback-cta .cta-email a:hover,.cta-band .cta-email a:hover{color:#144b47}
+[data-theme="dark"] .qcb .qcb-email,[data-theme="dark"] .callback-cta .cta-email,[data-theme="dark"] .cta-band .cta-email{color:#c8c0b2}
+[data-theme="dark"] .qcb .qcb-email a,[data-theme="dark"] .callback-cta .cta-email a,[data-theme="dark"] .cta-band .cta-email a{color:#8fd3cc}
+@media (prefers-color-scheme:dark){
+html:not([data-theme="light"]) .qcb .qcb-email,html:not([data-theme="light"]) .callback-cta .cta-email,html:not([data-theme="light"]) .cta-band .cta-email{color:#c8c0b2}
+html:not([data-theme="light"]) .qcb .qcb-email a,html:not([data-theme="light"]) .callback-cta .cta-email a,html:not([data-theme="light"]) .cta-band .cta-email a{color:#8fd3cc}
+}
